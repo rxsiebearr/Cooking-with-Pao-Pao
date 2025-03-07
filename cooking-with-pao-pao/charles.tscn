@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bscduqqgg1i8c"]
+
+[ext_resource type="Script" path="res://charles.gd" id="1_b13fl"]
+[ext_resource type="Texture2D" uid="uid://deddvvx8chwbp" path="res://icon.svg" id="2_2l5gw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_alcnu"]
+size = Vector2(120, 121)
+
+[node name="Charles" type="CharacterBody2D"]
+script = ExtResource("1_b13fl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_2l5gw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_alcnu")

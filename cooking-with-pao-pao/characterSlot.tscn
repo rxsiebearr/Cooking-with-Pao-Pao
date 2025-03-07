@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckmqercdkwinj"]
+
+[ext_resource type="Script" path="res://character_slot.gd" id="1_462yx"]
+[ext_resource type="Texture2D" uid="uid://bn20pr461jtvg" path="res://bearbear.png" id="2_giyvf"]
+
+[node name="Character1" type="Panel"]
+anchors_preset = -1
+anchor_right = 0.033
+anchor_bottom = 0.059
+offset_right = -38.016
+offset_bottom = -38.232
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_462yx")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_giyvf")
+expand_mode = 1
