@@ -1,4 +1,4 @@
-class_name Monk extends CharacterBody2D
+extends CharacterBody2D
 
 @export var speed := 500
 @export var drag_factor := 10.0

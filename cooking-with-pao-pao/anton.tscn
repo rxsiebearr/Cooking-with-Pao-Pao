@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cufox86y80een"]
 
 [ext_resource type="Script" path="res://anton.gd" id="1_tm0ki"]
-[ext_resource type="Texture2D" uid="uid://deddvvx8chwbp" path="res://icon.svg" id="2_u1y3s"]
+[ext_resource type="Texture2D" uid="uid://b4qgnhcw8wj4" path="res://anton.png" id="2_ybq1a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_alcnu"]
 size = Vector2(120, 121)
@@ -10,7 +10,7 @@ size = Vector2(120, 121)
 script = ExtResource("1_tm0ki")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_u1y3s")
+texture = ExtResource("2_ybq1a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
