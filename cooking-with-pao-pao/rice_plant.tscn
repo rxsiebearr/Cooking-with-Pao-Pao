@@ -1,0 +1,85 @@
+[gd_scene load_steps=11 format=3 uid="uid://di5w0w830yot3"]
+
+[ext_resource type="Script" path="res://rice_plant.gd" id="1_o2xie"]
+[ext_resource type="Texture2D" path="res://rice plant-Sheet.png" id="2_6yduo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fc2kl"]
+atlas = ExtResource("2_6yduo")
+region = Rect2(0, 0, 311, 311)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_455wi"]
+atlas = ExtResource("2_6yduo")
+region = Rect2(311, 0, 311, 311)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pn664"]
+atlas = ExtResource("2_6yduo")
+region = Rect2(622, 0, 311, 311)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7wa1"]
+atlas = ExtResource("2_6yduo")
+region = Rect2(933, 0, 311, 311)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vg63q"]
+atlas = ExtResource("2_6yduo")
+region = Rect2(1244, 0, 311, 311)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2s46"]
+atlas = ExtResource("2_6yduo")
+region = Rect2(1555, 0, 311, 311)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r8463"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fc2kl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_455wi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pn664")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7wa1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vg63q")
+}],
+"loop": true,
+"name": &"No Rice",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2s46")
+}],
+"loop": true,
+"name": &"Rice",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xi3yo"]
+size = Vector2(301.5, 349.5)
+
+[node name="Rice Plant" type="Node2D"]
+script = ExtResource("1_o2xie")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(147, 159)
+sprite_frames = SubResource("SpriteFrames_r8463")
+animation = &"Rice"
+
+[node name="Pickable_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickable_area"]
+position = Vector2(150.25, 174.25)
+shape = SubResource("RectangleShape2D_xi3yo")
+
+[node name="GrowthTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[connection signal="body_entered" from="Pickable_area" to="." method="_on_pickabe_area_body_entered"]
+[connection signal="body_exited" from="Pickable_area" to="." method="_on_pickabe_area_body_exited"]
+[connection signal="timeout" from="GrowthTimer" to="." method="_on_growth_timer_timeout"]

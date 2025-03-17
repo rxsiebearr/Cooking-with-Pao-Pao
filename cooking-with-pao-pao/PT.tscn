@@ -1,9 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7sepmebwxnq4"]
+[gd_scene load_steps=6 format=3 uid="uid://cves5dwp8a4hr"]
 
 [ext_resource type="Script" path="res://pt.gd" id="1_5dwx8"]
 [ext_resource type="Texture2D" uid="uid://deddvvx8chwbp" path="res://icon.svg" id="1_tl3sl"]
-[ext_resource type="Resource" uid="uid://mjivmqsfrwy6" path="res://Inventory/PlayerInventory.tres" id="2_0a7u4"]
-[ext_resource type="PackedScene" uid="uid://dscdawjrm18wi" path="res://Inventory/inventory_ui.tscn" id="4_y0rwj"]
+[ext_resource type="Resource" path="res://Inventory/PlayerInventory.tres" id="2_0a7u4"]
+[ext_resource type="PackedScene" uid="uid://cbfhyrwfwmpk2" path="res://Inventory/inventory_ui.tscn" id="4_y0rwj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6do0s"]
 size = Vector2(90.5, 84)

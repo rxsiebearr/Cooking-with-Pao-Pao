@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://xphy7ya7vrac"]
+[gd_scene load_steps=3 format=3 uid="uid://0a2gy2dwf10r"]
 
 [ext_resource type="Texture2D" uid="uid://dbrks5rlpraft" path="res://Inventory Slot.png" id="1_p40bg"]
 [ext_resource type="Script" path="res://Inventory/inventory_ui_slot.gd" id="1_puqi7"]
@@ -24,3 +24,12 @@ layout_mode = 2
 
 [node name="Item_display" type="Sprite2D" parent="CenterContainer/Panel"]
 scale = Vector2(0.15, 0.15)
+
+[node name="Label" type="Label" parent="CenterContainer/Panel"]
+custom_minimum_size = Vector2(19, 23)
+layout_mode = 0
+offset_left = -6.0
+offset_top = -5.0
+offset_right = 13.0
+offset_bottom = 18.0
+text = "99"
