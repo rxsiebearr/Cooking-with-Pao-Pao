@@ -3,12 +3,12 @@
 [ext_resource type="Script" path="res://character_slot.gd" id="1_462yx"]
 [ext_resource type="Texture2D" uid="uid://bn20pr461jtvg" path="res://bearbear.png" id="2_giyvf"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1tmh0"]
-bg_color = Color(1, 0.78233, 0.926595, 0.00392157)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1od2u"]
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
@@ -17,15 +17,12 @@ corner_radius_bottom_left = 5
 [node name="Character1" type="Panel"]
 custom_minimum_size = Vector2(120, 120)
 anchors_preset = -1
-anchor_right = 0.033
-anchor_bottom = 0.059
-offset_left = 152.0
-offset_top = 96.0
-offset_right = 113.984
-offset_bottom = 57.768
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_1tmh0")
+anchor_right = 0.052
+anchor_bottom = 0.093
+offset_right = 60.096
+offset_bottom = 59.736
+scale = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_1od2u")
 script = ExtResource("1_462yx")
 
 [node name="TextureRect" type="TextureRect" parent="."]
