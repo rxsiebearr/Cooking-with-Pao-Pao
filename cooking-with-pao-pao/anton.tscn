@@ -6,7 +6,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_alcnu"]
 size = Vector2(120, 121)
 
-[node name="Anton" type="CharacterBody2D"]
+[node name="Anton" type="CharacterBody2D" groups=["player"]]
+collision_layer = 2
 script = ExtResource("1_tm0ki")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
