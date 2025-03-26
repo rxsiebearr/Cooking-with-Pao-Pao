@@ -25,12 +25,12 @@ func _physics_process(delta: float) -> void:
 	if direction.x > 0:
 		character_sprite.flip_h = false
 		item_sprite.flip_h = false
-		item_sprite.position.x = 3
+		item_sprite.position.x = 90
 		drop_pos = Vector2(12, 13)
 	elif direction.x < 0:
 		character_sprite.flip_h = true
 		item_sprite.flip_h = true
-		item_sprite.position.x = 3
+		item_sprite.position.x = -87
 		drop_pos = Vector2(-12, 13)
 		
 func pickup_item(item: Area2D):
