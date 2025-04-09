@@ -9,6 +9,7 @@ size = Vector2(352, 320)
 
 [node name="Shop" type="Area2D"]
 process_mode = 3
+collision_mask = 2
 script = ExtResource("1_lpsqw")
 
 [node name="Shop" type="Sprite2D" parent="."]
