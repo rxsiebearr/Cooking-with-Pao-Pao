@@ -1,9 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://bidwuh6pstcpq"]
+[gd_scene load_steps=3 format=3 uid="uid://bidwuh6pstcpq"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_bor6y"]
+[ext_resource type="PackedScene" uid="uid://dbebqrldaejj1" path="res://item_drop.tscn" id="2_tqowb"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_bor6y")
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
 position = Vector2(77, 44)
+
+[node name="ItemDrop" parent="." instance=ExtResource("2_tqowb")]
+z_index = -5
+position = Vector2(253, 142)

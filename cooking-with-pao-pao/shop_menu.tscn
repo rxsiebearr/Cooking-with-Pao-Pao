@@ -1,0 +1,104 @@
+[gd_scene load_steps=4 format=3 uid="uid://5d3tqv04v3df"]
+
+[ext_resource type="Script" path="res://shop_menu.gd" id="1_1gta6"]
+[ext_resource type="Texture2D" uid="uid://7rogjaouddpg" path="res://shopui-removebg-preview-2-removebg-preview-removebg-preview-2.png" id="2_8wjt1"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_d22th"]
+
+[node name="Shop" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_1gta6")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_d22th")
+
+[node name="TextureRect" type="TextureRect" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_8wjt1")
+
+[node name="Close" type="Button" parent="Control/Panel"]
+layout_mode = 0
+offset_left = 1024.0
+offset_top = 4.0
+offset_right = 1150.0
+offset_bottom = 123.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 80
+text = "X
+"
+
+[node name="ShopCategory" type="VBoxContainer" parent="Control/Panel"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 82.0
+offset_top = -70.0
+offset_right = 282.0
+offset_bottom = 130.0
+grow_vertical = 2
+scale = Vector2(0.75, 2)
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="Seeds" type="Button" parent="Control/Panel/ShopCategory"]
+layout_mode = 2
+text = "Seeds
+"
+
+[node name="Fruits" type="Button" parent="Control/Panel/ShopCategory"]
+layout_mode = 2
+text = "Fruits"
+
+[node name="Veggie" type="Button" parent="Control/Panel/ShopCategory"]
+layout_mode = 2
+text = "Veggie"
+
+[node name="Meat" type="Button" parent="Control/Panel/ShopCategory"]
+layout_mode = 2
+text = "Meat"
+
+[node name="Dairy" type="Button" parent="Control/Panel/ShopCategory"]
+layout_mode = 2
+text = "Dairy
+"
+
+[node name="Shop Items" type="VBoxContainer" parent="Control/Panel"]
+layout_mode = 0
+offset_left = 245.0
+offset_top = 292.0
+offset_right = 431.0
+offset_bottom = 391.0
+
+[node name="Button" type="Button" parent="Control/Panel/Shop Items"]
+layout_mode = 2
+
+[connection signal="pressed" from="Control/Panel/Close" to="." method="_on_close_pressed"]
