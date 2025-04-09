@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bim1vfyr0jrkh"]
+[gd_scene load_steps=7 format=3 uid="uid://bim1vfyr0jrkh"]
 
 [ext_resource type="Script" path="res://bear_bear.gd" id="1_tjqft"]
 [ext_resource type="Texture2D" uid="uid://bn20pr461jtvg" path="res://bearbear.png" id="2_2r41p"]
+[ext_resource type="Resource" uid="uid://drpt2yh317x" path="res://Inventory/PlayerInventory.tres" id="2_yi82d"]
 [ext_resource type="Texture2D" uid="uid://deddvvx8chwbp" path="res://icon.svg" id="3_c2mxa"]
+[ext_resource type="PackedScene" uid="uid://bflwyx00gyktp" path="res://Inventory/inventory_ui.tscn" id="4_ql4in"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gq6uv"]
 radius = 51.0
@@ -11,6 +13,7 @@ height = 189.0
 [node name="BearBear" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
 script = ExtResource("1_tjqft")
+inv = ExtResource("2_yi82d")
 
 [node name="CharacterSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_2r41p")
@@ -24,3 +27,5 @@ texture = ExtResource("3_c2mxa")
 unique_name_in_owner = true
 position = Vector2(1, -11)
 shape = SubResource("CapsuleShape2D_gq6uv")
+
+[node name="Inventory UI" parent="." instance=ExtResource("4_ql4in")]

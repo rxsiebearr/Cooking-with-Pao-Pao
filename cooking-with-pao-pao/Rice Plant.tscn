@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://dly2worofti2x"]
+
+[ext_resource type="Texture2D" path="res://Inventory/rice plant-Sheet.png" id="1_fqv32"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iycfo"]
+atlas = ExtResource("1_fqv32")
+region = Rect2(0, 0, 311, 311)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jb6k"]
+atlas = ExtResource("1_fqv32")
+region = Rect2(311, 0, 311, 311)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cc58t"]
+atlas = ExtResource("1_fqv32")
+region = Rect2(622, 0, 311, 311)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sc5uv"]
+atlas = ExtResource("1_fqv32")
+region = Rect2(933, 0, 311, 311)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jvj7"]
+atlas = ExtResource("1_fqv32")
+region = Rect2(1244, 0, 311, 311)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lt3qx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iycfo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8jb6k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cc58t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sc5uv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5jvj7")
+}],
+"loop": true,
+"name": &"No Rice",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Rice",
+"speed": 5.0
+}]
+
+[node name="Rice" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_lt3qx")
+animation = &"No Rice"

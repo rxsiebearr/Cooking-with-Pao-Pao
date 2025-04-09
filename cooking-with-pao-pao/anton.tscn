@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cufox86y80een"]
+[gd_scene load_steps=6 format=3 uid="uid://cufox86y80een"]
 
 [ext_resource type="Script" path="res://anton.gd" id="1_tm0ki"]
+[ext_resource type="Resource" uid="uid://drpt2yh317x" path="res://Inventory/PlayerInventory.tres" id="2_13tvi"]
 [ext_resource type="Texture2D" uid="uid://b4qgnhcw8wj4" path="res://anton.png" id="2_ybq1a"]
+[ext_resource type="PackedScene" uid="uid://bflwyx00gyktp" path="res://Inventory/inventory_ui.tscn" id="3_hle2c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_alcnu"]
 size = Vector2(120, 121)
@@ -9,6 +11,7 @@ size = Vector2(120, 121)
 [node name="Anton" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
 script = ExtResource("1_tm0ki")
+inv = ExtResource("2_13tvi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_ybq1a")
@@ -17,3 +20,5 @@ texture = ExtResource("2_ybq1a")
 unique_name_in_owner = true
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_alcnu")
+
+[node name="Inventory UI" parent="." instance=ExtResource("3_hle2c")]

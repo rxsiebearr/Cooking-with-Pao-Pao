@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://d4nkptq2thfhu"]
+[gd_scene load_steps=6 format=3 uid="uid://d4nkptq2thfhu"]
 
 [ext_resource type="Script" path="res://monk.gd" id="1_lw8d2"]
+[ext_resource type="Resource" uid="uid://drpt2yh317x" path="res://Inventory/PlayerInventory.tres" id="2_6n0nt"]
 [ext_resource type="Texture2D" uid="uid://2fwpjw7a2mbu" path="res://monk.png" id="2_o71yd"]
+[ext_resource type="PackedScene" uid="uid://bflwyx00gyktp" path="res://Inventory/inventory_ui.tscn" id="3_4tv8a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_alcnu"]
 size = Vector2(120, 121)
@@ -9,6 +11,7 @@ size = Vector2(120, 121)
 [node name="Monk" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
 script = ExtResource("1_lw8d2")
+inv = ExtResource("2_6n0nt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_o71yd")
@@ -17,3 +20,5 @@ texture = ExtResource("2_o71yd")
 unique_name_in_owner = true
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_alcnu")
+
+[node name="Inventory UI" parent="." instance=ExtResource("3_4tv8a")]

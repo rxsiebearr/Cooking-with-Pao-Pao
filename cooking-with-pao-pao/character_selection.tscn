@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bb76tce44o007"]
 
 [ext_resource type="Script" path="res://character_selection.gd" id="1_2n6ro"]
-[ext_resource type="PackedScene" path="res://characterSlot.tscn" id="1_3cm5y"]
+[ext_resource type="PackedScene" uid="uid://ckmqercdkwinj" path="res://characterSlot.tscn" id="1_3cm5y"]
 [ext_resource type="Texture2D" uid="uid://bn20pr461jtvg" path="res://bearbear.png" id="2_y0x0t"]
 [ext_resource type="Texture2D" uid="uid://2fwpjw7a2mbu" path="res://monk.png" id="3_qliv2"]
 [ext_resource type="Texture2D" uid="uid://b4qgnhcw8wj4" path="res://anton.png" id="4_fvphv"]
