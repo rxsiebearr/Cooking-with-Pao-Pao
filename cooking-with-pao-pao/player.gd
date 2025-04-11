@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var character_sprite: Sprite2D = $CharacterSprite
 @onready var item_sprite: Sprite2D = $ItemSprite
 
+var number
 var carrying_item: bool = false
 var drop_pos: Vector2
 var items_in_range: Array = []
@@ -36,6 +37,8 @@ func _physics_process(delta: float) -> void:
 func pickup_item(item: Area2D):
 	item.queue_free()
 	carrying_item = true
+	if (item is pickable_item):
+		item_sprite.texture = item.item_texture
 	item_sprite.show()
 
 func drop_item():

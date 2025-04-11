@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bidwuh6pstcpq"]
+[gd_scene load_steps=5 format=3 uid="uid://bidwuh6pstcpq"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_bor6y"]
 [ext_resource type="PackedScene" uid="uid://dbebqrldaejj1" path="res://item_drop.tscn" id="2_tqowb"]
+[ext_resource type="Texture2D" uid="uid://dgliqp2453eny" path="res://rice-2-removebg-preview.png" id="3_03is4"]
+[ext_resource type="Texture2D" uid="uid://deddvvx8chwbp" path="res://icon.svg" id="3_kw7rf"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_bor6y")
@@ -9,6 +11,14 @@ script = ExtResource("1_bor6y")
 [node name="SpawnPoint" type="Marker2D" parent="."]
 position = Vector2(77, 44)
 
-[node name="ItemDrop" parent="." instance=ExtResource("2_tqowb")]
+[node name="ItemDrop" parent="." node_paths=PackedStringArray("file") instance=ExtResource("2_tqowb")]
 z_index = -5
 position = Vector2(253, 142)
+item_texture = ExtResource("3_03is4")
+file = NodePath(".")
+
+[node name="ItemDrop2" parent="." node_paths=PackedStringArray("file") instance=ExtResource("2_tqowb")]
+z_index = -5
+position = Vector2(432, 266)
+item_texture = ExtResource("3_kw7rf")
+file = NodePath(".")
