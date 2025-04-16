@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dgliqp2453eny"
-path="res://.godot/imported/rice-2-removebg-preview.png-499d34bf8b96ef18f140b946ad1e31b9.ctex"
+path="res://.godot/imported/rice.png-8766de2c830a419a1f8f6b18487665da.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://rice-2-removebg-preview.png"
-dest_files=["res://.godot/imported/rice-2-removebg-preview.png-499d34bf8b96ef18f140b946ad1e31b9.ctex"]
+source_file="res://rice.png"
+dest_files=["res://.godot/imported/rice.png-8766de2c830a419a1f8f6b18487665da.ctex"]
 
 [params]
 
