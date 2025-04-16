@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://d4nkptq2thfhu"]
 
-[ext_resource type="Script" path="res://monk.gd" id="1_lw8d2"]
+[ext_resource type="Script" uid="uid://0vja24421fkb" path="res://monk.gd" id="1_lw8d2"]
 [ext_resource type="Texture2D" uid="uid://2fwpjw7a2mbu" path="res://monk.png" id="2_o71yd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_alcnu"]
