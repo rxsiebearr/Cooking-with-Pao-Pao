@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://5d3tqv04v3df"]
+[gd_scene load_steps=6 format=3 uid="uid://dvhfv0mlnplb6"]
 
 [ext_resource type="Script" path="res://shop_menu.gd" id="1_1gta6"]
 [ext_resource type="Texture2D" uid="uid://7rogjaouddpg" path="res://shopui-removebg-preview-2-removebg-preview-removebg-preview-2.png" id="2_8wjt1"]
+[ext_resource type="Script" path="res://ControlItems.gd" id="2_26e12"]
+[ext_resource type="PackedScene" uid="uid://b3vfemben5lrd" path="res://ShopItem.tscn" id="4_pux7v"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_d22th"]
 
@@ -9,15 +11,36 @@
 process_mode = 3
 script = ExtResource("1_1gta6")
 
-[node name="Control" type="Control" parent="."]
+[node name="Shop" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("2_26e12")
 
-[node name="Panel" type="Panel" parent="Control"]
+[node name="NinePatchRect" type="NinePatchRect" parent="Shop"]
+layout_mode = 0
+offset_left = 236.0
+offset_top = 289.0
+offset_right = 1037.0
+offset_bottom = 616.0
+
+[node name="ItemsGrid" type="GridContainer" parent="Shop/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = 4.0
+offset_right = 9.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 5
+
+[node name="Panel" type="Panel" parent="Shop"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,7 +48,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect2" type="TextureRect" parent="Control/Panel"]
+[node name="TextureRect2" type="TextureRect" parent="Shop/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -34,16 +57,20 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("CanvasTexture_d22th")
 
-[node name="TextureRect" type="TextureRect" parent="Control/Panel"]
+[node name="TextureRect" type="TextureRect" parent="Shop/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 1.0
+offset_right = 8.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_8wjt1")
 
-[node name="Close" type="Button" parent="Control/Panel"]
+[node name="Close" type="Button" parent="Shop/Panel"]
 layout_mode = 0
 offset_left = 1024.0
 offset_top = 4.0
@@ -54,7 +81,7 @@ theme_override_font_sizes/font_size = 80
 text = "X
 "
 
-[node name="ShopCategory" type="VBoxContainer" parent="Control/Panel"]
+[node name="ShopCategory" type="VBoxContainer" parent="Shop/Panel"]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 1
 anchors_preset = 4
@@ -69,36 +96,58 @@ scale = Vector2(0.75, 2)
 theme_override_constants/separation = 2
 alignment = 1
 
-[node name="Seeds" type="Button" parent="Control/Panel/ShopCategory"]
+[node name="Seeds" type="Button" parent="Shop/Panel/ShopCategory"]
 layout_mode = 2
 text = "Seeds
 "
 
-[node name="Fruits" type="Button" parent="Control/Panel/ShopCategory"]
+[node name="Fruits" type="Button" parent="Shop/Panel/ShopCategory"]
 layout_mode = 2
 text = "Fruits"
 
-[node name="Veggie" type="Button" parent="Control/Panel/ShopCategory"]
+[node name="Veggie" type="Button" parent="Shop/Panel/ShopCategory"]
 layout_mode = 2
 text = "Veggie"
 
-[node name="Meat" type="Button" parent="Control/Panel/ShopCategory"]
+[node name="Meat" type="Button" parent="Shop/Panel/ShopCategory"]
 layout_mode = 2
 text = "Meat"
 
-[node name="Dairy" type="Button" parent="Control/Panel/ShopCategory"]
+[node name="Dairy" type="Button" parent="Shop/Panel/ShopCategory"]
 layout_mode = 2
 text = "Dairy
 "
 
-[node name="Shop Items" type="VBoxContainer" parent="Control/Panel"]
-layout_mode = 0
-offset_left = 245.0
-offset_top = 292.0
-offset_right = 431.0
-offset_bottom = 391.0
+[node name="Shop Items" type="GridContainer" parent="Shop/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.204
+anchor_top = 0.45
+anchor_right = 0.906
+anchor_bottom = 0.947
+offset_left = 309.992
+offset_top = 242.4
+offset_right = 536.288
+offset_bottom = 77.344
+grow_horizontal = 2
+grow_vertical = 2
+columns = 5
 
-[node name="Button" type="Button" parent="Control/Panel/Shop Items"]
+[node name="Shopitem" parent="Shop/Panel/Shop Items" instance=ExtResource("4_pux7v")]
 layout_mode = 2
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.0
 
-[connection signal="pressed" from="Control/Panel/Close" to="." method="_on_close_pressed"]
+[node name="Shopitem2" parent="Shop/Panel/Shop Items" instance=ExtResource("4_pux7v")]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="Shopitem3" parent="Shop/Panel/Shop Items" instance=ExtResource("4_pux7v")]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="Shopitem4" parent="Shop/Panel/Shop Items" instance=ExtResource("4_pux7v")]
+layout_mode = 2
+size_flags_vertical = 6
+
+[connection signal="pressed" from="Shop/Panel/Close" to="." method="_on_close_pressed"]
