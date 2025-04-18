@@ -2,12 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://dl5bj3baipn27" path="res://Placeholder images/Shop.webp" id="1_8a35b"]
 [ext_resource type="Script" path="res://shop.gd" id="1_lpsqw"]
-[ext_resource type="PackedScene" uid="uid://5d3tqv04v3df" path="res://shop_menu.tscn" id="3_i3ak6"]
+[ext_resource type="PackedScene" uid="uid://dvhfv0mlnplb6" path="res://shop_menu.tscn" id="3_i3ak6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1n8v2"]
 size = Vector2(352, 320)
 
-[node name="Shop" type="Area2D"]
+[node name="Shop2" type="Area2D"]
 process_mode = 3
 script = ExtResource("1_lpsqw")
 
