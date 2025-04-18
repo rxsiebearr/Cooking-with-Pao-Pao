@@ -10,6 +10,8 @@ class_name Player
 @onready var item_sprite: Sprite2D = $ItemSprite
 @onready var rice_cooker: Sprite2D = $"../RiceCookerArea/RiceCooker"
 @onready var rice_cooker_area: Area2D = $"../RiceCookerArea"
+@onready var timer: Timer = %Timer
+@onready var exclamation_mark: Label = %ExclamationMark
 
 var enter: bool = false
 var rice_in_cooker: bool = false
@@ -19,7 +21,14 @@ var items_in_range: Array = []
 
 func _ready():
 	item_sprite.hide()
+	exclamation_mark.hide()	
 	
+func _process(delta):
+	if !timer.is_stopped() and timer.time_left <= 1.0 and timer.time_left >= 0.0:
+		exclamation_mark.show()
+	else:
+		exclamation_mark.hide()
+		
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	var desired_velocity := speed * direction
@@ -73,6 +82,8 @@ func _input(event):
 			rice_cooker.texture = rice_cooker_area.rice_rice()
 			rice_in_cooker = true
 			item_sprite.hide()
+			carrying_item = false
+			timer.start()
 			
 func _on_rice_cooker_area_body_entered(body: Node2D) -> void:
 	if body is Player && rice_in_cooker:
