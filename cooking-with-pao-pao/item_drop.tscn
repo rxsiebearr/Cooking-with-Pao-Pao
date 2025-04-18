@@ -1,21 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbebqrldaejj1"]
+[gd_scene load_steps=3 format=3 uid="uid://dbebqrldaejj1"]
 
 [ext_resource type="Texture2D" uid="uid://deddvvx8chwbp" path="res://icon.svg" id="1_eg7y8"]
-[ext_resource type="Script" uid="uid://c13mvofqxl3b8" path="res://item_drop.gd" id="1_ykeue"]
-[ext_resource type="PackedScene" uid="uid://c6kswrr4dibg5" path="res://interaction/interaction area/interaction_area.tscn" id="2_u17ue"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_heuid"]
 size = Vector2(124, 123)
 
-[node name="ItemDrop" type="Node2D" groups=["item_drop"]]
-script = ExtResource("1_ykeue")
+[node name="ItemDrop" type="Area2D" groups=["item_drop"]]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_eg7y8")
 
-[node name="InteractionArea" parent="." instance=ExtResource("2_u17ue")]
-action_name = "pickup"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_heuid")

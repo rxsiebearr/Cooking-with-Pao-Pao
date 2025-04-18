@@ -10,6 +10,7 @@ extends Control
 @onready var buy_2: Button = $VBoxContainer/Buy2
 @onready var buy_3: Button = $VBoxContainer/Buy3
 @onready var buy_4: Button = $VBoxContainer/Buy4
+@onready var label: Label = $Panel/TextureRect/Label
 
 var item_paths = [
 	"res://Rice.tres",
@@ -29,3 +30,5 @@ func Update_Shop():
 			var item_instance = item_scene.instantiate()
 			item_instance.data = item_data
 			items_grid.add_child(item_instance)
+			
+	label.text = "x" + str(Global.money)
