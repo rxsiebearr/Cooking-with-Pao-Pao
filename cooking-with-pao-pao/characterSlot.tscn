@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ckmqercdkwinj"]
 
-[ext_resource type="Script" path="res://character_slot.gd" id="1_462yx"]
+[ext_resource type="Script" uid="uid://dt60ont4qypbk" path="res://character_slot.gd" id="1_462yx"]
 [ext_resource type="Texture2D" uid="uid://bn20pr461jtvg" path="res://bearbear.png" id="2_giyvf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1od2u"]
