@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cufox86y80een"]
 
-[ext_resource type="Script" path="res://anton.gd" id="1_tm0ki"]
+[ext_resource type="Script" uid="uid://ctkeu7xmbfrir" path="res://anton.gd" id="1_tm0ki"]
 [ext_resource type="Texture2D" uid="uid://b4qgnhcw8wj4" path="res://anton.png" id="2_ybq1a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_alcnu"]

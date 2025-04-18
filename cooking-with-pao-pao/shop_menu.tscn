@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://dvhfv0mlnplb6"]
 
-[ext_resource type="Script" path="res://shop_menu.gd" id="1_1gta6"]
+[ext_resource type="Script" uid="uid://ds4i03bnemflj" path="res://shop_menu.gd" id="1_1gta6"]
 [ext_resource type="Texture2D" uid="uid://7rogjaouddpg" path="res://shopui-removebg-preview-2-removebg-preview-removebg-preview-2.png" id="2_8wjt1"]
-[ext_resource type="Script" path="res://ControlItems.gd" id="2_26e12"]
+[ext_resource type="Script" uid="uid://c1dimgo3bcnmi" path="res://ControlItems.gd" id="2_26e12"]
 [ext_resource type="PackedScene" uid="uid://b3vfemben5lrd" path="res://ShopItem.tscn" id="4_pux7v"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_d22th"]

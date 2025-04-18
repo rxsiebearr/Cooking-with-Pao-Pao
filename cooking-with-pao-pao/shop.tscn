@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cfmmn7nsbg52p"]
 
 [ext_resource type="Texture2D" uid="uid://dl5bj3baipn27" path="res://Placeholder images/Shop.webp" id="1_8a35b"]
-[ext_resource type="Script" path="res://shop.gd" id="1_lpsqw"]
+[ext_resource type="Script" uid="uid://pgksac44mkob" path="res://shop.gd" id="1_lpsqw"]
 [ext_resource type="PackedScene" uid="uid://dvhfv0mlnplb6" path="res://shop_menu.tscn" id="3_i3ak6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1n8v2"]
