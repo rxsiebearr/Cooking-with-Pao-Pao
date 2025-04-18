@@ -9,6 +9,7 @@ class_name Player
 @onready var character_sprite: Sprite2D = $CharacterSprite
 @onready var item_sprite: Sprite2D = $ItemSprite
 @onready var rice_cooker: Sprite2D = $"../RiceCookerArea/RiceCooker"
+@onready var rice_cooker_area: Area2D = $"../RiceCookerArea"
 
 var enter: bool = false
 var rice_in_cooker: bool = false
@@ -69,7 +70,7 @@ func _input(event):
 				pickup_item(items_in_range.pick_random())
 	if event.is_action_pressed("interact"):
 		if enter:
-			rice_cooker.texture = load("res://rice cooker rice.png")
+			rice_cooker.texture = rice_cooker_area.rice_rice()
 			rice_in_cooker = true
 			item_sprite.hide()
 			
@@ -78,11 +79,11 @@ func _on_rice_cooker_area_body_entered(body: Node2D) -> void:
 		enter = true
 	else:
 		enter = true
-		rice_cooker.texture = load("res://rice cooker opened.png")
+		rice_cooker.texture = rice_cooker_area.rice_open()
 
 func _on_rice_cooker_area_body_exited(body: Node2D) -> void:
 	if body is Player && rice_in_cooker:
 		enter = false
 	else:
 		enter = false
-		rice_cooker.texture = load("res://rice cooker closed.png")
+		rice_cooker.texture = rice_cooker_area.rice_closed()
