@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bim1vfyr0jrkh"]
+[gd_scene load_steps=5 format=3 uid="uid://bim1vfyr0jrkh"]
 
-[ext_resource type="Script" uid="uid://krneantx0acv" path="res://bear_bear.gd" id="1_tjqft"]
+[ext_resource type="Script" path="res://player.gd" id="1_tjqft"]
 [ext_resource type="Texture2D" uid="uid://bn20pr461jtvg" path="res://bearbear.png" id="2_2r41p"]
-[ext_resource type="Texture2D" uid="uid://deddvvx8chwbp" path="res://icon.svg" id="3_c2mxa"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gq6uv"]
 radius = 51.0
@@ -11,19 +10,18 @@ height = 189.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bihgp"]
 size = Vector2(169.75, 117.5)
 
-[node name="BearBear" type="CharacterBody2D" groups=["player"]]
-collision_layer = 2
+[node name="Bear Bear" type="CharacterBody2D"]
 script = ExtResource("1_tjqft")
 
 [node name="CharacterSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_2r41p")
 
 [node name="ItemSprite" type="Sprite2D" parent="."]
-position = Vector2(90, 32)
-scale = Vector2(0.4375, 0.4375)
-texture = ExtResource("3_c2mxa")
+position = Vector2(89, 18)
+scale = Vector2(0.26275, 0.26275)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(1, -11)
 shape = SubResource("CapsuleShape2D_gq6uv")
 

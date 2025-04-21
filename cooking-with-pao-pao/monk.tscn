@@ -1,19 +1,36 @@
-[gd_scene load_steps=4 format=3 uid="uid://d4nkptq2thfhu"]
+[gd_scene load_steps=5 format=3 uid="uid://da6unph8ku60d"]
 
-[ext_resource type="Script" uid="uid://0vja24421fkb" path="res://monk.gd" id="1_lw8d2"]
+[ext_resource type="Script" path="res://player.gd" id="1_up55m"]
 [ext_resource type="Texture2D" uid="uid://2fwpjw7a2mbu" path="res://monk.png" id="2_o71yd"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_alcnu"]
-size = Vector2(120, 121)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gq6uv"]
+radius = 51.0
+height = 189.0
 
-[node name="Monk" type="CharacterBody2D" groups=["player"]]
-collision_layer = 2
-script = ExtResource("1_lw8d2")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bihgp"]
+size = Vector2(195, 163)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Monk" type="CharacterBody2D"]
+script = ExtResource("1_up55m")
+
+[node name="CharacterSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_o71yd")
+
+[node name="ItemSprite" type="Sprite2D" parent="."]
+position = Vector2(89, 18)
+scale = Vector2(0.26275, 0.26275)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_alcnu")
+position = Vector2(1, -11)
+shape = SubResource("CapsuleShape2D_gq6uv")
+
+[node name="PickupArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
+position = Vector2(2, 69)
+shape = SubResource("RectangleShape2D_bihgp")
+debug_color = Color(0.847183, 4.04298e-06, 0.532205, 0.42)
+
+[connection signal="area_entered" from="PickupArea" to="." method="_on_pickup_area_area_entered"]
+[connection signal="area_exited" from="PickupArea" to="." method="_on_pickup_area_area_exited"]
