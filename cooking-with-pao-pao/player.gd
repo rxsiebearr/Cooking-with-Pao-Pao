@@ -84,6 +84,7 @@ func _input(event):
 			item_sprite.hide()
 			carrying_item = false
 			timer.start()
+		
 			
 func _on_rice_cooker_area_body_entered(body: Node2D) -> void:
 	if body is Player && rice_in_cooker:
@@ -91,6 +92,7 @@ func _on_rice_cooker_area_body_entered(body: Node2D) -> void:
 	else:
 		enter = true
 		rice_cooker.texture = rice_cooker_area.rice_open()
+		
 
 func _on_rice_cooker_area_body_exited(body: Node2D) -> void:
 	if body is Player && rice_in_cooker:
