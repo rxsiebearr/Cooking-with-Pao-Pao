@@ -21,13 +21,6 @@ var items_in_range: Array = []
 
 func _ready():
 	item_sprite.hide()
-	exclamation_mark.hide()	
-	
-func _process(delta):
-	if !timer.is_stopped() and timer.time_left <= 1.0 and timer.time_left >= 0.0:
-		exclamation_mark.show()
-	else:
-		exclamation_mark.hide()
 		
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
