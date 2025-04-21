@@ -2,7 +2,6 @@ extends Line2D
 
 signal is_cooked
 
-@onready var exclamation_mark: Label = %ExclamationMark
 @onready var timer: Timer = %Timer
 
 var duration := 5.0
@@ -27,7 +26,7 @@ func _on_timer_timeout() -> void:
 	if _is_cooked(): 
 		emit_signal("is_cooked")
 		timer.stop() 
-		exclamation_mark.hide()
+		
 		
 		
 	

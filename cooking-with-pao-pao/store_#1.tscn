@@ -128,31 +128,17 @@ script = ExtResource("4_bx3hj")
 unique_name_in_owner = true
 wait_time = 5.0
 
-[node name="ExclamationMark" type="Label" parent="RiceCookerArea"]
-unique_name_in_owner = true
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 761.0
-offset_top = 85.0
-offset_right = 801.0
-offset_bottom = 127.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 30
-text = "!"
-
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="RiceCookerArea"]
 
 [node name="ItemDrop" parent="." instance=ExtResource("4_54ox5")]
 position = Vector2(443, 331)
 item_texture = ExtResource("5_2wqnh")
+item_name = "Rice"
 
 [node name="ItemDrop2" parent="." instance=ExtResource("4_54ox5")]
 position = Vector2(246, 523)
 item_texture = ExtResource("10_p8wo6")
+item_name = "RiceBowl"
 
 [node name="Bear Bear" parent="." instance=ExtResource("1_qnkjh")]
 position = Vector2(171, 273)

@@ -18,11 +18,13 @@ position = Vector2(77, 44)
 z_index = -5
 position = Vector2(253, 142)
 item_texture = ExtResource("3_03is4")
+item_name = "Rice"
 
 [node name="ItemDrop2" parent="." instance=ExtResource("2_tqowb")]
 z_index = -5
 position = Vector2(432, 266)
 item_texture = ExtResource("3_kw7rf")
+item_name = "Placeholder"
 
 [node name="EnterStore" type="Area2D" parent="."]
 
