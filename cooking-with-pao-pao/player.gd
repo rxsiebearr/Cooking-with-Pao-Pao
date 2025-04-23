@@ -77,12 +77,13 @@ func _input(event):
 			if !items_in_range.is_empty():
 				pickup_item(items_in_range.pick_random())
 	if event.is_action_pressed("interact"):
-		if carrying_item && held_item_name == "RiceBowl" and rice_in_cooker:
-				rice_cooker.texture = rice_cooker_area.rice_closed()
+		if carrying_item && held_item_name == "RiceBowl" && rice_in_cooker && timer.is_stopped():
 				rice_in_cooker = false
 				item_sprite.texture = load("res://rice_bowl_filled.png")
+				if rice_cooker.texture != rice_cooker_area.rice_closed():
+					rice_cooker_area.rice_closed()
 				
-		elif enter && carrying_item:
+		elif enter && carrying_item && held_item_name == "Rice":
 			rice_cooker.texture = rice_cooker_area.rice_rice()
 			rice_in_cooker = true
 			item_sprite.hide()
@@ -92,16 +93,14 @@ func _input(event):
 		
 			
 func _on_rice_cooker_area_body_entered(body: Node2D) -> void:
-	if body is Player && rice_in_cooker:
+	if body is Player:
 		enter = true
-	else:
-		enter = true
-		rice_cooker.texture = rice_cooker_area.rice_open()
+		if !rice_in_cooker:
+			rice_cooker.texture = rice_cooker_area.rice_open()
 		
 
 func _on_rice_cooker_area_body_exited(body: Node2D) -> void:
-	if body is Player && rice_in_cooker:
+	if body is Player:
 		enter = false
-	else:
-		enter = false
-		rice_cooker.texture = rice_cooker_area.rice_closed()
+		if !rice_in_cooker:
+			rice_cooker.texture = rice_cooker_area.rice_closed()
