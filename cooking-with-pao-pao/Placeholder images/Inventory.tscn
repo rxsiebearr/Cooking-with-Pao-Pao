@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dvfaqncdp70hw"]
+[gd_scene load_steps=3 format=3 uid="uid://27dyyjr17ubf"]
 
-[ext_resource type="PackedScene" uid="uid://m8fw6pm7upi4" path="res://Placeholder images/Slot.tscn" id="1_cnk8e"]
-[ext_resource type="Resource" uid="uid://bro6k33n1vxpw" path="res://Resources/Rice.tres" id="2_tho5l"]
+[ext_resource type="PackedScene" path="res://Placeholder images/Slot.tscn" id="1_cnk8e"]
+[ext_resource type="Resource" uid="uid://be5b0egjo6jtw" path="res://Resources/Rice.tres" id="2_tho5l"]
 
 [node name="Inventory" type="Control"]
 layout_mode = 3
