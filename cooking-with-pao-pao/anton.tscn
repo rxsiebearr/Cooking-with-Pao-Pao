@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://xuofrnpiub31"]
+[gd_scene load_steps=5 format=3 uid="uid://cufox86y80een"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_0xgy2"]
+[ext_resource type="Script" uid="uid://b47u2qsuul6r3" path="res://player.gd" id="1_0xgy2"]
 [ext_resource type="Texture2D" uid="uid://b4qgnhcw8wj4" path="res://anton.png" id="2_ybq1a"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gq6uv"]

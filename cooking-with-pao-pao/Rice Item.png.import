@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cu7ybwiwc0gxp"
-path="res://.godot/imported/image-removebg-preview (1).png-647283c848a3a819ee2ea5621a55b767.ctex"
+uid="uid://dqqib4cwnrk8e"
+path="res://.godot/imported/Rice Item.png-d59ae18afcc435a6a727a552f1520f1a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://image-removebg-preview (1).png"
-dest_files=["res://.godot/imported/image-removebg-preview (1).png-647283c848a3a819ee2ea5621a55b767.ctex"]
+source_file="res://Rice Item.png"
+dest_files=["res://.godot/imported/Rice Item.png-d59ae18afcc435a6a727a552f1520f1a.ctex"]
 
 [params]
 

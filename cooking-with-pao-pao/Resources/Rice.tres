@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="CropData" load_steps=2 format=3 uid="uid://bwyovs07wvk5m"]
+[gd_resource type="Resource" script_class="CropData" load_steps=3 format=3 uid="uid://bro6k33n1vxpw"]
 
-[ext_resource type="Script" uid="uid://dqjw4830v3spo" path="res://CropData.gd" id="1_nkj30"]
+[ext_resource type="Texture2D" uid="uid://dqqib4cwnrk8e" path="res://Rice Item.png" id="1_fntmj"]
+[ext_resource type="Script" path="res://CropData.gd" id="1_nkj30"]
 
 [resource]
 script = ExtResource("1_nkj30")
@@ -8,3 +9,5 @@ duration = 10.0
 tile_name = "rice"
 atlas_coords = Array[Vector2i]([Vector2i(14, 6), Vector2i(24, 5), Vector2i(34, 4), Vector2i(44, 4), Vector2i(54, 4)])
 source_id = 0
+title = "Rice"
+icon = ExtResource("1_fntmj")

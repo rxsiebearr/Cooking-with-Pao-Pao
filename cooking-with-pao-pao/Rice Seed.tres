@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://bfrtvwpcwmrtr"]
 
-[ext_resource type="Script" uid="uid://emxvpsqwuptf" path="res://ItemData.gd" id="1_a37p1"]
+[ext_resource type="Script" path="res://ItemData.gd" id="1_a37p1"]
 [ext_resource type="Texture2D" uid="uid://dvrrhbr7aenmi" path="res://Rice Seed.png" id="1_hg0r7"]
 
 [resource]

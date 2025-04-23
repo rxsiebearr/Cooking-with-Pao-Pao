@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 GlobalData="*res://global_data.gd"
-InteractionManager="*res://interaction/InteractionManager.tscn"
 Global="*res://Global.gd"
 
 [display]

@@ -1,4 +1,4 @@
-extends Resource
+extends Item1
 class_name BlockData
 
 @export var tile_name: String
