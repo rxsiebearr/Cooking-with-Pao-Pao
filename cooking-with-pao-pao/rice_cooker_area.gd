@@ -17,5 +17,11 @@ func rice_water():
 func rice_cooked():
 	animation_player.play("rice_cooked")
 
+func rice_burnt():
+	animation_player.play("rice_burnt")
+	
 func _on_timer_bar_is_cooked() -> void:
 	rice_cooked()
+
+func _on_timer_bar_is_burnt() -> void:
+	rice_burnt()
