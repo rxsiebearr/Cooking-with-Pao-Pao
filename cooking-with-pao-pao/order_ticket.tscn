@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://ceknji1xrndu6"]
+
+[ext_resource type="Script" uid="uid://ce3ys0sd4nlo" path="res://order_ticket.gd" id="1_8n621"]
+[ext_resource type="Texture2D" uid="uid://qhaiaur53lxo" path="res://coin.png" id="1_mwikj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_f32eo"]
+font_size = 50
+font_color = Color(0.954305, 0.451481, 0.343563, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8n621"]
+font_size = 50
+font_color = Color(0, 0, 0, 1)
+
+[node name="OrderTickets" type="Control"]
+layout_direction = 1
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 0.432
+offset_right = -954.0
+offset_bottom = 0.0639954
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8n621")
+
+[node name="Ticket" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Ticket"]
+layout_mode = 1
+offset_left = 16.0
+offset_right = 183.0
+offset_bottom = 142.0
+alignment = 1
+
+[node name="Title" type="Label" parent="Ticket/VBoxContainer"]
+layout_mode = 2
+text = "Orders"
+label_settings = SubResource("LabelSettings_f32eo")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Ticket/VBoxContainer"]
+position = Vector2(112, 96)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_mwikj")
+
+[node name="OrderAmount" type="Label" parent="Ticket/VBoxContainer"]
+layout_mode = 2
+text = "1x"
+label_settings = SubResource("LabelSettings_8n621")
