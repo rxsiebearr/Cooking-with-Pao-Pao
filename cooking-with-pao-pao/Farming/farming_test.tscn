@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cbbd2doedjctq" path="res://Farming/rice plant-Sheet-Sheet.png" id="2_jujn8"]
 [ext_resource type="Script" uid="uid://dci6pslvi1xw4" path="res://BlockData.gd" id="2_ynp53"]
 [ext_resource type="Resource" uid="uid://ov2h1ke7gcgj" path="res://Resources/Soil.tres" id="3_omkq4"]
-[ext_resource type="Resource" uid="uid://bwyovs07wvk5m" path="res://Resources/Rice.tres" id="4_pexww"]
+[ext_resource type="Resource" uid="uid://bro6k33n1vxpw" path="res://Resources/Rice.tres" id="4_pexww"]
 [ext_resource type="Texture2D" uid="uid://xpp2042vwlli" path="res://Farming/dirtblock-Sheet.png" id="5_ynp53"]
 [ext_resource type="Texture2D" uid="uid://yv7oa8wsu4bh" path="res://Farming/image-removebg-preview__1_-removebg-preview.png" id="7_ynp53"]
 
@@ -126,19 +126,18 @@ scale = Vector2(1.79079, 1.50574)
 
 [node name="Label" type="Label" parent="Control"]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
+anchors_preset = 10
 anchor_right = 1.0
-offset_left = -38.0
-offset_top = 10.0
-offset_right = 2.0
-offset_bottom = 32.3333
-grow_horizontal = 0
+offset_left = -21.2197
+offset_top = 11.9543
+offset_right = -21.2197
+offset_bottom = 34.2876
+grow_horizontal = 2
 scale = Vector2(2.34475, 2.0732)
 text = "x0"
 label_settings = SubResource("LabelSettings_ynp53")
 
 [node name="Sprite2D" type="Sprite2D" parent="Control"]
-position = Vector2(-35, 16)
+position = Vector2(-58.075, 15.939)
 scale = Vector2(0.195542, 0.180439)
 texture = ExtResource("7_ynp53")

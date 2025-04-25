@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dvfaqncdp70hw"]
+[gd_scene load_steps=5 format=3 uid="uid://dvfaqncdp70hw"]
 
+[ext_resource type="Script" uid="uid://bl3fhenl6pi2k" path="res://Placeholder images/Inventory.gd" id="1_1ywxw"]
 [ext_resource type="PackedScene" uid="uid://m8fw6pm7upi4" path="res://Placeholder images/Slot.tscn" id="1_cnk8e"]
 [ext_resource type="Resource" uid="uid://bro6k33n1vxpw" path="res://Resources/Rice.tres" id="2_tho5l"]
+[ext_resource type="Script" uid="uid://hgjjehkoux4s" path="res://Placeholder images/Hotbar.gd" id="3_stflw"]
 
 [node name="Inventory" type="Control"]
 layout_mode = 3
@@ -10,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_1ywxw")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -90,6 +93,7 @@ offset_right = 128.0
 offset_bottom = -38.0
 grow_horizontal = 2
 grow_vertical = 0
+script = ExtResource("3_stflw")
 
 [node name="Slot" parent="UI/Hotbar" instance=ExtResource("1_cnk8e")]
 custom_minimum_size = Vector2(60, 60)
@@ -106,3 +110,5 @@ layout_mode = 2
 [node name="Slot4" parent="UI/Hotbar" instance=ExtResource("1_cnk8e")]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
+
+[connection signal="equip" from="UI/Hotbar" to="." method="_on_hotbar_equip"]

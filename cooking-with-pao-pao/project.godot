@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GlobalData="*res://global_data.gd"
 Global="*res://Global.gd"
+Inventory="*res://Placeholder images/Inventory.tscn"
 
 [display]
 
