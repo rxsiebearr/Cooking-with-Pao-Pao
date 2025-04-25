@@ -11,6 +11,7 @@ height = 189.0
 size = Vector2(169.75, 117.5)
 
 [node name="Bear Bear" type="CharacterBody2D"]
+scale = Vector2(0.6, 0.6)
 script = ExtResource("1_tjqft")
 
 [node name="CharacterSprite" type="Sprite2D" parent="."]

@@ -31,6 +31,21 @@ tracks/0/keys = {
 "values": [ExtResource("1_trkgk")]
 }
 
+[sub_resource type="Animation" id="Animation_u4e23"]
+resource_name = "rice_burnt"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RiceCooker:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_58c1d")]
+}
+
 [sub_resource type="Animation" id="Animation_r5jaw"]
 resource_name = "rice_closed"
 tracks/0/type = "value"
@@ -91,21 +106,6 @@ tracks/0/keys = {
 "values": [ExtResource("4_o5lyj")]
 }
 
-[sub_resource type="Animation" id="Animation_u4e23"]
-resource_name = "rice_burnt"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("RiceCooker:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("6_58c1d")]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_awojr"]
 _data = {
 "RESET": SubResource("Animation_fc1kx"),
@@ -131,12 +131,12 @@ position = Vector2(-368, -8)
 script = ExtResource("1_eqtje")
 
 [node name="RiceCooker" type="Sprite2D" parent="RiceCookerArea"]
-position = Vector2(765, 296)
-scale = Vector2(0.375, 0.375)
+position = Vector2(736, 320)
+scale = Vector2(0.261, 0.256)
 texture = ExtResource("1_trkgk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RiceCookerArea"]
-position = Vector2(764.5, 389.5)
+position = Vector2(736, 320)
 scale = Vector2(0.375, 0.375)
 shape = SubResource("RectangleShape2D_djeio")
 
