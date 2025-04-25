@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://jep3opmqkel4"]
+[gd_scene load_steps=21 format=3 uid="uid://dgssr5d1ur6yb"]
 
 [ext_resource type="Script" path="res://rice_cooker_area.gd" id="1_eqtje"]
 [ext_resource type="PackedScene" uid="uid://bim1vfyr0jrkh" path="res://bear_bear.tscn" id="1_qnkjh"]
@@ -127,11 +127,11 @@ scale = Vector2(1.10353, 0.8)
 texture = ExtResource("8_ngudn")
 
 [node name="RiceCookerArea" type="Area2D" parent="." groups=["rice"]]
-position = Vector2(-368, -8)
+position = Vector2(-320, -8)
 script = ExtResource("1_eqtje")
 
 [node name="RiceCooker" type="Sprite2D" parent="RiceCookerArea"]
-position = Vector2(736, 320)
+position = Vector2(736, 304)
 scale = Vector2(0.261, 0.256)
 texture = ExtResource("1_trkgk")
 
