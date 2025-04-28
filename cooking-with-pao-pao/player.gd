@@ -99,6 +99,9 @@ func _input(event):
 				Global.orders -= 1
 				held_item_name = "RiceBowl"
 				item_sprite.texture = load("res://rice_bowl-removebg-preview.png")
+				
+	if event.is_action_pressed("ordertest"):
+			Global.orders += 1
 	
 
 
