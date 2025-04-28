@@ -56,6 +56,8 @@ func drop_item():
 	var item = item_drop.instantiate()
 	item.item_texture = item_sprite.texture
 	item.item_name = held_item_name
+	item.scale = item.item_scale
+	print(item.scale)
 	item.position = position + drop_pos
 	get_parent().add_child(item)
 	carrying_item = false

@@ -3,9 +3,8 @@
 [ext_resource type="Script" uid="uid://cy17urpmr2xrv" path="res://player.gd" id="1_tjqft"]
 [ext_resource type="Texture2D" uid="uid://bn20pr461jtvg" path="res://bearbear.png" id="2_2r41p"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gq6uv"]
-radius = 51.0
-height = 189.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hffya"]
+size = Vector2(111.667, 101.667)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bihgp"]
 size = Vector2(169.75, 117.5)
@@ -23,8 +22,8 @@ scale = Vector2(0.26275, 0.26275)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(1, -11)
-shape = SubResource("CapsuleShape2D_gq6uv")
+position = Vector2(-0.833332, 44.1667)
+shape = SubResource("RectangleShape2D_hffya")
 
 [node name="PickupArea" type="Area2D" parent="."]
 
