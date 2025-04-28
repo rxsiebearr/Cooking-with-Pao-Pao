@@ -27,3 +27,7 @@ func _on_start_button_pressed():
 	if not GlobalData.playerCharPath: return
 	
 	get_tree().change_scene_to_file("res://game.tscn")
+	MoneyCount.visible = true
+
+func _ready() -> void:
+	MoneyCount.visible = false

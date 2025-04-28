@@ -14,6 +14,7 @@ class_name Player
 @onready var burnt_timer: Timer = %BurntTimer
 
 var enter: bool = false
+var done: bool = false
 var rice_in_cooker: bool = false
 var carrying_item: bool = false
 var drop_pos: Vector2
@@ -81,7 +82,7 @@ func _input(event):
 		if carrying_item && held_item_name == "RiceBowl" && rice_in_cooker && cook_timer.is_stopped():
 				rice_in_cooker = false
 				item_sprite.texture = load("res://rice_bowl_filled.png")
-				
+				held_item_name = "CookedRice"
 				
 		elif enter && carrying_item && held_item_name == "Rice":
 			rice_cooker.texture = rice_cooker_area.rice_rice()
@@ -89,9 +90,16 @@ func _input(event):
 			item_sprite.hide()
 			carrying_item = false
 			cook_timer.start()
-	
 		
-			
+		if event.is_action_pressed("interact"):
+			if carrying_item && held_item_name == "CookedRice" && done:
+				Global.money += 1
+				Global.orders -= 1
+				held_item_name = "RiceBowl"
+				item_sprite.texture = load("res://rice_bowl-removebg-preview.png")
+	
+
+
 func _on_rice_cooker_area_body_entered(body: Node2D) -> void:
 	if body is Player:
 		enter = true
@@ -104,3 +112,12 @@ func _on_rice_cooker_area_body_exited(body: Node2D) -> void:
 		enter = false
 		if !rice_in_cooker:
 			rice_cooker.texture = rice_cooker_area.rice_closed()
+			
+
+func _on_turn_in_body_entered(body: Node2D) -> void:
+	if body is Player:
+		done = true
+
+func _on_turn_in_body_exited(body: Node2D) -> void:
+	if body is Player:
+			done = false
