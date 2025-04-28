@@ -92,7 +92,7 @@ func _input(event):
 			cook_timer.start()
 		
 		if event.is_action_pressed("interact"):
-			if carrying_item && held_item_name == "CookedRice" && done:
+			if carrying_item && held_item_name == "CookedRice" && done && Global.orders > 0:
 				Global.money += 1
 				Global.orders -= 1
 				held_item_name = "RiceBowl"
