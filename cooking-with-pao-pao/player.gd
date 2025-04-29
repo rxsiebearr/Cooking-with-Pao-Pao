@@ -59,7 +59,6 @@ func drop_item():
 	item.item_texture = item_sprite.texture
 	item.item_name = held_item_name
 	item.scale = item_scale
-	print(item.scale)
 	item.position = position + drop_pos
 	get_parent().add_child(item)
 	carrying_item = false
@@ -82,11 +81,13 @@ func _input(event):
 		else:
 			if !items_in_range.is_empty():
 				pickup_item(items_in_range.pick_random())
+				
 	if event.is_action_pressed("interact"):
 		if carrying_item && held_item_name == "RiceBowl" && rice_in_cooker && cook_timer.is_stopped():
 				rice_in_cooker = false
 				item_sprite.texture = load("res://rice_bowl_filled.png")
 				held_item_name = "CookedRice"
+				burnt_timer.stop()
 				
 		elif enter && carrying_item && held_item_name == "Rice":
 			rice_cooker.texture = rice_cooker_area.rice_rice()
@@ -95,32 +96,27 @@ func _input(event):
 			carrying_item = false
 			cook_timer.start()
 		
-		if event.is_action_pressed("interact"):
-			if carrying_item && held_item_name == "CookedRice" && done && Global.orders > 0:
-				Global.money += 1
-				Global.orders -= 1
-				held_item_name = "RiceBowl"
-				item_sprite.texture = load("res://rice_bowl-removebg-preview.png")
+		if carrying_item && held_item_name == "CookedRice" && done && Global.orders > 0:
+			Global.money += 1
+			Global.orders -= 1
+			held_item_name = "RiceBowl"
+			item_sprite.texture = load("res://rice_bowl-removebg-preview.png")
 				
 	if event.is_action_pressed("ordertest"):
 			Global.orders += 1
 	
-
-
 func _on_rice_cooker_area_body_entered(body: Node2D) -> void:
 	if body is Player:
 		enter = true
 		if !rice_in_cooker:
 			rice_cooker.texture = rice_cooker_area.rice_open()
 		
-
 func _on_rice_cooker_area_body_exited(body: Node2D) -> void:
 	if body is Player:
 		enter = false
 		if !rice_in_cooker:
 			rice_cooker.texture = rice_cooker_area.rice_closed()
 			
-
 func _on_turn_in_body_entered(body: Node2D) -> void:
 	if body is Player:
 		done = true
