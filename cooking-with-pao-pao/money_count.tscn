@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://preklnqny46s"]
+[gd_scene load_steps=4 format=3 uid="uid://cgtb314jo2ggl"]
 
-[ext_resource type="Script" uid="uid://d4go2erjisd1n" path="res://money_count.gd" id="1_vm3ea"]
+[ext_resource type="Script" path="res://money_count.gd" id="1_vm3ea"]
 [ext_resource type="Texture2D" uid="uid://qhaiaur53lxo" path="res://coin.png" id="2_c2uts"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_t5d4h"]
@@ -12,11 +12,8 @@ layout_mode = 3
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -24.0
-offset_top = 16.0
-offset_right = -24.0
-offset_bottom = 16.0
 grow_horizontal = 0
+scale = Vector2(0.873685, 0.873685)
 pivot_offset = Vector2(-160, 84)
 script = ExtResource("1_vm3ea")
 
