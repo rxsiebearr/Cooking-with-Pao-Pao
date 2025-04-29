@@ -201,7 +201,7 @@ position = Vector2(96, 552)
 polygon = PackedVector2Array(160, 384, 160, 488, 904, 488, 904, 120, 8, 120, 8, 176, 824, 176, 824, 384)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Barriers"]
-polygon = PackedVector2Array(0, 0, 0, 40, 1040, 40, 1040, 560, 448, 560, 448, 640, 8, 640, 8, 40, 0, 40, 0, 648, 1152, 648, 1152, 0)
+polygon = PackedVector2Array(0, 0, 0, 120, 1040, 120, 1040, 560, 448, 560, 448, 640, 8, 640, 8, 120, 0, 120, 0, 648, 1152, 648, 1152, 0)
 
 [connection signal="body_entered" from="TurnIn" to="Bear Bear" method="_on_turn_in_body_entered"]
 [connection signal="body_exited" from="TurnIn" to="Bear Bear" method="_on_turn_in_body_exited"]
