@@ -1,7 +1,12 @@
 extends Control
-var current_scene 
+var current_scene
+
 @onready var Hotbar: HBoxContainer = $UI/Hotbar
 @onready var Grid: GridContainer = $UI/GridContainer
+
+func _input(event):
+	if event.is_action_pressed("IV"):
+		InventoryManager.toggle_inventory()
 
 func _on_hotbar_equip(item):
 	if current_scene != null:

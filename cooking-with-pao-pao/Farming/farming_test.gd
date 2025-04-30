@@ -5,7 +5,6 @@ extends Node2D
 
 var water_level: Dictionary
 var crop: Dictionary
-var crop_count = 0
 
 @export var block : Dictionary [String, BlockData]
 
@@ -92,7 +91,7 @@ func harvesting(pos):
 	if crop_layer.get_cell_source_id(pos) != -1 and crop.has(pos) and crop[pos]["duration"] < 0:
 		crop_layer.erase_cell(pos)
 		print(crop[pos]["name"])
-		Inventory.add_item(block[crop[pos]["name"]], 2)
-		crop_count += 2
-		get_node("Control/Label").text = "x" + str(crop_count)
+		Inventory.add_item(block[crop[pos]["name"]], 1)
+		Global.rice += 2
+		get_node("Control/Label").text = "x" + str(Global.rice)
 		crop.erase(pos)

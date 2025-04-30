@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dvhfv0mlnplb6"]
+[gd_scene load_steps=10 format=3 uid="uid://5d3tqv04v3df"]
 
 [ext_resource type="Script" uid="uid://ds4i03bnemflj" path="res://shop_menu.gd" id="1_1gta6"]
-[ext_resource type="Texture2D" uid="uid://7rogjaouddpg" path="res://shopui-removebg-preview-2-removebg-preview-removebg-preview-2.png" id="2_8wjt1"]
 [ext_resource type="Script" uid="uid://c1dimgo3bcnmi" path="res://ControlItems.gd" id="2_26e12"]
+[ext_resource type="Texture2D" uid="uid://cphiuikl4dn24" path="res://Shop Updated 2.png" id="3_qejid"]
 [ext_resource type="Texture2D" uid="uid://qhaiaur53lxo" path="res://coin.png" id="4_f8gav"]
 [ext_resource type="PackedScene" uid="uid://b3vfemben5lrd" path="res://ShopItem.tscn" id="4_pux7v"]
+[ext_resource type="FontFile" uid="uid://b4hseb0d8hvot" path="res://ComicRelief-Bold.ttf" id="5_qejid"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_d22th"]
 
@@ -71,11 +72,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 8.0
 offset_top = 1.0
-offset_right = 8.0
-offset_bottom = 1.0
+offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_8wjt1")
+texture = ExtResource("3_qejid")
 
 [node name="Coin" type="Sprite2D" parent="Shop/Panel/TextureRect"]
 position = Vector2(754, 242)
@@ -109,10 +109,10 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 87.0
-offset_top = -72.0
-offset_right = 291.0
-offset_bottom = 128.0
+offset_left = 83.0
+offset_top = -66.0
+offset_right = 294.0
+offset_bottom = 134.0
 grow_vertical = 2
 scale = Vector2(0.75, 2)
 theme_override_constants/separation = 1
@@ -121,27 +121,37 @@ alignment = 1
 [node name="Seeds" type="Button" parent="Shop/Panel/ShopCategory"]
 layout_mode = 2
 theme = SubResource("Theme_0tduq")
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("5_qejid")
 theme_override_font_sizes/font_size = 17
 text = "Seeds
 "
 
 [node name="Fruits" type="Button" parent="Shop/Panel/ShopCategory"]
 layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("5_qejid")
 theme_override_font_sizes/font_size = 17
 text = "Fruits"
 
 [node name="Veggie" type="Button" parent="Shop/Panel/ShopCategory"]
 layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("5_qejid")
 theme_override_font_sizes/font_size = 17
 text = "Veggie"
 
 [node name="Meat" type="Button" parent="Shop/Panel/ShopCategory"]
 layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("5_qejid")
 theme_override_font_sizes/font_size = 17
 text = "Meat"
 
 [node name="Dairy" type="Button" parent="Shop/Panel/ShopCategory"]
 layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("5_qejid")
 theme_override_font_sizes/font_size = 17
 text = "Dairy
 "
@@ -180,50 +190,68 @@ size_flags_vertical = 6
 
 [node name="VBoxContainer" type="HBoxContainer" parent="Shop"]
 layout_mode = 0
-offset_left = 255.0
-offset_top = 512.0
-offset_right = 1052.0
-offset_bottom = 616.0
+offset_left = 266.0
+offset_top = 513.0
+offset_right = 1030.0
+offset_bottom = 617.0
 theme_override_constants/separation = 20
 
 [node name="Buy" type="Button" parent="Shop/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("5_qejid")
 theme_override_font_sizes/font_size = 40
 text = "Buy"
 
 [node name="Sell" type="Button" parent="Shop/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("5_qejid")
 theme_override_font_sizes/font_size = 40
 text = "Sell"
 
 [node name="Buy2" type="Button" parent="Shop/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("5_qejid")
 theme_override_font_sizes/font_size = 40
 text = "Buy"
 
 [node name="Sell2" type="Button" parent="Shop/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("5_qejid")
 theme_override_font_sizes/font_size = 40
 text = "Sell"
 
 [node name="Buy3" type="Button" parent="Shop/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("5_qejid")
 theme_override_font_sizes/font_size = 40
 text = "Buy"
 
 [node name="Sell3" type="Button" parent="Shop/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("5_qejid")
 theme_override_font_sizes/font_size = 40
 text = "Sell"
 
 [node name="Buy4" type="Button" parent="Shop/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("5_qejid")
 theme_override_font_sizes/font_size = 40
 text = "Buy"
 
 [node name="Sell4" type="Button" parent="Shop/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("5_qejid")
 theme_override_font_sizes/font_size = 40
 text = "Sell"
 
 [connection signal="pressed" from="Shop/Panel/Close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="Shop/VBoxContainer/Buy" to="Shop" method="_on_buy_pressed"]
+[connection signal="pressed" from="Shop/VBoxContainer/Sell" to="Shop" method="_on_sell_pressed"]

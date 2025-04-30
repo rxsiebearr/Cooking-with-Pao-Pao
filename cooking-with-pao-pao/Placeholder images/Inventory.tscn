@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dvfaqncdp70hw"]
+[gd_scene load_steps=6 format=3 uid="uid://dvfaqncdp70hw"]
 
 [ext_resource type="Script" uid="uid://bl3fhenl6pi2k" path="res://Placeholder images/Inventory.gd" id="1_1ywxw"]
 [ext_resource type="PackedScene" uid="uid://m8fw6pm7upi4" path="res://Placeholder images/Slot.tscn" id="1_cnk8e"]
-[ext_resource type="Resource" uid="uid://bro6k33n1vxpw" path="res://Resources/Rice.tres" id="2_tho5l"]
+[ext_resource type="Resource" uid="uid://be5b0egjo6jtw" path="res://Resources/Rice.tres" id="2_tho5l"]
 [ext_resource type="Script" uid="uid://hgjjehkoux4s" path="res://Placeholder images/Hotbar.gd" id="3_stflw"]
+[ext_resource type="Script" uid="uid://yafbhhhj31ky" path="res://character_selection.gd" id="4_sappg"]
 
 [node name="Inventory" type="Control"]
 layout_mode = 3
@@ -79,6 +80,7 @@ layout_mode = 2
 [node name="Slot12" parent="UI/GridContainer" instance=ExtResource("1_cnk8e")]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
+script = ExtResource("4_sappg")
 
 [node name="Hotbar" type="HBoxContainer" parent="UI"]
 custom_minimum_size = Vector2(20, 20)

@@ -1,7 +1,8 @@
 extends Panel
-
+@onready var ui: CanvasLayer = $UI
 @export var characterPath: String
 @export var characterTexture: CompressedTexture2D
+
 
 func _ready():
 	$TextureRect.texture = characterTexture

@@ -1,3 +1,4 @@
 extends Node
 
-var money = 1
+var money = 10
+var rice = 0
