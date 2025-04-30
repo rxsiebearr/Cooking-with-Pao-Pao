@@ -87,11 +87,12 @@ func _input(event):
 				rice_in_cooker = false
 				item_sprite.texture = load("res://rice_bowl_filled.png")
 				item_name = "CookedRice"
+				rice_cooker_area.rice_closed()
 				enter = false
 				burnt_timer.stop()
 				
 		if enter && carrying_item && item_name == "Rice":
-			rice_cooker.texture = rice_cooker_area.rice_rice()
+			rice_cooker_area.rice_rice()
 			rice_in_cooker = true
 			item_sprite.hide()
 			carrying_item = false
@@ -107,6 +108,7 @@ func _input(event):
 			item_sprite.show()
 			item_sprite.texture = load("res://icon.svg")
 			item_name = "TrashBag"
+			rice_cooker_area.rice_closed()
 			carrying_item = true
 			rice_in_cooker = false
 			burnt = false
@@ -122,13 +124,13 @@ func _on_rice_cooker_area_body_entered(body: Node2D) -> void:
 	if body is Player:
 		enter = true
 		if !rice_in_cooker:
-			rice_cooker.texture = rice_cooker_area.rice_open()
+			rice_cooker_area.rice_open()
 		
 func _on_rice_cooker_area_body_exited(body: Node2D) -> void:
 	if body is Player:
 		enter = false
 		if !rice_in_cooker:
-			rice_cooker.texture = rice_cooker_area.rice_closed()
+			rice_cooker_area.rice_closed()
 			
 func _on_turn_in_body_entered(body: Node2D) -> void:
 	if body is Player:

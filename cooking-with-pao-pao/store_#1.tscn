@@ -180,11 +180,18 @@ wait_time = 5.0
 [node name="BurntTimer" type="Timer" parent="RiceCookerArea/TimerBar"]
 unique_name_in_owner = true
 wait_time = 3.0
+one_shot = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="RiceCookerArea"]
 
 [node name="ItemDrop" parent="." instance=ExtResource("4_54ox5")]
 position = Vector2(231, 281)
+scale = Vector2(0.5, 0.5)
+item_texture = ExtResource("5_2wqnh")
+item_name = "Rice"
+
+[node name="ItemDrop3" parent="." instance=ExtResource("4_54ox5")]
+position = Vector2(96, 312)
 scale = Vector2(0.5, 0.5)
 item_texture = ExtResource("5_2wqnh")
 item_name = "Rice"

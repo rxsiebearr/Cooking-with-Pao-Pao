@@ -37,6 +37,7 @@ layout_mode = 1
 offset_left = 16.0
 offset_right = 183.0
 offset_bottom = 142.0
+scale = Vector2(0.867206, 0.867206)
 alignment = 1
 
 [node name="Title" type="Label" parent="Ticket/VBoxContainer"]
