@@ -23,11 +23,13 @@ var drop_pos: Vector2
 var items_in_range: Array = []
 var item_name: String = ""
 var item_scale: Vector2
-var trash
-var burnt
+var trash: bool = false
+var burnt: bool = false
 
 func _ready():
 	item_sprite.hide()
+	if get_tree().current_scene.name == "Store #1":
+		camera_2d.enabled = false
 
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")

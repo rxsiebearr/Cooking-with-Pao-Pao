@@ -1,37 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://bidwuh6pstcpq"]
+[gd_scene load_steps=4 format=3 uid="uid://bidwuh6pstcpq"]
 
-[ext_resource type="Script" path="res://game.gd" id="1_bor6y"]
-[ext_resource type="Texture2D" uid="uid://deddvvx8chwbp" path="res://icon.svg" id="3_kw7rf"]
+[ext_resource type="Script" uid="uid://fue2j8ntka7w" path="res://game.gd" id="1_bor6y"]
 [ext_resource type="Texture2D" uid="uid://dx24htd1h4we2" path="res://map-3.png" id="5_3th4p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fv8qf"]
-size = Vector2(111, 56.625)
+size = Vector2(111, 76)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_bor6y")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -1
-
-[node name="Map" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(578.16, 324)
-scale = Vector2(0.111642, 0.0981818)
+[node name="Map" type="Sprite2D" parent="."]
+position = Vector2(2586.08, 1458)
+scale = Vector2(0.499977, 0.439697)
 texture = ExtResource("5_3th4p")
 
-[node name="SpawnPoint" type="Marker2D" parent="."]
-position = Vector2(77, 44)
-
 [node name="EnterStore" type="Area2D" parent="."]
-position = Vector2(1080, 184)
+position = Vector2(2700, 571)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnterStore"]
-position = Vector2(-472, -72)
+position = Vector2(-2, -4)
 shape = SubResource("RectangleShape2D_fv8qf")
 
-[node name="Icon" type="Sprite2D" parent="EnterStore"]
-position = Vector2(790, 123)
-scale = Vector2(2.25, 1.03906)
-texture = ExtResource("3_kw7rf")
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(1046, 2694)
 
 [connection signal="body_entered" from="EnterStore" to="." method="_on_enter_store_body_entered"]
 [connection signal="body_exited" from="EnterStore" to="." method="_on_enter_store_body_exited"]
