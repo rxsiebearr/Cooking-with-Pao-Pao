@@ -25,4 +25,3 @@ func _on_timer_bar_is_cooked() -> void:
 
 func _on_timer_bar_is_burnt() -> void:
 	rice_burnt()
-	print("rice is burnt")

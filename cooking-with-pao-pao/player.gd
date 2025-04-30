@@ -12,6 +12,8 @@ class_name Player
 @onready var rice_cooker_area: Area2D = $"../RiceCookerArea"
 @onready var cook_timer: Timer = %CookTimer
 @onready var burnt_timer: Timer = %BurntTimer
+@onready var camera_2d: Camera2D = %Camera2D
+
 
 var enter: bool = false
 var done: bool = false
@@ -26,7 +28,6 @@ var burnt
 
 func _ready():
 	item_sprite.hide()
-	
 
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -85,7 +86,7 @@ func _input(event):
 		
 		if carrying_item && item_name == "RiceBowl" && rice_in_cooker && cook_timer.is_stopped() && !burnt:
 				rice_in_cooker = false
-				item_sprite.texture = load("res://rice_bowl_filled.png")
+				item_sprite.texture = load("res://bowlofrice.png")
 				item_name = "CookedRice"
 				rice_cooker_area.rice_closed()
 				enter = false
@@ -102,11 +103,11 @@ func _input(event):
 			Global.money += 1
 			Global.orders -= 1
 			item_name = "RiceBowl"
-			item_sprite.texture = load("res://rice_bowl-removebg-preview.png")
+			item_sprite.texture = load("res://bowl.png")
 		
 		if burnt && enter && !carrying_item:
 			item_sprite.show()
-			item_sprite.texture = load("res://icon.svg")
+			item_sprite.texture = load("res://trash.png")
 			item_name = "TrashBag"
 			rice_cooker_area.rice_closed()
 			carrying_item = true
