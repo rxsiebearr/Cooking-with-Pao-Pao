@@ -35,8 +35,9 @@ size_flags_horizontal = 3
 [node name="VBoxContainer" type="VBoxContainer" parent="Ticket"]
 layout_mode = 1
 offset_left = 16.0
+offset_top = 9.0
 offset_right = 183.0
-offset_bottom = 142.0
+offset_bottom = 153.0
 scale = Vector2(0.867206, 0.867206)
 alignment = 1
 

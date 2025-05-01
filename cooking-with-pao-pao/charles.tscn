@@ -32,5 +32,8 @@ position = Vector2(0, 50.5)
 shape = SubResource("RectangleShape2D_bihgp")
 debug_color = Color(0.847183, 4.04298e-06, 0.532205, 0.42)
 
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.75, 0.75)
+
 [connection signal="area_entered" from="PickupArea" to="." method="_on_pickup_area_area_entered"]
 [connection signal="area_exited" from="PickupArea" to="." method="_on_pickup_area_area_exited"]

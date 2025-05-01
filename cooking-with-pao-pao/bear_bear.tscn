@@ -1,10 +1,10 @@
 [gd_scene load_steps=5 format=3 uid="uid://bim1vfyr0jrkh"]
 
-[ext_resource type="Script" uid="uid://cy17urpmr2xrv" path="res://player.gd" id="1_tjqft"]
+[ext_resource type="Script" path="res://player.gd" id="1_tjqft"]
 [ext_resource type="Texture2D" uid="uid://bn20pr461jtvg" path="res://bearbear.png" id="2_2r41p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hffya"]
-size = Vector2(111.667, 101.667)
+size = Vector2(100.833, 65.8334)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bihgp"]
 size = Vector2(169.75, 117.5)
@@ -22,7 +22,7 @@ scale = Vector2(0.26275, 0.26275)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-0.833332, 44.1667)
+position = Vector2(2.91662, 72.0833)
 shape = SubResource("RectangleShape2D_hffya")
 
 [node name="PickupArea" type="Area2D" parent="."]
@@ -34,6 +34,7 @@ debug_color = Color(0.847183, 4.04298e-06, 0.532205, 0.42)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true
+zoom = Vector2(0.75, 0.75)
 
 [connection signal="area_entered" from="PickupArea" to="." method="_on_pickup_area_area_entered"]
 [connection signal="area_exited" from="PickupArea" to="." method="_on_pickup_area_area_exited"]
