@@ -1,7 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://cynmc3laope7d"]
+[gd_scene load_steps=10 format=4 uid="uid://cynmc3laope7d"]
+
+[ext_resource type="Texture2D" uid="uid://cisnytviehv0i" path="res://dirtblock-Sheet (2).png" id="1_hyayo"]
+[ext_resource type="Texture2D" path="res://Farming/rice plant-Sheet-Sheet.png" id="2_jujn8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_omkq4"]
 resource_name = "dirt"
+texture = ExtResource("1_hyayo")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/custom_data_0 = "soil"
@@ -45,6 +49,7 @@ custom_data_layer_0/type = 4
 sources/0 = SubResource("TileSetAtlasSource_omkq4")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ajeyl"]
+texture = ExtResource("2_jujn8")
 texture_region_size = Vector2i(64, 64)
 14:6/0 = 0
 14:6/0/texture_origin = Vector2i(4, 20)
