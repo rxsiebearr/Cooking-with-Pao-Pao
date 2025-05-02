@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="Cooking with Pao Pao"
-run/main_scene="res://character_selection.tscn"
-config/features=PackedStringArray("4.3", "Forward Plus")
+run/main_scene="uid://d4mjrfywang3j"
+config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -20,7 +20,7 @@ config/icon="res://icon.svg"
 GlobalData="*res://global_data.gd"
 InteractionManager="*res://interaction/InteractionManager.tscn"
 Global="*res://Global.gd"
-MoneyCount="*res://money_count.tscn"
+Functions="*res://Functions.gd"
 
 [display]
 

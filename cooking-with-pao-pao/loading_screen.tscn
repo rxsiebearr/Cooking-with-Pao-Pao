@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://674yxrtyefaa"]
+
+[ext_resource type="Script" uid="uid://687ydjulf6wj" path="res://loading_screen.gd" id="1_mggpi"]
+
+[sub_resource type="Gradient" id="Gradient_htrc2"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_weff3"]
+gradient = SubResource("Gradient_htrc2")
+
+[sub_resource type="LabelSettings" id="LabelSettings_fgney"]
+
+[node name="LoadingScreen" type="CanvasLayer"]
+script = ExtResource("1_mggpi")
+next_scene_path = "uid://bb76tce44o007"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_weff3")
+
+[node name="Label" type="Label" parent="Control/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.5
+offset_top = -11.1667
+offset_right = 37.5
+offset_bottom = 11.1667
+grow_horizontal = 2
+grow_vertical = 2
+text = "Loading..."
+label_settings = SubResource("LabelSettings_fgney")

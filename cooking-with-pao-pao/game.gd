@@ -1,6 +1,7 @@
 extends Node2D
 
 var enter: bool = false
+var parameter: Dictionary
 
 func _ready():
 	var playerCharPath = GlobalData.playerCharPath
