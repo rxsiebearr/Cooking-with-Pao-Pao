@@ -1,4 +1,9 @@
 extends Node
 
-var money = 10
-var rice = 0
+var money = 0
+var orders = 0
+
+func _process(delta: float) -> void:
+	if orders < 0:
+		orders = 0
+ 

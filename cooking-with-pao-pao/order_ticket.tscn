@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bg4dwifdn28oi"]
 
-[ext_resource type="Script" path="res://order_ticket.gd" id="1_8n621"]
-[ext_resource type="Texture2D" uid="uid://qhaiaur53lxo" path="res://coin.png" id="1_mwikj"]
+[ext_resource type="Script" uid="uid://ce3ys0sd4nlo" path="res://order_ticket.gd" id="1_8n621"]
+[ext_resource type="Texture2D" uid="uid://c5tetd4aea3yx" path="res://rice_bowl_filled.png" id="2_8n621"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_f32eo"]
 font_size = 50
@@ -12,12 +12,12 @@ font_size = 50
 font_color = Color(0, 0, 0, 1)
 
 [node name="OrderTickets" type="Control"]
-layout_direction = 1
 layout_mode = 3
 anchor_right = 1.0
 anchor_bottom = 0.432
+offset_top = -1.0
 offset_right = -954.0
-offset_bottom = 0.0639954
+offset_bottom = -0.936005
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8n621")
@@ -47,9 +47,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Ticket/VBoxContainer"]
-position = Vector2(112, 96)
+position = Vector2(120, 105)
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_mwikj")
+texture = ExtResource("2_8n621")
 
 [node name="OrderAmount" type="Label" parent="Ticket/VBoxContainer"]
 layout_mode = 2

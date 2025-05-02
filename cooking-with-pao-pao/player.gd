@@ -10,18 +10,21 @@ class_name Player
 @onready var item_sprite: Sprite2D = $ItemSprite
 @onready var rice_cooker: Sprite2D = $"../RiceCookerArea/RiceCooker"
 @onready var rice_cooker_area: Area2D = $"../RiceCookerArea"
-@onready var timer: Timer = %Timer
-@onready var exclamation_mark: Label = %ExclamationMark
+@onready var cook_timer: Timer = %CookTimer
+@onready var burnt_timer: Timer = %BurntTimer
 
 var enter: bool = false
+var done: bool = false
 var rice_in_cooker: bool = false
 var carrying_item: bool = false
 var drop_pos: Vector2
 var items_in_range: Array = []
+var held_item_name: String = ""
 
 func _ready():
 	item_sprite.hide()
-		
+	
+
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	var desired_velocity := speed * direction
@@ -44,6 +47,7 @@ func pickup_item(item: Area2D):
 	carrying_item = true
 	if (item is pickable_item):
 		item_sprite.texture = item.item_texture
+		held_item_name = item.item_name
 	item.queue_free()
 	item_sprite.show()
 
@@ -51,10 +55,16 @@ func drop_item():
 	item_sprite.hide()
 	var item = item_drop.instantiate()
 	item.item_texture = item_sprite.texture
+	item.item_name = held_item_name
+	item.scale = item.item_scale
+	print(item.scale)
 	item.position = position + drop_pos
 	get_parent().add_child(item)
 	carrying_item = false
 
+func get_held_item_name() -> String:
+	return held_item_name
+	
 func _on_pickup_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("item_drop"):
 		items_in_range.append(area)
@@ -71,25 +81,48 @@ func _input(event):
 			if !items_in_range.is_empty():
 				pickup_item(items_in_range.pick_random())
 	if event.is_action_pressed("interact"):
-		if enter:
+		if carrying_item && held_item_name == "RiceBowl" && rice_in_cooker && cook_timer.is_stopped():
+				rice_in_cooker = false
+				item_sprite.texture = load("res://rice_bowl_filled.png")
+				held_item_name = "CookedRice"
+				
+		elif enter && carrying_item && held_item_name == "Rice":
 			rice_cooker.texture = rice_cooker_area.rice_rice()
 			rice_in_cooker = true
 			item_sprite.hide()
 			carrying_item = false
-			timer.start()
+			cook_timer.start()
 		
-			
+		if event.is_action_pressed("interact"):
+			if carrying_item && held_item_name == "CookedRice" && done && Global.orders > 0:
+				Global.money += 1
+				Global.orders -= 1
+				held_item_name = "RiceBowl"
+				item_sprite.texture = load("res://rice_bowl-removebg-preview.png")
+				
+	if event.is_action_pressed("ordertest"):
+			Global.orders += 1
+	
+
+
 func _on_rice_cooker_area_body_entered(body: Node2D) -> void:
-	if body is Player && rice_in_cooker:
+	if body is Player:
 		enter = true
-	else:
-		enter = true
-		rice_cooker.texture = rice_cooker_area.rice_open()
+		if !rice_in_cooker:
+			rice_cooker.texture = rice_cooker_area.rice_open()
 		
 
 func _on_rice_cooker_area_body_exited(body: Node2D) -> void:
-	if body is Player && rice_in_cooker:
+	if body is Player:
 		enter = false
-	else:
-		enter = false
-		rice_cooker.texture = rice_cooker_area.rice_closed()
+		if !rice_in_cooker:
+			rice_cooker.texture = rice_cooker_area.rice_closed()
+			
+
+func _on_turn_in_body_entered(body: Node2D) -> void:
+	if body is Player:
+		done = true
+
+func _on_turn_in_body_exited(body: Node2D) -> void:
+	if body is Player:
+			done = false
