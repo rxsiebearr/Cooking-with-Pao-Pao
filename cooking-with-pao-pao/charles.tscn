@@ -3,17 +3,17 @@
 [ext_resource type="Script" path="res://player.gd" id="1_47y3h"]
 [ext_resource type="Texture2D" uid="uid://bt0ij2i0vx48u" path="res://charles.png" id="2_2oeg4"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gq6uv"]
-radius = 51.0
-height = 189.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_et2x8"]
+size = Vector2(64, 29)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bihgp"]
-size = Vector2(120, 73)
+size = Vector2(96, 76)
 
 [node name="Charles" type="CharacterBody2D"]
 script = ExtResource("1_47y3h")
 
 [node name="CharacterSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_2oeg4")
 
 [node name="ItemSprite" type="Sprite2D" parent="."]
@@ -22,18 +22,22 @@ scale = Vector2(0.26275, 0.26275)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(1, -11)
-shape = SubResource("CapsuleShape2D_gq6uv")
+position = Vector2(0, 62.5)
+shape = SubResource("RectangleShape2D_et2x8")
 
 [node name="PickupArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
-position = Vector2(0, 50.5)
+position = Vector2(0, 42)
 shape = SubResource("RectangleShape2D_bihgp")
 debug_color = Color(0.847183, 4.04298e-06, 0.532205, 0.42)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.75, 0.75)
+limit_left = 0
+limit_top = 0
+limit_right = 5152
+limit_bottom = 2912
 
 [connection signal="area_entered" from="PickupArea" to="." method="_on_pickup_area_area_entered"]
 [connection signal="area_exited" from="PickupArea" to="." method="_on_pickup_area_area_exited"]
