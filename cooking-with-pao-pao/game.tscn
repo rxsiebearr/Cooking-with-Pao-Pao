@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://bidwuh6pstcpq"]
 
-[ext_resource type="Script" path="res://game.gd" id="1_bor6y"]
+[ext_resource type="Script" uid="uid://fue2j8ntka7w" path="res://game.gd" id="1_bor6y"]
 [ext_resource type="PackedScene" uid="uid://cgtb314jo2ggl" path="res://money_count.tscn" id="3_frnrn"]
-[ext_resource type="Script" path="res://minimap.gd" id="4_3oobf"]
+[ext_resource type="Script" uid="uid://c5142sa03hlbh" path="res://minimap.gd" id="4_3oobf"]
 [ext_resource type="Texture2D" uid="uid://dx24htd1h4we2" path="res://map-3.png" id="5_3th4p"]
 [ext_resource type="Texture2D" uid="uid://j8b453pmaln8" path="res://Placeholder images/Godot_icon.svg.png" id="5_xnhry"]
 
