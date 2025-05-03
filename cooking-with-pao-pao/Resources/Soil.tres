@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="BlockData" load_steps=2 format=3 uid="uid://cu8aoj3x2dnvq"]
+[gd_resource type="Resource" script_class="BlockData" load_steps=2 format=3 uid="uid://pxw2gc7xc444"]
 
 [ext_resource type="Script" path="res://BlockData.gd" id="1_xsfb5"]
 

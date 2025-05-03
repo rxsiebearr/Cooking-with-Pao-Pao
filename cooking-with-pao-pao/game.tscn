@@ -1,16 +1,123 @@
-[gd_scene load_steps=7 format=3 uid="uid://bidwuh6pstcpq"]
+[gd_scene load_steps=20 format=4 uid="uid://bidwuh6pstcpq"]
 
 [ext_resource type="Script" uid="uid://fue2j8ntka7w" path="res://game.gd" id="1_bor6y"]
+[ext_resource type="Script" path="res://BlockData.gd" id="2_mfdv2"]
 [ext_resource type="PackedScene" uid="uid://cgtb314jo2ggl" path="res://money_count.tscn" id="3_frnrn"]
-[ext_resource type="Script" uid="uid://c5142sa03hlbh" path="res://minimap.gd" id="4_3oobf"]
+[ext_resource type="Resource" uid="uid://pxw2gc7xc444" path="res://Resources/Soil.tres" id="3_iotsf"]
+[ext_resource type="Script" path="res://minimap.gd" id="4_3oobf"]
+[ext_resource type="Resource" uid="uid://disss884y34ay" path="res://Resources/Rice.tres" id="4_lc2xo"]
 [ext_resource type="Texture2D" uid="uid://dx24htd1h4we2" path="res://map-3.png" id="5_3th4p"]
 [ext_resource type="Texture2D" uid="uid://j8b453pmaln8" path="res://Placeholder images/Godot_icon.svg.png" id="5_xnhry"]
+[ext_resource type="Texture2D" uid="uid://xpp2042vwlli" path="res://Farming/dirtblock-Sheet.png" id="6_ryrav"]
+[ext_resource type="Texture2D" uid="uid://cbbd2doedjctq" path="res://Farming/rice plant-Sheet-Sheet.png" id="7_eow3j"]
+[ext_resource type="Texture2D" uid="uid://yv7oa8wsu4bh" path="res://Farming/image-removebg-preview__1_-removebg-preview.png" id="8_j5wjh"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_omkq4"]
+resource_name = "dirt"
+texture = ExtResource("6_ryrav")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/custom_data_0 = "soil"
+1:0/0 = 0
+1:0/0/custom_data_0 = "wet soil"
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ahajd"]
+tile_size = Vector2i(64, 64)
+custom_data_layer_0/name = "tile_name"
+custom_data_layer_0/type = 4
+sources/0 = SubResource("TileSetAtlasSource_omkq4")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ajeyl"]
+texture = ExtResource("7_eow3j")
+texture_region_size = Vector2i(64, 64)
+14:6/size_in_atlas = Vector2i(2, 1)
+14:6/0 = 0
+14:6/0/texture_origin = Vector2i(4, 20)
+14:6/0/custom_data_0 = "rice"
+34:4/size_in_atlas = Vector2i(2, 3)
+34:4/0 = 0
+34:4/0/texture_origin = Vector2i(4, 85)
+34:4/0/custom_data_0 = "rice"
+44:4/size_in_atlas = Vector2i(2, 3)
+44:4/0 = 0
+44:4/0/texture_origin = Vector2i(4, 85)
+44:4/0/custom_data_0 = "rice"
+54:4/size_in_atlas = Vector2i(2, 3)
+54:4/0 = 0
+54:4/0/texture_origin = Vector2i(5, 85)
+54:4/0/custom_data_0 = "rice"
+24:5/size_in_atlas = Vector2i(2, 2)
+24:5/0 = 0
+24:5/0/texture_origin = Vector2i(5, 50)
+24:5/0/custom_data_0 = "rice"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_omkq4"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8aqas"]
+texture = SubResource("CompressedTexture2D_omkq4")
+texture_region_size = Vector2i(64, 64)
+2:2/0 = 0
+2:2/0/texture_origin = Vector2i(3, 120)
+2:2/0/custom_data_0 = "rice"
+
+[sub_resource type="TileSet" id="TileSet_po1gb"]
+tile_size = Vector2i(64, 64)
+custom_data_layer_0/name = "tile_name"
+custom_data_layer_0/type = 4
+sources/4 = SubResource("TileSetAtlasSource_8aqas")
+sources/0 = SubResource("TileSetAtlasSource_ajeyl")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fv8qf"]
 size = Vector2(112, 56)
 
+[sub_resource type="LabelSettings" id="LabelSettings_ynp53"]
+font_size = 12
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_bor6y")
+block = Dictionary[String, ExtResource("2_mfdv2")]({
+"rice": ExtResource("4_lc2xo"),
+"soil": ExtResource("3_iotsf")
+})
+
+[node name="FarmingLand" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAZAAwAAAAAAAAAAAAaAAwAAAAAAAAAAAAbAAwAAAAAAAAAAAAcAAwAAAAAAAAAAAAdAAwAAAAAAAAAAAAeAAwAAAAAAAAAAAAfAAwAAAAAAAAAAAAgAAwAAAAAAAAAAAAhAAwAAAAAAAAAAAAiAAwAAAAAAAAAAAAjAAwAAAAAAAAAAAAZAA0AAAAAAAAAAAAaAA0AAAAAAAAAAAAaAA4AAAAAAAAAAAAbAA4AAAAAAAAAAAAbAA8AAAAAAAAAAAAcAA8AAAAAAAAAAAAcABAAAAAAAAAAAAAdABAAAAAAAAAAAAAeABEAAAAAAAAAAAAbAA0AAAAAAAAAAAAcAA0AAAAAAAAAAAAdAA0AAAAAAAAAAAAeAA0AAAAAAAAAAAAfAA0AAAAAAAAAAAAgAA0AAAAAAAAAAAAhAA0AAAAAAAAAAAAiAA0AAAAAAAAAAAAjAA0AAAAAAAAAAAAjAA4AAAAAAAAAAAAjAA8AAAAAAAAAAAAjABAAAAAAAAAAAAAjABEAAAAAAAAAAAAjABIAAAAAAAAAAAAjABMAAAAAAAAAAAAjABQAAAAAAAAAAAAjABUAAAAAAAAAAAAjABYAAAAAAAAAAAAjABcAAAAAAAAAAAAjABgAAAAAAAAAAAAiABgAAAAAAAAAAAAhABgAAAAAAAAAAAAgABgAAAAAAAAAAAAfABgAAAAAAAAAAAAeABgAAAAAAAAAAAAdABgAAAAAAAAAAAAcABgAAAAAAAAAAAAbABgAAAAAAAAAAAAaABgAAAAAAAAAAAAZABgAAAAAAAAAAAAYABgAAAAAAAAAAAAXABgAAAAAAAAAAAAWABgAAAAAAAAAAAAVABgAAAAAAAAAAAAUABgAAAAAAAAAAAATABgAAAAAAAAAAAATABcAAAAAAAAAAAATABYAAAAAAAAAAAATABUAAAAAAAAAAAATABQAAAAAAAAAAAAUABQAAAAAAAAAAAAVABQAAAAAAAAAAAAWABQAAAAAAAAAAAAWABMAAAAAAAAAAAAXABMAAAAAAAAAAAAXABIAAAAAAAAAAAAYABIAAAAAAAAAAAAYABEAAAAAAAAAAAAZABEAAAAAAAAAAAAZABAAAAAAAAAAAAAZAA8AAAAAAAAAAAAZAA4AAAAAAAAAAAAUABUAAAAAAAAAAAAVABUAAAAAAAAAAAAWABUAAAAAAAAAAAAXABUAAAAAAAAAAAAYABUAAAAAAAAAAAAZABUAAAAAAAAAAAAaABUAAAAAAAAAAAAbABUAAAAAAAAAAAAcABUAAAAAAAAAAAAdABUAAAAAAAAAAAAeABUAAAAAAAAAAAAfABUAAAAAAAAAAAAgABUAAAAAAAAAAAAhABUAAAAAAAAAAAAiABUAAAAAAAAAAAAiABYAAAAAAAAAAAAiABcAAAAAAAAAAAAhABcAAAAAAAAAAAAgABcAAAAAAAAAAAAfABcAAAAAAAAAAAAeABcAAAAAAAAAAAAdABcAAAAAAAAAAAAcABcAAAAAAAAAAAAbABcAAAAAAAAAAAAaABcAAAAAAAAAAAAZABcAAAAAAAAAAAAYABcAAAAAAAAAAAAXABcAAAAAAAAAAAAWABcAAAAAAAAAAAAVABcAAAAAAAAAAAAUABcAAAAAAAAAAAAUABYAAAAAAAAAAAAVABYAAAAAAAAAAAAWABYAAAAAAAAAAAAXABYAAAAAAAAAAAAYABYAAAAAAAAAAAAZABYAAAAAAAAAAAAaABYAAAAAAAAAAAAbABYAAAAAAAAAAAAcABYAAAAAAAAAAAAdABYAAAAAAAAAAAAeABYAAAAAAAAAAAAfABYAAAAAAAAAAAAgABYAAAAAAAAAAAAhABYAAAAAAAAAAAAiAA4AAAAAAAAAAAAiAA8AAAAAAAAAAAAiABAAAAAAAAAAAAAiABEAAAAAAAAAAAAiABIAAAAAAAAAAAAiABMAAAAAAAAAAAAiABQAAAAAAAAAAAAhABQAAAAAAAAAAAAhABMAAAAAAAAAAAAhABIAAAAAAAAAAAAhABEAAAAAAAAAAAAhABAAAAAAAAAAAAAhAA8AAAAAAAAAAAAhAA4AAAAAAAAAAAAgAA4AAAAAAAAAAAAgAA8AAAAAAAAAAAAgABAAAAAAAAAAAAAgABEAAAAAAAAAAAAgABIAAAAAAAAAAAAgABMAAAAAAAAAAAAgABQAAAAAAAAAAAAfABMAAAAAAAAAAAAfABIAAAAAAAAAAAAfABEAAAAAAAAAAAAfABAAAAAAAAAAAAAeABAAAAAAAAAAAAAeAA8AAAAAAAAAAAAeAA4AAAAAAAAAAAAdAA4AAAAAAAAAAAAdAA8AAAAAAAAAAAAeABIAAAAAAAAAAAAeABMAAAAAAAAAAAAeABQAAAAAAAAAAAAdABQAAAAAAAAAAAAdABMAAAAAAAAAAAAdABIAAAAAAAAAAAAdABEAAAAAAAAAAAAcAA4AAAAAAAAAAAAcABEAAAAAAAAAAAAcABIAAAAAAAAAAAAcABMAAAAAAAAAAAAcABQAAAAAAAAAAAAbABIAAAAAAAAAAAAbABEAAAAAAAAAAAAbABAAAAAAAAAAAAAaABAAAAAAAAAAAAAaABEAAAAAAAAAAAAbABMAAAAAAAAAAAAbABQAAAAAAAAAAAAaAA8AAAAAAAAAAAAZABIAAAAAAAAAAAAZABMAAAAAAAAAAAAZABQAAAAAAAAAAAAYABQAAAAAAAAAAAAYABMAAAAAAAAAAAAXABQAAAAAAAAAAAAaABIAAAAAAAAAAAAaABMAAAAAAAAAAAAaABQAAAAAAAAAAAAfABQAAAAAAAAAAAAfAA8AAAAAAAAAAAAfAA4AAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_ahajd")
+
+[node name="Crops" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_po1gb")
 
 [node name="Map" type="Sprite2D" parent="."]
 z_index = -1
@@ -20,20 +127,24 @@ texture = ExtResource("5_3th4p")
 metadata/_edit_lock_ = true
 
 [node name="EnterStore" type="Area2D" parent="."]
+visible = false
 position = Vector2(2700, 571)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnterStore"]
+visible = false
 position = Vector2(-12, -7)
 shape = SubResource("RectangleShape2D_fv8qf")
 debug_color = Color(0.770041, 9.62615e-07, 0.396704, 0.419608)
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
-position = Vector2(920, 2808)
+position = Vector2(2571, 672)
 
 [node name="Barriers" type="StaticBody2D" parent="."]
+visible = false
 position = Vector2(0, -0.00012207)
 
 [node name="Lake" type="CollisionPolygon2D" parent="Barriers"]
+visible = false
 polygon = PackedVector2Array(1384, 1000, 1312, 960, 1104, 960, 1136, 912, 1352, 912, 1414, 946, 1419, 638, 1128, 728, 816, 728, 624, 640, 376, 736, 192, 992, 0, 1104, 0, 1776, 312, 1736, 664, 1608, 776, 1536, 800, 1456, 1008, 1320, 1080, 1296, 1088, 1256, 1120, 1256, 1128, 1280, 1256, 1152)
 
 [node name="Shop" type="CollisionPolygon2D" parent="Barriers"]
@@ -68,10 +179,44 @@ polygon = PackedVector2Array(5128, 1575, 5111, 1575, 5036, 1575, 5011, 1584, 499
 polygon = PackedVector2Array(24, 0.00012207, 24, 2912, 5128, 2912, 5128, 0.00012207, 8, 0.00012207, 8, -15.9999, 5168, -15.9999, 5168, 2928, -16, 2928, -16, -15.9999, 8, -15.9999, 8, 0.00012207)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -74.0
+offset_top = 2.0
+offset_right = -34.0
+offset_bottom = 42.0
+grow_horizontal = 0
+scale = Vector2(1.79079, 1.50574)
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -38.0
+offset_top = 10.0
+offset_right = 2.0
+offset_bottom = 32.3333
+grow_horizontal = 0
+scale = Vector2(2.34475, 2.0732)
+text = "x0"
+label_settings = SubResource("LabelSettings_ynp53")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control"]
+position = Vector2(-35, 16)
+scale = Vector2(0.195542, 0.180439)
+texture = ExtResource("8_j5wjh")
 
 [node name="MoneyCount" parent="CanvasLayer" instance=ExtResource("3_frnrn")]
+visible = false
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer"]
+visible = false
 offset_left = 1000.0
 offset_top = 496.0
 offset_right = 1512.0
@@ -80,16 +225,19 @@ scale = Vector2(0.288713, 0.288713)
 
 [node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer"]
 handle_input_locally = false
-render_target_update_mode = 4
+render_target_update_mode = 0
 script = ExtResource("4_3oobf")
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
+visible = false
 texture = ExtResource("5_3th4p")
 
 [node name="Camera2D" type="Camera2D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
+visible = false
 zoom = Vector2(0.1, 0.1)
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/SubViewportContainer"]
+visible = false
 position = Vector2(249.382, 249.382)
 scale = Vector2(0.0359555, 0.0396654)
 texture = ExtResource("5_xnhry")
