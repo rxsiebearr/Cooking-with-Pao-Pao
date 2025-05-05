@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CropData" load_steps=2 format=3 uid="uid://disss884y34ay"]
+
+[ext_resource type="Script" uid="uid://dqjw4830v3spo" path="res://CropData.gd" id="1_nkj30"]
+
+[resource]
+script = ExtResource("1_nkj30")
+duration = 10.0
+tile_name = "rice"
+atlas_coords = Array[Vector2i]([Vector2i(14, 6), Vector2i(24, 5), Vector2i(34, 4), Vector2i(44, 4), Vector2i(54, 4)])
+source_id = 0

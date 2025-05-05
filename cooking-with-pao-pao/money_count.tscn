@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://preklnqny46s"]
+[gd_scene load_steps=4 format=3 uid="uid://cgtb314jo2ggl"]
 
 [ext_resource type="Script" uid="uid://d4go2erjisd1n" path="res://money_count.gd" id="1_vm3ea"]
 [ext_resource type="Texture2D" uid="uid://qhaiaur53lxo" path="res://coin.png" id="2_c2uts"]
@@ -12,25 +12,22 @@ layout_mode = 3
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -24.0
-offset_top = 16.0
-offset_right = -24.0
-offset_bottom = 16.0
 grow_horizontal = 0
+scale = Vector2(0.873685, 0.873685)
 pivot_offset = Vector2(-160, 84)
 script = ExtResource("1_vm3ea")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = -144.0
-offset_top = 16.0
-offset_right = -76.0
-offset_bottom = 99.75
+offset_left = -40.9639
+offset_top = 15.3254
+offset_right = 27.0361
+offset_bottom = 99.0754
 text = "1x"
 label_settings = SubResource("LabelSettings_t5d4h")
 
 [node name="Sprite2D" type="Sprite2D" parent="Label"]
-position = Vector2(-200, 48)
+position = Vector2(-357.108, 45.7831)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_c2uts")
 offset = Vector2(1520, -120)
