@@ -21,10 +21,10 @@ var drop_pos: Vector2
 var items_in_range: Array = []
 var held_item_name: String = ""
 var item_scale: Vector2
+var near_fridge: bool = false
 
 func _ready():
 	item_sprite.hide()
-	
 
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -94,7 +94,14 @@ func _input(event):
 			item_sprite.hide()
 			carrying_item = false
 			cook_timer.start()
-		
+
+		elif near_fridge and Global.rice_count > 0:
+			Global.rice_count -= 1 
+			held_item_name = "Rice"
+			item_sprite.texture = load("res://rice.png") 
+			item_sprite.show()
+			carrying_item = true
+			
 		if event.is_action_pressed("interact"):
 			if carrying_item && held_item_name == "CookedRice" && done && Global.orders > 0:
 				Global.money += 1
@@ -128,3 +135,11 @@ func _on_turn_in_body_entered(body: Node2D) -> void:
 func _on_turn_in_body_exited(body: Node2D) -> void:
 	if body is Player:
 			done = false
+
+func _on_fridge_body_entered(body: Node2D) -> void:
+	if body == self:
+		near_fridge = true
+
+func _on_fridge_body_exited(body: Node2D) -> void:
+	if body == self:
+		near_fridge = false

@@ -1,18 +1,19 @@
-[gd_scene load_steps=23 format=3 uid="uid://dgssr5d1ur6yb"]
+[gd_scene load_steps=24 format=3 uid="uid://dgssr5d1ur6yb"]
 
 [ext_resource type="Texture2D" uid="uid://yt7c48s5m2mv" path="res://store_1_updated.png" id="1_2cf8m"]
 [ext_resource type="PackedScene" uid="uid://bg4dwifdn28oi" path="res://order_ticket.tscn" id="1_ceqsw"]
-[ext_resource type="Script" path="res://rice_cooker_area.gd" id="1_eqtje"]
+[ext_resource type="Script" uid="uid://k24ljtr5uavh" path="res://rice_cooker_area.gd" id="1_eqtje"]
 [ext_resource type="PackedScene" uid="uid://bim1vfyr0jrkh" path="res://bear_bear.tscn" id="1_qnkjh"]
 [ext_resource type="Texture2D" uid="uid://da0c8pboj1qp2" path="res://rice cooker closed.png" id="1_trkgk"]
 [ext_resource type="Texture2D" uid="uid://cpvp4dd13yxkg" path="res://rice cooker opened.png" id="3_03rmw"]
-[ext_resource type="PackedScene" uid="uid://dbebqrldaejj1" path="res://item_drop.tscn" id="4_54ox5"]
-[ext_resource type="Script" path="res://timer_bar.gd" id="4_bx3hj"]
+[ext_resource type="PackedScene" uid="uid://d2bhvgsu0tvmv" path="res://item_drop.tscn" id="4_54ox5"]
+[ext_resource type="Script" uid="uid://bvfe6mrc200l7" path="res://timer_bar.gd" id="4_bx3hj"]
 [ext_resource type="Texture2D" uid="uid://bpi4kf2ifi2lf" path="res://rice cooker rice.png" id="4_o5lyj"]
 [ext_resource type="Texture2D" uid="uid://dgliqp2453eny" path="res://rice.png" id="5_2wqnh"]
 [ext_resource type="Texture2D" uid="uid://cstx0wlpvval6" path="res://rice cooked.png" id="5_atcon"]
 [ext_resource type="Texture2D" uid="uid://br5fws046u57o" path="res://rice_burnt.png" id="6_58c1d"]
 [ext_resource type="Texture2D" uid="uid://b72t1sumvrkmo" path="res://rice_bowl-removebg-preview.png" id="10_p8wo6"]
+[ext_resource type="PackedScene" uid="uid://cytsxrwf5vm4h" path="res://fridge.tscn" id="14_f21rd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ceqsw"]
 size = Vector2(158, 129)
@@ -112,12 +113,12 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_awojr"]
 _data = {
-"RESET": SubResource("Animation_fc1kx"),
-"rice_burnt": SubResource("Animation_u4e23"),
-"rice_closed": SubResource("Animation_r5jaw"),
-"rice_cooked": SubResource("Animation_2mmfs"),
-"rice_open": SubResource("Animation_0ecwc"),
-"rice_rice": SubResource("Animation_ecuik")
+&"RESET": SubResource("Animation_fc1kx"),
+&"rice_burnt": SubResource("Animation_u4e23"),
+&"rice_closed": SubResource("Animation_r5jaw"),
+&"rice_cooked": SubResource("Animation_2mmfs"),
+&"rice_open": SubResource("Animation_0ecwc"),
+&"rice_rice": SubResource("Animation_ecuik")
 }
 
 [node name="Store #1" type="Node2D"]
@@ -160,7 +161,7 @@ shape = SubResource("RectangleShape2D_djeio")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="RiceCookerArea"]
 libraries = {
-"": SubResource("AnimationLibrary_awojr")
+&"": SubResource("AnimationLibrary_awojr")
 }
 
 [node name="TimerBar" type="Line2D" parent="RiceCookerArea"]
@@ -203,6 +204,9 @@ polygon = PackedVector2Array(160, 384, 160, 488, 904, 488, 904, 120, 8, 120, 8, 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Barriers"]
 polygon = PackedVector2Array(0, 0, 0, 120, 1040, 120, 1040, 560, 448, 560, 448, 640, 8, 640, 8, 120, 0, 120, 0, 648, 1152, 648, 1152, 0)
 
+[node name="Fridge" parent="." instance=ExtResource("14_f21rd")]
+position = Vector2(-46, 137)
+
 [connection signal="body_entered" from="TurnIn" to="Bear Bear" method="_on_turn_in_body_entered"]
 [connection signal="body_exited" from="TurnIn" to="Bear Bear" method="_on_turn_in_body_exited"]
 [connection signal="body_entered" from="RiceCookerArea" to="Bear Bear" method="_on_rice_cooker_area_body_entered"]
@@ -211,3 +215,5 @@ polygon = PackedVector2Array(0, 0, 0, 120, 1040, 120, 1040, 560, 448, 560, 448, 
 [connection signal="is_cooked" from="RiceCookerArea/TimerBar" to="RiceCookerArea" method="_on_timer_bar_is_cooked"]
 [connection signal="timeout" from="RiceCookerArea/TimerBar/CookTimer" to="RiceCookerArea/TimerBar" method="_on_timer_timeout"]
 [connection signal="timeout" from="RiceCookerArea/TimerBar/BurntTimer" to="RiceCookerArea/TimerBar" method="_on_burnt_timer_timeout"]
+[connection signal="body_entered" from="Fridge" to="Bear Bear" method="_on_fridge_body_entered"]
+[connection signal="body_exited" from="Fridge" to="Bear Bear" method="_on_fridge_body_exited"]
