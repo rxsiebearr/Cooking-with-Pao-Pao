@@ -19,15 +19,15 @@ script = ExtResource("1_vm3ea")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = -144.0
-offset_top = 16.0
-offset_right = -76.0
-offset_bottom = 99.75
+offset_left = -40.9639
+offset_top = 15.3254
+offset_right = 27.0361
+offset_bottom = 99.0754
 text = "1x"
 label_settings = SubResource("LabelSettings_t5d4h")
 
 [node name="Sprite2D" type="Sprite2D" parent="Label"]
-position = Vector2(-200, 48)
+position = Vector2(-357.108, 45.7831)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_c2uts")
 offset = Vector2(1520, -120)
