@@ -1,10 +1,10 @@
 [gd_scene load_steps=20 format=4 uid="uid://bidwuh6pstcpq"]
 
 [ext_resource type="Script" uid="uid://fue2j8ntka7w" path="res://game.gd" id="1_bor6y"]
-[ext_resource type="Script" path="res://BlockData.gd" id="2_mfdv2"]
+[ext_resource type="Script" uid="uid://dci6pslvi1xw4" path="res://BlockData.gd" id="2_mfdv2"]
 [ext_resource type="PackedScene" uid="uid://cgtb314jo2ggl" path="res://money_count.tscn" id="3_frnrn"]
 [ext_resource type="Resource" uid="uid://pxw2gc7xc444" path="res://Resources/Soil.tres" id="3_iotsf"]
-[ext_resource type="Script" path="res://minimap.gd" id="4_3oobf"]
+[ext_resource type="Script" uid="uid://c5142sa03hlbh" path="res://minimap.gd" id="4_3oobf"]
 [ext_resource type="Resource" uid="uid://disss884y34ay" path="res://Resources/Rice.tres" id="4_lc2xo"]
 [ext_resource type="Texture2D" uid="uid://dx24htd1h4we2" path="res://map-3.png" id="5_3th4p"]
 [ext_resource type="Texture2D" uid="uid://j8b453pmaln8" path="res://Placeholder images/Godot_icon.svg.png" id="5_xnhry"]
@@ -127,11 +127,9 @@ texture = ExtResource("5_3th4p")
 metadata/_edit_lock_ = true
 
 [node name="EnterStore" type="Area2D" parent="."]
-visible = false
 position = Vector2(2700, 571)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnterStore"]
-visible = false
 position = Vector2(-12, -7)
 shape = SubResource("RectangleShape2D_fv8qf")
 debug_color = Color(0.770041, 9.62615e-07, 0.396704, 0.419608)
@@ -140,11 +138,9 @@ debug_color = Color(0.770041, 9.62615e-07, 0.396704, 0.419608)
 position = Vector2(2571, 672)
 
 [node name="Barriers" type="StaticBody2D" parent="."]
-visible = false
 position = Vector2(0, -0.00012207)
 
 [node name="Lake" type="CollisionPolygon2D" parent="Barriers"]
-visible = false
 polygon = PackedVector2Array(1384, 1000, 1312, 960, 1104, 960, 1136, 912, 1352, 912, 1414, 946, 1419, 638, 1128, 728, 816, 728, 624, 640, 376, 736, 192, 992, 0, 1104, 0, 1776, 312, 1736, 664, 1608, 776, 1536, 800, 1456, 1008, 1320, 1080, 1296, 1088, 1256, 1120, 1256, 1128, 1280, 1256, 1152)
 
 [node name="Shop" type="CollisionPolygon2D" parent="Barriers"]
@@ -179,7 +175,6 @@ polygon = PackedVector2Array(5128, 1575, 5111, 1575, 5036, 1575, 5011, 1584, 499
 polygon = PackedVector2Array(24, 0.00012207, 24, 2912, 5128, 2912, 5128, 0.00012207, 8, 0.00012207, 8, -15.9999, 5168, -15.9999, 5168, 2928, -16, 2928, -16, -15.9999, 8, -15.9999, 8, 0.00012207)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -213,10 +208,8 @@ scale = Vector2(0.195542, 0.180439)
 texture = ExtResource("8_j5wjh")
 
 [node name="MoneyCount" parent="CanvasLayer" instance=ExtResource("3_frnrn")]
-visible = false
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer"]
-visible = false
 offset_left = 1000.0
 offset_top = 496.0
 offset_right = 1512.0
@@ -225,19 +218,16 @@ scale = Vector2(0.288713, 0.288713)
 
 [node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer"]
 handle_input_locally = false
-render_target_update_mode = 0
+render_target_update_mode = 4
 script = ExtResource("4_3oobf")
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
-visible = false
 texture = ExtResource("5_3th4p")
 
 [node name="Camera2D" type="Camera2D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
-visible = false
 zoom = Vector2(0.1, 0.1)
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/SubViewportContainer"]
-visible = false
 position = Vector2(249.382, 249.382)
 scale = Vector2(0.0359555, 0.0396654)
 texture = ExtResource("5_xnhry")
