@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cisnytviehv0i"
-path="res://.godot/imported/dirtblock-Sheet (2).png-b41f02bd110ca1a3609bb9c1e8999267.ctex"
+uid="uid://c8etw3lnlyokw"
+path="res://.godot/imported/DIRTGO-Sheet.png-c045c232ea7f9807f365b720578d32e3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://dirtblock-Sheet (2).png"
-dest_files=["res://.godot/imported/dirtblock-Sheet (2).png-b41f02bd110ca1a3609bb9c1e8999267.ctex"]
+source_file="res://Farming/DIRTGO-Sheet.png"
+dest_files=["res://.godot/imported/DIRTGO-Sheet.png-c045c232ea7f9807f365b720578d32e3.ctex"]
 
 [params]
 
