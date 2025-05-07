@@ -104,6 +104,8 @@ func _input(event):
 		if carrying_item && item_name == "CookedRice" && done && Global.orders > 0:
 			Global.money += 1
 			Global.orders -= 1
+			Global.orders_served += 1
+			Global.money_made += 1
 			item_name = "RiceBowl"
 			item_sprite.texture = load("res://bowl.png")
 		

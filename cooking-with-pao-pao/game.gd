@@ -105,7 +105,9 @@ func _ready():
 	
 func _process(delta: float) -> void:
 	if enter and Input.is_action_just_pressed("interact"):
-		get_tree().change_scene_to_file("res://store_#1.tscn")
+		$SpawnPoint.global_position = Vector2(2693, 568)
+		get_tree().change_scene_to_file("res://store_#1_ready.tscn")
+		
 		
 func _on_enter_store_body_entered(body: Node2D) -> void:
 	if body is Player:

@@ -1,0 +1,90 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5sso0bebrcw8"]
+
+[ext_resource type="Texture2D" uid="uid://yt7c48s5m2mv" path="res://store_1_updated.png" id="1_8c447"]
+[ext_resource type="Script" uid="uid://dswbndtp4fwst" path="res://store_#1_ready.gd" id="1_ato0w"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_84dr1"]
+font_size = 35
+
+[node name="store_#1_ready" type="Node2D"]
+script = ExtResource("1_ato0w")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Store1" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(576, 324)
+scale = Vector2(0.451765, 0.35027)
+texture = ExtResource("1_8c447")
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="YesButton" type="Button" parent="CanvasLayer/Control/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -368.0
+offset_top = 116.0
+offset_right = -333.0
+offset_bottom = 147.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(6.22399, 4.52319)
+text = "Yes"
+autowrap_mode = 2
+
+[node name="NoButton" type="Button" parent="CanvasLayer/Control/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 120.0
+offset_top = 116.0
+offset_right = 151.0
+offset_bottom = 147.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(6.75183, 4.45677)
+text = "No"
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -244.0
+offset_right = -66.0
+offset_bottom = -143.292
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.31295, 2.56188)
+text = "Are you ready to 
+start cooking?"
+label_settings = SubResource("LabelSettings_84dr1")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[connection signal="pressed" from="CanvasLayer/Control/Panel/YesButton" to="." method="_on_yes_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Panel/NoButton" to="." method="_on_no_button_pressed"]
