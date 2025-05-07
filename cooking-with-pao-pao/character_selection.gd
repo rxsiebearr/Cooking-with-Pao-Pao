@@ -2,6 +2,7 @@ extends Control
 
 @onready var character_selection_box = $VBoxContainer/HBoxContainer
 
+
 func _input(event):
 	if event is InputEventMouseButton && event.button_index == 1 && event.is_pressed():
 		var charNode = _get_char_node()

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://cnq3gwbjpwxo2"]
+
+[ext_resource type="Texture2D" uid="uid://cc3xbeog32173" path="res://Rice Bag.png" id="1_g3wi3"]
+[ext_resource type="Script" path="res://ItemData.gd" id="1_jykdg"]
+
+[resource]
+script = ExtResource("1_jykdg")
+item_name = "Rice"
+price = 3
+icon = ExtResource("1_g3wi3")
+description = ""

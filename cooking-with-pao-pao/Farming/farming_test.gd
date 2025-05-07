@@ -5,12 +5,13 @@ extends Node2D
 
 var water_level: Dictionary
 var crop: Dictionary
-var crop_count = 0
 
 @export var block : Dictionary [String, BlockData]
 
-var currently_equipped : String = "rice"
+var currently_equipped : Item1 = null
 
+func _ready():
+	Inventory.current_scene = self
 
 
 func _physics_process(delta):
@@ -51,13 +52,14 @@ func _input(event):
 			harvesting(tile_pos)
 				
 		if event.button_index == MOUSE_BUTTON_RIGHT and not crop.has(tile_pos):
-			set_tile(currently_equipped, tile_pos, crop_layer)
-			crop[tile_pos] = {
-				"name" : currently_equipped, 
-				"duration" : 0
-			}
-			print(crop)
-
+			if is_instance_of(currently_equipped, CropData):
+				set_tile(currently_equipped.tile_name, tile_pos, crop_layer)
+				crop[tile_pos] = {
+					"name" : currently_equipped.tile_name, 
+					"duration" : 0
+				}
+				print(crop)
+				Inventory.use_stackable_item()
 
 func get_snapped_position(global_pos: Vector2) -> Vector2i:
 	var local_pos = ground.to_local(global_pos)
@@ -89,6 +91,7 @@ func harvesting(pos):
 	if crop_layer.get_cell_source_id(pos) != -1 and crop.has(pos) and crop[pos]["duration"] < 0:
 		crop_layer.erase_cell(pos)
 		print(crop[pos]["name"])
-		crop_count += 1
-		get_node("Control/Label").text = "x" + str(crop_count)
+		Inventory.add_item(block[crop[pos]["name"]], 1)
+		Global.rice += 2
+		get_node("Control/Label").text = "x" + str(Global.rice)
 		crop.erase(pos)

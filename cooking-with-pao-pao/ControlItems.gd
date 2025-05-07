@@ -2,20 +2,15 @@ extends Control
 
 @onready var item_scene = preload("res://ShopItem.tscn")
 @onready var items_grid = $"Panel/Shop Items"
-@onready var sell: Button = $VBoxContainer/Sell
-@onready var sell_2: Button = $VBoxContainer/Sell2
-@onready var sell_3: Button = $VBoxContainer/Sell3
-@onready var sell_4: Button = $VBoxContainer/Sell4
-@onready var buy: Button = $VBoxContainer/Buy
-@onready var buy_2: Button = $VBoxContainer/Buy2
-@onready var buy_3: Button = $VBoxContainer/Buy3
-@onready var buy_4: Button = $VBoxContainer/Buy4
+@onready var Rice_Sell: Button = $VBoxContainer/Sell
+@onready var Rice_Seed_Sell: Button = $VBoxContainer/Sell2
+@onready var Rice_Buy: Button = $VBoxContainer/Buy
+@onready var Rice_Seed_Buy: Button = $VBoxContainer/Buy2
 @onready var label: Label = $Panel/TextureRect/Label
 
 var item_paths = [
-	"res://Rice.tres",
+	"res://Rice Shop Item.tres",
 	"res://Rice Seed.tres"
-	
 ]
 
 func _ready():
@@ -32,3 +27,11 @@ func Update_Shop():
 			items_grid.add_child(item_instance)
 			
 	label.text = "x" + str(Global.money)
+
+func _On_Rice_Buy_Pressed() -> void:
+	Global.money -= 3
+	print("Bought")
+
+func _on_Riec_sell_pressed() -> void:
+	Global.money += 3
+	print("Bought")
