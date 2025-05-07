@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://ilmrgp58gj2l"]
+
+[ext_resource type="Texture2D" uid="uid://j8b453pmaln8" path="res://Placeholder images/Godot_icon.svg.png" id="1_kp46k"]
+[ext_resource type="Theme" uid="uid://ch8eos8unrml5" path="res://main_theme.tres" id="1_oi3j2"]
+
+[node name="Dialogue" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_oi3j2")
+
+[node name="Body" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 376.0
+offset_right = 264.0
+offset_bottom = 632.0
+texture = ExtResource("1_kp46k")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Expression" type="TextureRect" parent="Body"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 272.0
+offset_top = 416.0
+offset_right = 1056.0
+offset_bottom = 550.0
+text = "chicken nugget"
+fit_content = true
+
+[node name="NextButton" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -104.0
+offset_top = -80.0
+offset_right = -16.0
+offset_bottom = -19.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("1_oi3j2")
+text = "next"
