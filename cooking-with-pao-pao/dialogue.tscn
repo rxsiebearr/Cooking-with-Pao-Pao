@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ilmrgp58gj2l"]
+[gd_scene load_steps=4 format=3 uid="uid://dxmmmvj3tb576"]
 
 [ext_resource type="Texture2D" uid="uid://j8b453pmaln8" path="res://Placeholder images/Godot_icon.svg.png" id="1_kp46k"]
-[ext_resource type="Theme" uid="uid://ch8eos8unrml5" path="res://main_theme.tres" id="1_oi3j2"]
+[ext_resource type="Theme" uid="uid://dsw1gg6uikpyy" path="res://main_theme.tres" id="1_oi3j2"]
+[ext_resource type="Script" uid="uid://b2rrbeeijvgp8" path="res://dialogue.gd" id="2_758ep"]
 
 [node name="Dialogue" type="Control"]
 layout_mode = 3
@@ -11,6 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_oi3j2")
+script = ExtResource("2_758ep")
 
 [node name="Body" type="TextureRect" parent="."]
 layout_mode = 0
@@ -36,6 +38,7 @@ offset_left = 272.0
 offset_top = 416.0
 offset_right = 1056.0
 offset_bottom = 550.0
+bbcode_enabled = true
 text = "chicken nugget"
 fit_content = true
 

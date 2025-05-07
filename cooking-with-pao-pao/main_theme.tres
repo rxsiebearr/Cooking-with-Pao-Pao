@@ -1,7 +1,7 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://ch8eos8unrml5"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://dsw1gg6uikpyy"]
 
-[ext_resource type="StyleBox" uid="uid://chnp0uq5sama7" path="res://button_theme.tres" id="1_470mv"]
-[ext_resource type="StyleBox" uid="uid://b8ec7q8yi7ybx" path="res://button_pressed.tres" id="2_a2l2q"]
+[ext_resource type="StyleBox" path="res://button_theme.tres" id="1_470mv"]
+[ext_resource type="StyleBox" path="res://button_pressed.tres" id="2_a2l2q"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a2l2q"]
 draw_center = false

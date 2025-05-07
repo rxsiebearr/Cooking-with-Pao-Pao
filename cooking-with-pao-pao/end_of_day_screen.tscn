@@ -1,0 +1,107 @@
+[gd_scene load_steps=7 format=3 uid="uid://drsb0ngkv2r7h"]
+
+[ext_resource type="Texture2D" uid="uid://qhaiaur53lxo" path="res://coin.png" id="1_fvery"]
+[ext_resource type="Script" path="res://end_of_day_screen.gd" id="1_q0pg7"]
+[ext_resource type="Texture2D" uid="uid://c5tetd4aea3yx" path="res://rice_bowl_filled.png" id="2_aq461"]
+
+[sub_resource type="Gradient" id="Gradient_i4v87"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fvery"]
+gradient = SubResource("Gradient_i4v87")
+fill_to = Vector2(0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_aq461"]
+font_size = 40
+
+[node name="EndOfDayScreen" type="CanvasLayer"]
+script = ExtResource("1_q0pg7")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_fvery")
+
+[node name="Title" type="Label" parent="Control/TextureRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -143.0
+offset_top = 40.0
+offset_right = 144.0
+offset_bottom = 95.8333
+grow_horizontal = 2
+text = "The days overs"
+label_settings = SubResource("LabelSettings_aq461")
+
+[node name="MoneyEarned" type="Label" parent="Control/TextureRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -512.0
+offset_top = 152.0
+offset_right = -225.0
+offset_bottom = 207.833
+grow_horizontal = 2
+text = "Money Earned:"
+label_settings = SubResource("LabelSettings_aq461")
+
+[node name="Coin" type="Sprite2D" parent="Control/TextureRect/MoneyEarned"]
+position = Vector2(345, 24)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_fvery")
+
+[node name="MoneyEarnedCount" type="Label" parent="Control/TextureRect/MoneyEarned"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 248.5
+offset_right = 312.5
+offset_bottom = 56.0
+grow_horizontal = 2
+text = "x1"
+label_settings = SubResource("LabelSettings_aq461")
+
+[node name="OrdersServed" type="Label" parent="Control/TextureRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -512.0
+offset_top = 256.0
+offset_right = -225.0
+offset_bottom = 311.833
+grow_horizontal = 2
+text = "Orders Served:"
+label_settings = SubResource("LabelSettings_aq461")
+
+[node name="Rice" type="Sprite2D" parent="Control/TextureRect/OrdersServed"]
+position = Vector2(344, 24)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_aq461")
+
+[node name="OrderServedCount" type="Label" parent="Control/TextureRect/OrdersServed"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 248.5
+offset_right = 312.5
+offset_bottom = 56.0
+grow_horizontal = 2
+text = "x1"
+label_settings = SubResource("LabelSettings_aq461")
