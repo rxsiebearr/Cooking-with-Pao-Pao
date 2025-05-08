@@ -93,7 +93,7 @@ func harvesting(pos):
 		crop_layer.erase_cell(pos)
 		print(crop[pos]["name"])
 		crop_count += 1
-		get_node("Control/Label").text = "x" + str(crop_count)
+		get_node("CanvasLayer/Control/Label").text = "x" + str(crop_count)
 		crop.erase(pos)
 
 func _ready():
