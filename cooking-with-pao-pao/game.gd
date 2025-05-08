@@ -16,16 +16,16 @@ var currently_equipped : String = "rice"
 
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	for pos in water_level:
-		water_level[pos] -= delta
+		water_level[pos] -= _delta
 		if water_level[pos] <= 0:
 			water_level.erase(pos)
 			drying_tile(pos)
 	
 	for pos in crop:
 		if water_level.has(pos):
-			crop[pos]["duration"] += delta
+			crop[pos]["duration"] += _delta
 			
 			var duration = crop[pos]["duration"]
 			var crop_name = crop[pos]["name"]
@@ -54,12 +54,16 @@ func _input(event):
 			harvesting(tile_pos)
 				
 		if event.button_index == MOUSE_BUTTON_RIGHT and not crop.has(tile_pos):
-			set_tile(currently_equipped, tile_pos, crop_layer)
-			crop[tile_pos] = {
-				"name" : currently_equipped, 
-				"duration" : 0
-			}
-			print(crop)
+			var data = ground.get_cell_tile_data(tile_pos)
+			if data:
+				var tile_name = data.get_custom_data("tile_name")
+				if tile_name == "soil":  # or whatever name you've assigned to valid ground
+					set_tile(currently_equipped, tile_pos, crop_layer)
+					crop[tile_pos] = {
+						"name" : currently_equipped, 
+						"duration" : 0
+					}
+					print(crop)
 
 
 func get_snapped_position(global_pos: Vector2) -> Vector2i:
@@ -113,3 +117,6 @@ func _on_enter_store_body_entered(body: Node2D) -> void:
 func _on_enter_store_body_exited(body: Node2D) -> void:
 	if body is Player:
 		enter = false
+
+
+		
