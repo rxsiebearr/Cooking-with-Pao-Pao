@@ -24,6 +24,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Panel" type="Panel" parent="CanvasLayer/Control"]
 layout_mode = 1
@@ -32,6 +33,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="YesButton" type="Button" parent="CanvasLayer/Control/Panel"]
 layout_mode = 1
@@ -49,6 +51,7 @@ grow_vertical = 2
 scale = Vector2(6.22399, 4.52319)
 text = "Yes"
 autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="NoButton" type="Button" parent="CanvasLayer/Control/Panel"]
 layout_mode = 1
@@ -65,6 +68,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(6.75183, 4.45677)
 text = "No"
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="CanvasLayer/Control/Panel"]
 layout_mode = 1
@@ -85,6 +89,7 @@ start cooking?"
 label_settings = SubResource("LabelSettings_84dr1")
 horizontal_alignment = 1
 autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="CanvasLayer/Control/Panel/YesButton" to="." method="_on_yes_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Panel/NoButton" to="." method="_on_no_button_pressed"]

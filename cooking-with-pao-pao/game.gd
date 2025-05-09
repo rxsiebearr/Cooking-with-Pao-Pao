@@ -112,7 +112,7 @@ func _ready():
 func _process(delta: float) -> void:
 	if enter and Input.is_action_just_pressed("interact"):
 		GlobalData.next_spawn_position = playerNode.global_position
-		get_tree().change_scene_to_file("res://store_#1_ready.tscn")
+		get_tree().change_scene_to_file("res://store_#1.tscn")
 		
 		
 func _on_enter_store_body_entered(body: Node2D) -> void:
