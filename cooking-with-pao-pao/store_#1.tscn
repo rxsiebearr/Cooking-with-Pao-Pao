@@ -2,12 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://yt7c48s5m2mv" path="res://store_1_updated.png" id="1_2cf8m"]
 [ext_resource type="PackedScene" uid="uid://b5paybjiq4qkx" path="res://order_ticket.tscn" id="1_ceqsw"]
-[ext_resource type="Script" path="res://rice_cooker_area.gd" id="1_eqtje"]
+[ext_resource type="Script" uid="uid://k24ljtr5uavh" path="res://rice_cooker_area.gd" id="1_eqtje"]
 [ext_resource type="PackedScene" uid="uid://bim1vfyr0jrkh" path="res://bear_bear.tscn" id="1_qnkjh"]
 [ext_resource type="Texture2D" uid="uid://da0c8pboj1qp2" path="res://rice cooker closed.png" id="1_trkgk"]
 [ext_resource type="Texture2D" uid="uid://cpvp4dd13yxkg" path="res://rice cooker opened.png" id="3_03rmw"]
 [ext_resource type="PackedScene" uid="uid://dbebqrldaejj1" path="res://item_drop.tscn" id="4_54ox5"]
-[ext_resource type="Script" path="res://timer_bar.gd" id="4_bx3hj"]
+[ext_resource type="Script" uid="uid://bvfe6mrc200l7" path="res://timer_bar.gd" id="4_bx3hj"]
 [ext_resource type="Texture2D" uid="uid://bpi4kf2ifi2lf" path="res://rice cooker rice.png" id="4_o5lyj"]
 [ext_resource type="Texture2D" uid="uid://dgliqp2453eny" path="res://rice.png" id="5_2wqnh"]
 [ext_resource type="Texture2D" uid="uid://cstx0wlpvval6" path="res://rice cooked.png" id="5_atcon"]
@@ -126,6 +126,7 @@ _data = {
 size = Vector2(114, 56)
 
 [node name="Store #1" type="Node2D"]
+y_sort_enabled = true
 
 [node name="OrderTickets" parent="." instance=ExtResource("1_ceqsw")]
 offset_left = 3.0
@@ -217,15 +218,18 @@ position = Vector2(376, 232)
 position = Vector2(480, 124)
 shape = SubResource("RectangleShape2D_lpr88")
 
-[node name="Counter-2" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(403, 353)
-scale = Vector2(0.339594, 0.339594)
-texture = ExtResource("14_f21rd")
-
 [node name="MoneyCount" parent="." instance=ExtResource("15_fxd0j")]
 offset_left = 1160.0
 offset_right = 1160.0
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(403, 353)
+scale = Vector2(0.339594, 0.339594)
+
+[node name="Counter-2" type="Sprite2D" parent="Node2D"]
+y_sort_enabled = true
+scale = Vector2(1, 1)
+texture = ExtResource("14_f21rd")
 
 [connection signal="body_entered" from="TurnIn" to="Bear Bear" method="_on_turn_in_body_entered"]
 [connection signal="body_exited" from="TurnIn" to="Bear Bear" method="_on_turn_in_body_exited"]

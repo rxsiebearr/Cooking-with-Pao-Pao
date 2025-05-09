@@ -57,7 +57,7 @@ var extra_dialogue_items: Array[Dictionary] = [
 	
 	{
 		"expression": expressions["mad"],
-		"text": "Try to farm a bit, then follow the path to your Rice Shop.",
+		"text": "Try to farm a bit, then follow the path to Pao Pao 99.",
 	}
 ]
 func _ready() -> void:
