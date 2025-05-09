@@ -135,7 +135,7 @@ shape = SubResource("RectangleShape2D_fv8qf")
 debug_color = Color(0.770041, 9.62615e-07, 0.396704, 0.419608)
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
-position = Vector2(2569, 680)
+position = Vector2(2569, 675)
 
 [node name="Barriers" type="StaticBody2D" parent="."]
 position = Vector2(0, -0.00012207)

@@ -2,6 +2,7 @@ extends Node2D
 
 var enter: bool = false
 var parameter: Dictionary
+var playerNode
 
 @onready var ground: TileMapLayer = $FarmingLand
 @onready var crop_layer: TileMapLayer = $Crops
@@ -99,13 +100,18 @@ func harvesting(pos):
 
 func _ready():
 	var playerCharPath = GlobalData.playerCharPath
-	var playerNode = load(playerCharPath).instantiate()
+	playerNode = load(playerCharPath).instantiate()
 	add_child(playerNode)
 	playerNode.global_position = $SpawnPoint.global_position
 	
+	if GlobalData.next_spawn_position != Vector2.ZERO:
+		playerNode.global_position = GlobalData.next_spawn_position
+	else:
+		playerNode.global_position = $SpawnPoint.global_position
+	
 func _process(delta: float) -> void:
 	if enter and Input.is_action_just_pressed("interact"):
-		$SpawnPoint.global_position = Vector2(2693, 568)
+		GlobalData.next_spawn_position = playerNode.global_position
 		get_tree().change_scene_to_file("res://store_#1_ready.tscn")
 		
 		
