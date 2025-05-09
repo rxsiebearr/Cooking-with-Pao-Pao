@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cgtb314jo2ggl"]
 
-[ext_resource type="Script" path="res://money_count.gd" id="1_vm3ea"]
+[ext_resource type="Script" uid="uid://d4go2erjisd1n" path="res://money_count.gd" id="1_vm3ea"]
 [ext_resource type="Texture2D" uid="uid://qhaiaur53lxo" path="res://coin.png" id="2_c2uts"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_t5d4h"]
@@ -23,7 +23,7 @@ offset_left = -40.9639
 offset_top = 15.3254
 offset_right = 27.0361
 offset_bottom = 99.0754
-text = "x1"
+text = "x0"
 label_settings = SubResource("LabelSettings_t5d4h")
 
 [node name="Sprite2D" type="Sprite2D" parent="Label"]

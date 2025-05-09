@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://bidwuh6pstcpq"]
+[gd_scene load_steps=23 format=4 uid="uid://bidwuh6pstcpq"]
 
 [ext_resource type="Script" uid="uid://fue2j8ntka7w" path="res://game.gd" id="1_bor6y"]
 [ext_resource type="Script" uid="uid://dci6pslvi1xw4" path="res://BlockData.gd" id="2_mfdv2"]
@@ -10,7 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://d0hbep6jhw6nt" path="res://Farming/DIRTGO-Sheet-2.png" id="5_mfdv2"]
 [ext_resource type="Texture2D" uid="uid://j8b453pmaln8" path="res://Placeholder images/Godot_icon.svg.png" id="5_xnhry"]
 [ext_resource type="Texture2D" uid="uid://cbbd2doedjctq" path="res://Farming/rice plant-Sheet-Sheet.png" id="7_eow3j"]
+[ext_resource type="PackedScene" uid="uid://dxmmmvj3tb576" path="res://dialogue.tscn" id="8_iotsf"]
 [ext_resource type="Texture2D" uid="uid://yv7oa8wsu4bh" path="res://Farming/image-removebg-preview__1_-removebg-preview.png" id="8_j5wjh"]
+[ext_resource type="Texture2D" uid="uid://dshlc8i5mfppe" path="res://chloesline.png" id="13_lc2xo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_omkq4"]
 resource_name = "dirt"
@@ -101,9 +103,11 @@ sources/0 = SubResource("TileSetAtlasSource_ajeyl")
 size = Vector2(112, 56)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ynp53"]
-font_size = 12
+font_size = 11
 font_color = Color(0, 0, 0, 1)
-outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lc2xo"]
+size = Vector2(82, 118.5)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_bor6y")
@@ -135,7 +139,7 @@ shape = SubResource("RectangleShape2D_fv8qf")
 debug_color = Color(0.770041, 9.62615e-07, 0.396704, 0.419608)
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
-position = Vector2(2569, 675)
+position = Vector2(914, 2718)
 
 [node name="Barriers" type="StaticBody2D" parent="."]
 position = Vector2(0, -0.00012207)
@@ -181,9 +185,9 @@ layout_mode = 3
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -74.0
+offset_left = -69.0
 offset_top = 101.0
-offset_right = -34.0
+offset_right = -29.0
 offset_bottom = 141.0
 grow_horizontal = 0
 scale = Vector2(1.79079, 1.50574)
@@ -203,7 +207,7 @@ text = "x0"
 label_settings = SubResource("LabelSettings_ynp53")
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control"]
-position = Vector2(-35, 16)
+position = Vector2(-24.0118, 15.939)
 scale = Vector2(0.195542, 0.180439)
 texture = ExtResource("8_j5wjh")
 
@@ -232,5 +236,24 @@ position = Vector2(249.382, 249.382)
 scale = Vector2(0.0359555, 0.0396654)
 texture = ExtResource("5_xnhry")
 
+[node name="Dialogue" parent="CanvasLayer" instance=ExtResource("8_iotsf")]
+
+[node name="Line2D" type="Line2D" parent="."]
+texture_filter = 1
+texture_repeat = 2
+points = PackedVector2Array(911, 2716, 2546, 2831, 2563, 665, 2354, 666)
+width = 50.0
+texture = ExtResource("13_lc2xo")
+texture_mode = 1
+sharp_limit = 1.0
+
+[node name="FarmBox" type="Area2D" parent="."]
+position = Vector2(1803, 962)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FarmBox"]
+position = Vector2(548, -293)
+shape = SubResource("RectangleShape2D_lc2xo")
+
 [connection signal="body_entered" from="EnterStore" to="." method="_on_enter_store_body_entered"]
 [connection signal="body_exited" from="EnterStore" to="." method="_on_enter_store_body_exited"]
+[connection signal="body_entered" from="FarmBox" to="CanvasLayer/Dialogue" method="_on_farm_box_body_entered"]
