@@ -61,9 +61,12 @@ var extra_dialogue_items: Array[Dictionary] = [
 	}
 ]
 func _ready() -> void:
-	show_text()
-	get_tree().paused = true
-	next_button.pressed.connect(advance)
+	if !GlobalData.dialogue_finished:
+		show_text()
+		get_tree().paused = true
+		next_button.pressed.connect(advance)
+	else:
+		hide()
 	
 func show_text() -> void:
 	var current_item := dialogue_items[current_item_index]
@@ -90,10 +93,11 @@ func advance() -> void:
 			line_shown = true
 
 func _on_farm_box_body_entered(body):
-	if body is Player and entered:
+	if body is Player and entered and !GlobalData.dialogue_finished:
 		line_2d.hide()
 		dialogue_items += extra_dialogue_items
 		show()
 		get_tree().paused = true
 		show_text()
 		entered = false
+		GlobalData.dialogue_finished = true
