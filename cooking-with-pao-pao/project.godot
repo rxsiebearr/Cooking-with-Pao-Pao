@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Cooking with Pao Pao"
-run/main_scene="uid://d1nh5f6qslk04"
+run/main_scene="uid://bc08cybs2dldp"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
