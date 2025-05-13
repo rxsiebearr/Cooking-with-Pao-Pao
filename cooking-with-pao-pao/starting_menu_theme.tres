@@ -1,6 +1,6 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://dy7tesgfgx6bt"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://doryl4l7c5qjv"]
 
-[ext_resource type="StyleBox" uid="uid://c8i83ga11khht" path="res://start_button.tres" id="1_20bnq"]
+[ext_resource type="StyleBox" path="res://start_button.tres" id="1_20bnq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgawx"]
 draw_center = false

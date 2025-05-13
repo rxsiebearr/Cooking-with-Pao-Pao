@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://i1olt16hyoho"]
+[gd_scene load_steps=35 format=3 uid="uid://i1olt16hyoho"]
 
 [ext_resource type="Texture2D" uid="uid://yt7c48s5m2mv" path="res://store_1_updated.png" id="1_2cf8m"]
 [ext_resource type="Script" uid="uid://c7ihlgnxacdrc" path="res://store_#1.gd" id="1_a4raj"]
@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://b72t1sumvrkmo" path="res://rice_bowl-removebg-preview.png" id="10_p8wo6"]
 [ext_resource type="Texture2D" uid="uid://dbf4nuwerwhdq" path="res://counter-2.png" id="14_f21rd"]
 [ext_resource type="PackedScene" uid="uid://cgtb314jo2ggl" path="res://money_count.tscn" id="15_fxd0j"]
+[ext_resource type="Shader" path="res://character_selection.gdshader" id="17_i8ebn"]
+[ext_resource type="Theme" uid="uid://c5olvahh8ifw1" path="res://selection_theme.tres" id="17_mhwx7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ceqsw"]
 size = Vector2(158, 129)
@@ -126,13 +128,92 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lpr88"]
 size = Vector2(114, 56)
 
-[sub_resource type="LabelSettings" id="LabelSettings_fxd0j"]
-font_size = 35
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ksnvq"]
+shader = ExtResource("17_i8ebn")
+shader_parameter/blur_size = 3.0
+shader_parameter/blur_steps = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a4raj"]
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.19006, 0.123871, 0.077589, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i8ebn"]
+content_margin_left = 17.0
+content_margin_top = 10.0
+content_margin_right = 17.0
+content_margin_bottom = 13.0
+bg_color = Color(1, 0.996078, 0.835294, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.435294, 0.305882, 0.215686, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhwx7"]
+content_margin_left = 17.0
+content_margin_top = 10.0
+content_margin_right = 17.0
+content_margin_bottom = 13.0
+bg_color = Color(1, 0.980392, 0.627451, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.435294, 0.305882, 0.215686, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gsqoc"]
+content_margin_left = 48.0
+content_margin_top = 32.0
+content_margin_right = 48.0
+content_margin_bottom = 32.0
+bg_color = Color(1, 0.980392, 0.627451, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.435294, 0.305882, 0.215686, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="Theme" id="Theme_g7tfx"]
+default_font_size = 25
+Button/colors/font_color = Color(0.360784, 0.25098, 0.2, 1)
+Button/colors/font_focus_color = Color(0.360784, 0.25098, 0.2, 1)
+Button/colors/font_hover_color = Color(0.360784, 0.25098, 0.2, 1)
+Button/colors/font_pressed_color = Color(0.360784, 0.25098, 0.2, 1)
+Button/font_sizes/font_size = 8
+Button/styles/focus = SubResource("StyleBoxFlat_a4raj")
+Button/styles/hover = SubResource("StyleBoxFlat_i8ebn")
+Button/styles/normal = SubResource("StyleBoxFlat_mhwx7")
+Button/styles/pressed = SubResource("StyleBoxFlat_i8ebn")
+Label/colors/font_color = Color(1, 0.980392, 0.627451, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/default_color = Color(0.348992, 0.242121, 0.192497, 1)
+RichTextLabel/styles/normal = SubResource("StyleBoxFlat_gsqoc")
 
 [node name="Store #1" type="Node2D"]
 script = ExtResource("1_a4raj")
 
 [node name="OrderTickets" parent="." instance=ExtResource("1_ceqsw")]
+visible = false
 offset_left = 3.0
 offset_top = -3.0
 offset_right = 3.0
@@ -140,21 +221,26 @@ offset_bottom = -2.93601
 scale = Vector2(0.833534, 0.867498)
 
 [node name="TurnIn" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TurnIn"]
+visible = false
 position = Vector2(222, 432.5)
 shape = SubResource("RectangleShape2D_ceqsw")
 debug_color = Color(0.736823, 0.224078, 1, 0.42)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
+visible = false
 
 [node name="Store1" type="Sprite2D" parent="CanvasLayer"]
+visible = false
 position = Vector2(576, 324)
 scale = Vector2(0.451765, 0.35027)
 texture = ExtResource("1_2cf8m")
 
 [node name="RiceCookerArea" type="Area2D" parent="." groups=["rice"]]
+visible = false
 position = Vector2(-328, 64)
 script = ExtResource("1_eqtje")
 
@@ -192,22 +278,26 @@ one_shot = true
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="RiceCookerArea"]
 
 [node name="ItemDrop" parent="." instance=ExtResource("4_54ox5")]
+visible = false
 position = Vector2(231, 281)
 scale = Vector2(0.5, 0.5)
 item_texture = ExtResource("5_2wqnh")
 item_name = "Rice"
 
 [node name="ItemDrop2" parent="." instance=ExtResource("4_54ox5")]
+visible = false
 position = Vector2(410, 280)
 scale = Vector2(0.3, 0.3)
 item_texture = ExtResource("10_p8wo6")
 item_name = "RiceBowl"
 
 [node name="Bear Bear" parent="." instance=ExtResource("1_qnkjh")]
+visible = false
 z_index = -2
 position = Vector2(96, 552)
 
 [node name="Barriers" type="StaticBody2D" parent="."]
+visible = false
 
 [node name="Counters" type="CollisionPolygon2D" parent="Barriers"]
 polygon = PackedVector2Array(160, 440, 160, 488, 904, 488, 904, 120, 8, 120, 8, 176, 824, 176, 824, 440)
@@ -216,13 +306,16 @@ polygon = PackedVector2Array(160, 440, 160, 488, 904, 488, 904, 120, 8, 120, 8, 
 polygon = PackedVector2Array(0, 0, 0, 120, 1040, 120, 1040, 560, 448, 560, 448, 640, 8, 640, 8, 120, 0, 120, 0, 648, 1152, 648, 1152, 0)
 
 [node name="TrashCan" type="Area2D" parent="." groups=["trash_can"]]
+visible = false
 position = Vector2(376, 232)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TrashCan"]
+visible = false
 position = Vector2(480, 124)
 shape = SubResource("RectangleShape2D_lpr88")
 
 [node name="Counter-2" type="Sprite2D" parent="."]
+visible = false
 z_index = -1
 position = Vector2(403, 353)
 scale = Vector2(0.339594, 0.339594)
@@ -235,13 +328,12 @@ offset_right = 1160.0
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 layer = -1
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer2"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer2"]
+material = SubResource("ShaderMaterial_ksnvq")
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_2cf8m")
+expand_mode = 1
 
 [node name="Control" type="Control" parent="CanvasLayer2"]
 layout_mode = 3
@@ -263,11 +355,29 @@ metadata/_edit_use_anchors_ = true
 
 [node name="YesButton" type="Button" parent="CanvasLayer2/Control/Panel"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchors_preset = -1
+anchor_left = 0.458333
+anchor_top = 0.388889
+anchor_right = 0.473958
+anchor_bottom = 0.401235
+offset_left = -352.0
+offset_top = 140.0
+offset_right = -321.0
+offset_bottom = 167.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(6.22399, 4.52319)
+theme = SubResource("Theme_g7tfx")
+text = "Yes"
+autowrap_mode = 2
+
+[node name="NoButton" type="Button" parent="CanvasLayer2/Control/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.923611
+anchor_top = 0.425926
+anchor_right = 0.934896
+anchor_bottom = 0.432099
 offset_left = -368.0
 offset_top = 116.0
 offset_right = -333.0
@@ -275,25 +385,9 @@ offset_bottom = 147.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(6.22399, 4.52319)
-text = "Yes"
-autowrap_mode = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="NoButton" type="Button" parent="CanvasLayer2/Control/Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 120.0
-offset_top = 116.0
-offset_right = 151.0
-offset_bottom = 147.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(6.75183, 4.45677)
+theme = SubResource("Theme_g7tfx")
 text = "No"
+autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="CanvasLayer2/Control/Panel"]
@@ -310,9 +404,9 @@ offset_bottom = -143.292
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2.31295, 2.56188)
+theme = ExtResource("17_mhwx7")
 text = "Are you ready to 
 start cooking?"
-label_settings = SubResource("LabelSettings_fxd0j")
 horizontal_alignment = 1
 autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
@@ -331,5 +425,5 @@ wait_time = 15.0
 [connection signal="timeout" from="RiceCookerArea/TimerBar/BurntTimer" to="RiceCookerArea/TimerBar" method="_on_burnt_timer_timeout"]
 [connection signal="body_entered" from="TrashCan" to="Bear Bear" method="_on_trash_can_body_entered"]
 [connection signal="pressed" from="CanvasLayer2/Control/Panel/YesButton" to="." method="_on_yes_button_pressed"]
-[connection signal="pressed" from="CanvasLayer2/Control/Panel/NoButton" to="." method="_on_no_button_pressed"]
+[connection signal="pressed" from="CanvasLayer2/Control/Panel/NoButton" to="." method="_on_yes_button_pressed"]
 [connection signal="timeout" from="DayTimer" to="." method="_on_day_timer_timeout"]
