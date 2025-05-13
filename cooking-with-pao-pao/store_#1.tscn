@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dgssr5d1ur6yb"]
+[gd_scene load_steps=33 format=3 uid="uid://dgssr5d1ur6yb"]
 
 [ext_resource type="Texture2D" uid="uid://yt7c48s5m2mv" path="res://store_1_updated.png" id="1_2cf8m"]
 [ext_resource type="PackedScene" uid="uid://bg4dwifdn28oi" path="res://order_ticket.tscn" id="1_ceqsw"]
@@ -8,9 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://cpvp4dd13yxkg" path="res://rice cooker opened.png" id="3_03rmw"]
 [ext_resource type="PackedScene" uid="uid://dbebqrldaejj1" path="res://item_drop.tscn" id="4_54ox5"]
 [ext_resource type="Script" uid="uid://bvfe6mrc200l7" path="res://timer_bar.gd" id="4_bx3hj"]
+[ext_resource type="AudioStream" uid="uid://bh0efgx24hmu5" path="res://Fridge Open.wav" id="4_i8ebn"]
 [ext_resource type="Texture2D" uid="uid://bpi4kf2ifi2lf" path="res://rice cooker rice.png" id="4_o5lyj"]
 [ext_resource type="Texture2D" uid="uid://dgliqp2453eny" path="res://rice.png" id="5_2wqnh"]
 [ext_resource type="Texture2D" uid="uid://cstx0wlpvval6" path="res://rice cooked.png" id="5_atcon"]
+[ext_resource type="AudioStream" uid="uid://d15wf6lkicr3g" path="res://Fridge Close.wav" id="5_ksnvq"]
 [ext_resource type="Texture2D" uid="uid://br5fws046u57o" path="res://rice_burnt.png" id="6_58c1d"]
 [ext_resource type="Texture2D" uid="uid://b72t1sumvrkmo" path="res://rice_bowl-removebg-preview.png" id="10_p8wo6"]
 [ext_resource type="Script" uid="uid://d2rm6sm6wbeci" path="res://Fridge.gd" id="14_a4raj"]
@@ -71,8 +73,6 @@ _data = {
 &"Fridge_Open": SubResource("Animation_fxd0j"),
 &"RESET": SubResource("Animation_a4raj")
 }
-
-[sub_resource type="AudioStreamMP3" id="AudioStreamMP3_a4raj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ceqsw"]
 size = Vector2(158, 129)
@@ -199,8 +199,11 @@ libraries = {
 &"": SubResource("AnimationLibrary_mhwx7")
 }
 
-[node name="Fridge Audio" type="AudioStreamPlayer2D" parent="FridgeArea"]
-stream = SubResource("AudioStreamMP3_a4raj")
+[node name="Fridge Open" type="AudioStreamPlayer2D" parent="FridgeArea"]
+stream = ExtResource("4_i8ebn")
+
+[node name="Fridge Close" type="AudioStreamPlayer2D" parent="FridgeArea"]
+stream = ExtResource("5_ksnvq")
 
 [node name="OrderTickets" parent="." instance=ExtResource("1_ceqsw")]
 offset_left = 3.0

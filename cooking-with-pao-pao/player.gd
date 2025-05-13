@@ -14,6 +14,8 @@ class_name Player
 @onready var burnt_timer: Timer = %BurntTimer
 @onready var fridge_area = $"../FridgeArea"
 @onready var fridge_sprite = $"../FridgeArea/Sprite2D"
+@onready var fridge_open_sound = $"../FridgeArea/Fridge Open"
+@onready var fridge_close_sound = $"../FridgeArea/Fridge Close"
 
 var enter: bool = false
 var done: bool = false
@@ -145,10 +147,11 @@ func _on_fridge_area_body_entered(body):
 		if !fridge_open:
 			fridge_sprite.texture = fridge_area.fridge_open()
 			fridge_open = true
-
+			fridge_open_sound.play()
 func _on_fridge_area_body_exited(body):
 	if body is Player:
 		near_fridge = false
 		if fridge_open:
 			fridge_sprite.texture = fridge_area.fridge_closed()
 			fridge_open = false
+			fridge_close_sound.play()
