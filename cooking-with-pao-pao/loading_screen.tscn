@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://674yxrtyefaa"]
+[gd_scene load_steps=14 format=3 uid="uid://674yxrtyefaa"]
 
 [ext_resource type="Script" uid="uid://687ydjulf6wj" path="res://loading_screen.gd" id="1_mggpi"]
+[ext_resource type="Texture2D" uid="uid://d3dvlr1q7si4l" path="res://turtle_animation.png" id="2_htrc2"]
 
 [sub_resource type="Gradient" id="Gradient_htrc2"]
 offsets = PackedFloat32Array(0)
@@ -10,6 +11,64 @@ colors = PackedColorArray(0, 0, 0, 1)
 gradient = SubResource("Gradient_htrc2")
 
 [sub_resource type="LabelSettings" id="LabelSettings_fgney"]
+font_size = 40
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_weff3"]
+atlas = ExtResource("2_htrc2")
+region = Rect2(438, 0, 73, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgney"]
+atlas = ExtResource("2_htrc2")
+region = Rect2(365, 0, 73, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74xf4"]
+atlas = ExtResource("2_htrc2")
+region = Rect2(292, 0, 73, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pa1l2"]
+atlas = ExtResource("2_htrc2")
+region = Rect2(219, 0, 73, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_401ed"]
+atlas = ExtResource("2_htrc2")
+region = Rect2(146, 0, 73, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38ncu"]
+atlas = ExtResource("2_htrc2")
+region = Rect2(73, 0, 73, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrdmd"]
+atlas = ExtResource("2_htrc2")
+region = Rect2(0, 0, 73, 73)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qx0w1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_weff3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fgney")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_74xf4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pa1l2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_401ed")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38ncu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrdmd")
+}],
+"loop": true,
+"name": &"turtle run",
+"speed": 30.0
+}]
 
 [node name="LoadingScreen" type="CanvasLayer"]
 script = ExtResource("1_mggpi")
@@ -47,3 +106,10 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Loading..."
 label_settings = SubResource("LabelSettings_fgney")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(131, 471)
+scale = Vector2(3.32923, 3.77791)
+sprite_frames = SubResource("SpriteFrames_qx0w1")
+animation = &"turtle run"
+frame_progress = 0.135868

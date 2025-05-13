@@ -20,12 +20,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -35.0
-offset_top = -50.5
-offset_right = 35.0
-offset_bottom = 50.5
+offset_left = -67.0
+offset_top = -84.0
+offset_right = 3.0
+offset_bottom = 17.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.84759, 1.69916)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
