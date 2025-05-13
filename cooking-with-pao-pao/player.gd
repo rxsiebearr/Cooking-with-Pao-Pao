@@ -12,6 +12,8 @@ class_name Player
 @onready var rice_cooker_area: Area2D = $"../RiceCookerArea"
 @onready var cook_timer: Timer = %CookTimer
 @onready var burnt_timer: Timer = %BurntTimer
+@onready var fridge_area = $"../FridgeArea"
+@onready var fridge_sprite = $"../FridgeArea/Sprite2D"
 
 var enter: bool = false
 var done: bool = false
@@ -22,6 +24,7 @@ var items_in_range: Array = []
 var held_item_name: String = ""
 var item_scale: Vector2
 var near_fridge: bool = false
+var fridge_open := false
 
 func _ready():
 	item_sprite.hide()
@@ -136,10 +139,16 @@ func _on_turn_in_body_exited(body: Node2D) -> void:
 	if body is Player:
 			done = false
 
-func _on_fridge_body_entered(body: Node2D) -> void:
-	if body == self:
+func _on_fridge_area_body_entered(body):
+	if body is Player:
 		near_fridge = true
+		if !fridge_open:
+			fridge_sprite.texture = fridge_area.fridge_open()
+			fridge_open = true
 
-func _on_fridge_body_exited(body: Node2D) -> void:
-	if body == self:
+func _on_fridge_area_body_exited(body):
+	if body is Player:
 		near_fridge = false
+		if fridge_open:
+			fridge_sprite.texture = fridge_area.fridge_closed()
+			fridge_open = false
