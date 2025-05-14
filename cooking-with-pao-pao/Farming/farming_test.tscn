@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=4 uid="uid://cynmc3laope7d"]
 
-[ext_resource type="Script" path="res://Farming/farming_test.gd" id="1_d1rtw"]
+[ext_resource type="Script" uid="uid://fo23wkrg3nfu" path="res://Farming/farming_test.gd" id="1_d1rtw"]
 [ext_resource type="Texture2D" uid="uid://cbbd2doedjctq" path="res://Farming/rice plant-Sheet-Sheet.png" id="2_jujn8"]
 [ext_resource type="Script" path="res://BlockData.gd" id="2_ynp53"]
 [ext_resource type="Resource" uid="uid://pxw2gc7xc444" path="res://Resources/Soil.tres" id="3_omkq4"]

@@ -16,8 +16,22 @@ var crop_count = 0
 
 var currently_equipped : String = "rice"
 
-
-
+func _ready():
+	var playerCharPath = GlobalData.playerCharPath
+	playerNode = load(playerCharPath).instantiate()
+	add_child(playerNode)
+	GlobalData.player_instantiated = true
+	
+	if GlobalData.next_spawn_position != Vector2.ZERO:
+		playerNode.global_position = GlobalData.next_spawn_position
+	else:
+		playerNode.global_position = $SpawnPoint.global_position
+	
+func _process(delta: float) -> void:
+	if enter and Input.is_action_just_pressed("interact"):
+		GlobalData.next_spawn_position = playerNode.global_position
+		get_tree().change_scene_to_file("res://store_#1.tscn")
+		
 func _physics_process(delta):
 	for pos in water_level:
 		water_level[pos] -= delta
@@ -100,23 +114,6 @@ func harvesting(pos):
 		crop_count += 1
 		get_node("CanvasLayer/Control/Label").text = "x" + str(crop_count)
 		crop.erase(pos)
-
-func _ready():
-	var playerCharPath = GlobalData.playerCharPath
-	playerNode = load(playerCharPath).instantiate()
-	add_child(playerNode)
-	playerNode.global_position = $SpawnPoint.global_position
-	
-	if GlobalData.next_spawn_position != Vector2.ZERO:
-		playerNode.global_position = GlobalData.next_spawn_position
-	else:
-		playerNode.global_position = $SpawnPoint.global_position
-	
-func _process(delta: float) -> void:
-	if enter and Input.is_action_just_pressed("interact"):
-		GlobalData.next_spawn_position = playerNode.global_position
-		get_tree().change_scene_to_file("res://store_#1.tscn")
-		
 		
 func _on_enter_store_body_entered(body: Node2D) -> void:
 	if body is Player:

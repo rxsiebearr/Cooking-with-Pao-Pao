@@ -4,7 +4,6 @@
 [ext_resource type="Script" path="res://BlockData.gd" id="2_mfdv2"]
 [ext_resource type="PackedScene" uid="uid://cgtb314jo2ggl" path="res://money_count.tscn" id="3_frnrn"]
 [ext_resource type="Resource" uid="uid://pxw2gc7xc444" path="res://Resources/Soil.tres" id="3_iotsf"]
-[ext_resource type="Script" path="res://minimap.gd" id="4_3oobf"]
 [ext_resource type="Resource" uid="uid://disss884y34ay" path="res://Resources/Rice.tres" id="4_lc2xo"]
 [ext_resource type="Texture2D" uid="uid://dx24htd1h4we2" path="res://map-3.png" id="5_3th4p"]
 [ext_resource type="Texture2D" uid="uid://d0hbep6jhw6nt" path="res://Farming/DIRTGO-Sheet-2.png" id="5_mfdv2"]
@@ -12,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cbbd2doedjctq" path="res://Farming/rice plant-Sheet-Sheet.png" id="7_eow3j"]
 [ext_resource type="PackedScene" uid="uid://dxmmmvj3tb576" path="res://dialogue.tscn" id="8_iotsf"]
 [ext_resource type="Texture2D" uid="uid://yv7oa8wsu4bh" path="res://Farming/image-removebg-preview__1_-removebg-preview.png" id="8_j5wjh"]
+[ext_resource type="Script" uid="uid://bmwk47lo7yplk" path="res://sub_viewport.gd" id="11_iotsf"]
 [ext_resource type="Texture2D" uid="uid://dshlc8i5mfppe" path="res://chloesline.png" id="13_lc2xo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_omkq4"]
@@ -214,16 +214,17 @@ texture = ExtResource("8_j5wjh")
 [node name="MoneyCount" parent="CanvasLayer" instance=ExtResource("3_frnrn")]
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer"]
-offset_left = 1000.0
-offset_top = 496.0
-offset_right = 1512.0
-offset_bottom = 1008.0
-scale = Vector2(0.288713, 0.288713)
+offset_left = 1008.0
+offset_top = 504.0
+offset_right = 1152.0
+offset_bottom = 648.0
+stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer"]
 handle_input_locally = false
+size = Vector2i(144, 144)
 render_target_update_mode = 4
-script = ExtResource("4_3oobf")
+script = ExtResource("11_iotsf")
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
 texture = ExtResource("5_3th4p")
@@ -232,8 +233,8 @@ texture = ExtResource("5_3th4p")
 zoom = Vector2(0.1, 0.1)
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/SubViewportContainer"]
-position = Vector2(249.382, 249.382)
-scale = Vector2(0.0359555, 0.0396654)
+position = Vector2(72, 72)
+scale = Vector2(0.0195313, 0.0195313)
 texture = ExtResource("5_xnhry")
 
 [node name="Dialogue" parent="CanvasLayer" instance=ExtResource("8_iotsf")]
