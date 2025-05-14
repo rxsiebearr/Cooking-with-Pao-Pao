@@ -18,16 +18,16 @@ var currently_equipped : String = "rice"
 
 
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	for pos in water_level:
-		water_level[pos] -= _delta
+		water_level[pos] -= delta
 		if water_level[pos] <= 0:
 			water_level.erase(pos)
 			drying_tile(pos)
 	
 	for pos in crop:
 		if water_level.has(pos):
-			crop[pos]["duration"] += _delta
+			crop[pos]["duration"] += delta
 			
 			var duration = crop[pos]["duration"]
 			var crop_name = crop[pos]["name"]
@@ -59,7 +59,7 @@ func _input(event):
 			var data = ground.get_cell_tile_data(tile_pos)
 			if data:
 				var tile_name = data.get_custom_data("tile_name")
-				if tile_name == "soil" or "wet soil":
+				if tile_name == "soil" or tile_name == "wet soil":
 					set_tile(currently_equipped, tile_pos, crop_layer)
 					crop[tile_pos] = {
 						"name" : currently_equipped, 
@@ -73,11 +73,9 @@ func get_snapped_position(global_pos: Vector2) -> Vector2i:
 	var tile_pos = ground.local_to_map(local_pos)
 	return tile_pos
 	
-
 func set_tile(tile_name: String, cell_pos: Vector2i, layer : TileMapLayer, coord: int = 0):
 	if block.has(tile_name):
 		layer.set_cell(cell_pos, block[tile_name].source_id, block[tile_name].atlas_coords[coord])
-
 
 
 func watering_tile(tile_name: String, pos: Vector2i, amount: float = 1.0):
@@ -85,15 +83,16 @@ func watering_tile(tile_name: String, pos: Vector2i, amount: float = 1.0):
 	set_tile(tile_name, pos, ground, 1)
 	print(water_level)
 
-
 func drying_tile(pos):
-	var tile_pos = get_snapped_position(pos)
-	var data = ground.get_cell_tile_data(tile_pos)
+	var data = ground.get_cell_tile_data(pos)
 	var tile_name
 	if data: 
 		tile_name = data.get_custom_data("tile_name")
-		set_tile(tile_name, pos, ground)
-	
+		if tile_name == "wet soil":
+			set_tile("soil", pos, ground, 0)
+		else:
+			set_tile(tile_name, pos, ground, 0)
+		
 func harvesting(pos):
 	if crop_layer.get_cell_source_id(pos) != -1 and crop.has(pos) and crop[pos]["duration"] < 0:
 		crop_layer.erase_cell(pos)
