@@ -13,10 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://dgliqp2453eny" path="res://rice.png" id="5_2wqnh"]
 [ext_resource type="Texture2D" uid="uid://cstx0wlpvval6" path="res://rice cooked.png" id="5_atcon"]
 [ext_resource type="Texture2D" uid="uid://br5fws046u57o" path="res://rice_burnt.png" id="6_58c1d"]
-[ext_resource type="Texture2D" uid="uid://b72t1sumvrkmo" path="res://rice_bowl-removebg-preview.png" id="10_p8wo6"]
+[ext_resource type="Texture2D" uid="uid://b8tn7uihpnrxc" path="res://bowl.png" id="13_i8ebn"]
 [ext_resource type="Texture2D" uid="uid://dbf4nuwerwhdq" path="res://counter-2.png" id="14_f21rd"]
 [ext_resource type="PackedScene" uid="uid://cgtb314jo2ggl" path="res://money_count.tscn" id="15_fxd0j"]
-[ext_resource type="Shader" path="res://character_selection.gdshader" id="17_i8ebn"]
+[ext_resource type="Shader" uid="uid://vgf07fhpprr3" path="res://character_selection.gdshader" id="17_i8ebn"]
 [ext_resource type="Theme" uid="uid://c5olvahh8ifw1" path="res://selection_theme.tres" id="17_mhwx7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ceqsw"]
@@ -162,20 +162,16 @@ corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhwx7"]
-content_margin_left = 17.0
-content_margin_top = 10.0
-content_margin_right = 17.0
-content_margin_bottom = 13.0
 bg_color = Color(1, 0.980392, 0.627451, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
 border_color = Color(0.435294, 0.305882, 0.215686, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gsqoc"]
 content_margin_left = 48.0
@@ -213,7 +209,6 @@ RichTextLabel/styles/normal = SubResource("StyleBoxFlat_gsqoc")
 script = ExtResource("1_a4raj")
 
 [node name="OrderTickets" parent="." instance=ExtResource("1_ceqsw")]
-visible = false
 offset_left = 3.0
 offset_top = -3.0
 offset_right = 3.0
@@ -221,26 +216,21 @@ offset_bottom = -2.93601
 scale = Vector2(0.833534, 0.867498)
 
 [node name="TurnIn" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TurnIn"]
-visible = false
 position = Vector2(222, 432.5)
 shape = SubResource("RectangleShape2D_ceqsw")
 debug_color = Color(0.736823, 0.224078, 1, 0.42)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
-visible = false
 
 [node name="Store1" type="Sprite2D" parent="CanvasLayer"]
-visible = false
 position = Vector2(576, 324)
 scale = Vector2(0.451765, 0.35027)
 texture = ExtResource("1_2cf8m")
 
 [node name="RiceCookerArea" type="Area2D" parent="." groups=["rice"]]
-visible = false
 position = Vector2(-328, 64)
 script = ExtResource("1_eqtje")
 
@@ -278,26 +268,22 @@ one_shot = true
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="RiceCookerArea"]
 
 [node name="ItemDrop" parent="." instance=ExtResource("4_54ox5")]
-visible = false
 position = Vector2(231, 281)
 scale = Vector2(0.5, 0.5)
 item_texture = ExtResource("5_2wqnh")
 item_name = "Rice"
 
 [node name="ItemDrop2" parent="." instance=ExtResource("4_54ox5")]
-visible = false
 position = Vector2(410, 280)
 scale = Vector2(0.3, 0.3)
-item_texture = ExtResource("10_p8wo6")
+item_texture = ExtResource("13_i8ebn")
 item_name = "RiceBowl"
 
 [node name="Bear Bear" parent="." instance=ExtResource("1_qnkjh")]
-visible = false
 z_index = -2
 position = Vector2(96, 552)
 
 [node name="Barriers" type="StaticBody2D" parent="."]
-visible = false
 
 [node name="Counters" type="CollisionPolygon2D" parent="Barriers"]
 polygon = PackedVector2Array(160, 440, 160, 488, 904, 488, 904, 120, 8, 120, 8, 176, 824, 176, 824, 440)
@@ -306,16 +292,13 @@ polygon = PackedVector2Array(160, 440, 160, 488, 904, 488, 904, 120, 8, 120, 8, 
 polygon = PackedVector2Array(0, 0, 0, 120, 1040, 120, 1040, 560, 448, 560, 448, 640, 8, 640, 8, 120, 0, 120, 0, 648, 1152, 648, 1152, 0)
 
 [node name="TrashCan" type="Area2D" parent="." groups=["trash_can"]]
-visible = false
 position = Vector2(376, 232)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TrashCan"]
-visible = false
 position = Vector2(480, 124)
 shape = SubResource("RectangleShape2D_lpr88")
 
 [node name="Counter-2" type="Sprite2D" parent="."]
-visible = false
 z_index = -1
 position = Vector2(403, 353)
 scale = Vector2(0.339594, 0.339594)
@@ -360,10 +343,10 @@ anchor_left = 0.458333
 anchor_top = 0.388889
 anchor_right = 0.473958
 anchor_bottom = 0.401235
-offset_left = -352.0
+offset_left = -360.0
 offset_top = 140.0
-offset_right = -321.0
-offset_bottom = 167.0
+offset_right = -334.0
+offset_bottom = 159.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(6.22399, 4.52319)
@@ -374,21 +357,21 @@ autowrap_mode = 2
 [node name="NoButton" type="Button" parent="CanvasLayer2/Control/Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.923611
-anchor_top = 0.425926
-anchor_right = 0.934896
-anchor_bottom = 0.432099
-offset_left = -368.0
-offset_top = 116.0
-offset_right = -333.0
-offset_bottom = 147.0
+anchor_left = 0.458333
+anchor_top = 0.388889
+anchor_right = 0.473958
+anchor_bottom = 0.401235
+offset_left = 184.0
+offset_top = 140.0
+offset_right = 210.0
+offset_bottom = 159.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(6.22399, 4.52319)
 theme = SubResource("Theme_g7tfx")
-text = "No"
+text = "No
+"
 autowrap_mode = 2
-metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="CanvasLayer2/Control/Panel"]
 layout_mode = 1

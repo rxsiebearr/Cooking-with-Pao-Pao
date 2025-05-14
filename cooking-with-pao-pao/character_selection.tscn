@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://yafbhhhj31ky" path="res://character_selection.gd" id="1_2n6ro"]
 [ext_resource type="PackedScene" uid="uid://ckmqercdkwinj" path="res://characterSlot.tscn" id="1_3cm5y"]
-[ext_resource type="Shader" path="res://character_selection.gdshader" id="2_ipfuj"]
+[ext_resource type="Shader" uid="uid://vgf07fhpprr3" path="res://character_selection.gdshader" id="2_ipfuj"]
 [ext_resource type="Texture2D" uid="uid://bn20pr461jtvg" path="res://bearbear.png" id="2_y0x0t"]
 [ext_resource type="Theme" uid="uid://c5olvahh8ifw1" path="res://selection_theme.tres" id="2_yr170"]
 [ext_resource type="Texture2D" uid="uid://2fwpjw7a2mbu" path="res://monk.png" id="3_qliv2"]

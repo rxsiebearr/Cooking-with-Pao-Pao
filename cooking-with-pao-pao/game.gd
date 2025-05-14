@@ -59,7 +59,7 @@ func _input(event):
 			var data = ground.get_cell_tile_data(tile_pos)
 			if data:
 				var tile_name = data.get_custom_data("tile_name")
-				if tile_name == "soil":  # or whatever name you've assigned to valid ground
+				if tile_name == "soil" or "wet soil":
 					set_tile(currently_equipped, tile_pos, crop_layer)
 					crop[tile_pos] = {
 						"name" : currently_equipped, 
