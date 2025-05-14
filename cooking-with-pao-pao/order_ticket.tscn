@@ -49,8 +49,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Ticket/VBoxContainer"]
-position = Vector2(129.15, 119.925)
-scale = Vector2(0.186485, 0.186485)
+position = Vector2(129.15, 110.7)
+scale = Vector2(0.165313, 0.165313)
 texture = ExtResource("2_8n621")
 
 [node name="OrderAmount" type="Label" parent="Ticket/VBoxContainer"]

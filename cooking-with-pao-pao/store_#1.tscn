@@ -145,21 +145,19 @@ corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i8ebn"]
-content_margin_left = 17.0
-content_margin_top = 10.0
-content_margin_right = 17.0
-content_margin_bottom = 13.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ksnvq"]
 bg_color = Color(1, 0.996078, 0.835294, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
 border_color = Color(0.435294, 0.305882, 0.215686, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+expand_margin_left = 3.0
+expand_margin_right = 3.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhwx7"]
 bg_color = Color(1, 0.980392, 0.627451, 1)
@@ -197,9 +195,9 @@ Button/colors/font_hover_color = Color(0.360784, 0.25098, 0.2, 1)
 Button/colors/font_pressed_color = Color(0.360784, 0.25098, 0.2, 1)
 Button/font_sizes/font_size = 8
 Button/styles/focus = SubResource("StyleBoxFlat_a4raj")
-Button/styles/hover = SubResource("StyleBoxFlat_i8ebn")
+Button/styles/hover = SubResource("StyleBoxFlat_ksnvq")
 Button/styles/normal = SubResource("StyleBoxFlat_mhwx7")
-Button/styles/pressed = SubResource("StyleBoxFlat_i8ebn")
+Button/styles/pressed = SubResource("StyleBoxFlat_ksnvq")
 Label/colors/font_color = Color(1, 0.980392, 0.627451, 1)
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
 RichTextLabel/colors/default_color = Color(0.348992, 0.242121, 0.192497, 1)
