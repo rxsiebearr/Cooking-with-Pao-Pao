@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dvhfv0mlnplb6"]
+[gd_scene load_steps=7 format=3 uid="uid://5d3tqv04v3df"]
 
 [ext_resource type="Script" uid="uid://ds4i03bnemflj" path="res://shop_menu.gd" id="1_1gta6"]
 [ext_resource type="Texture2D" uid="uid://7rogjaouddpg" path="res://shopui-removebg-preview-2-removebg-preview-removebg-preview-2.png" id="2_8wjt1"]
@@ -98,33 +98,32 @@ scale = Vector2(0.75, 2)
 theme_override_constants/separation = 1
 alignment = 1
 
-[node name="Seeds" type="Button" parent="Shop/Panel/ShopCategory"]
-layout_mode = 2
-theme = SubResource("Theme_0tduq")
-theme_override_font_sizes/font_size = 17
-text = "Seeds
-"
-
-[node name="Fruits" type="Button" parent="Shop/Panel/ShopCategory"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 17
-text = "Fruits"
-
 [node name="Veggie" type="Button" parent="Shop/Panel/ShopCategory"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 17
 text = "Veggie"
 
+[node name="Seeds" type="Button" parent="Shop/Panel/ShopCategory"]
+layout_mode = 2
+theme = SubResource("Theme_0tduq")
+theme_override_font_sizes/font_size = 17
+text = "Seeds (Out of Stock)
+"
+
+[node name="Fruits" type="Button" parent="Shop/Panel/ShopCategory"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 17
+text = "Fruits (Out of Stock)"
+
 [node name="Meat" type="Button" parent="Shop/Panel/ShopCategory"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 17
-text = "Meat"
+text = "Meat (Out of Stock)"
 
 [node name="Dairy" type="Button" parent="Shop/Panel/ShopCategory"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 17
-text = "Dairy
-"
+text = "Dairy (Out of Stock)"
 
 [node name="Shop Items" type="GridContainer" parent="Shop/Panel"]
 layout_mode = 1
@@ -207,3 +206,4 @@ theme_override_font_sizes/font_size = 40
 text = "Sell"
 
 [connection signal="pressed" from="Shop/Panel/Close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="Shop/VBoxContainer/Buy" to="Shop" method="_on_buy_pressed"]

@@ -29,3 +29,8 @@ func Update_Shop():
 			var item_instance = item_scene.instantiate()
 			item_instance.data = item_data
 			items_grid.add_child(item_instance)
+
+
+func _on_buy_pressed() -> void:
+	if Global.money > 0:
+		
