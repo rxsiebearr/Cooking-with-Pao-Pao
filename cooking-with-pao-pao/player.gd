@@ -38,6 +38,7 @@ func _physics_process(delta: float) -> void:
 	velocity += steering * drag_factor * delta
 	move_and_slide()
 	GlobalData.player_position = position
+	print("player:")
 	print(position)
 	
 	if direction.x > 0:

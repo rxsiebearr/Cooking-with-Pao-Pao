@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://i1olt16hyoho"]
+[gd_scene load_steps=36 format=3 uid="uid://i1olt16hyoho"]
 
 [ext_resource type="Texture2D" uid="uid://yt7c48s5m2mv" path="res://store_1_updated.png" id="1_2cf8m"]
 [ext_resource type="Script" uid="uid://c7ihlgnxacdrc" path="res://store_#1.gd" id="1_a4raj"]
@@ -133,19 +133,10 @@ shader = ExtResource("17_i8ebn")
 shader_parameter/blur_size = 3.0
 shader_parameter/blur_steps = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a4raj"]
-draw_center = false
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.19006, 0.123871, 0.077589, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g7tfx"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ksnvq"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i8ebn"]
 bg_color = Color(1, 0.996078, 0.835294, 1)
 border_width_left = 3
 border_width_top = 3
@@ -171,6 +162,20 @@ corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ksnvq"]
+bg_color = Color(1, 0.996078, 0.835294, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.211765, 0.141176, 0.0901961, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+expand_margin_left = 3.0
+expand_margin_right = 3.0
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gsqoc"]
 content_margin_left = 48.0
 content_margin_top = 32.0
@@ -194,8 +199,8 @@ Button/colors/font_focus_color = Color(0.360784, 0.25098, 0.2, 1)
 Button/colors/font_hover_color = Color(0.360784, 0.25098, 0.2, 1)
 Button/colors/font_pressed_color = Color(0.360784, 0.25098, 0.2, 1)
 Button/font_sizes/font_size = 8
-Button/styles/focus = SubResource("StyleBoxFlat_a4raj")
-Button/styles/hover = SubResource("StyleBoxFlat_ksnvq")
+Button/styles/focus = SubResource("StyleBoxFlat_g7tfx")
+Button/styles/hover = SubResource("StyleBoxFlat_i8ebn")
 Button/styles/normal = SubResource("StyleBoxFlat_mhwx7")
 Button/styles/pressed = SubResource("StyleBoxFlat_ksnvq")
 Label/colors/font_color = Color(1, 0.980392, 0.627451, 1)
@@ -406,5 +411,5 @@ wait_time = 15.0
 [connection signal="timeout" from="RiceCookerArea/TimerBar/BurntTimer" to="RiceCookerArea/TimerBar" method="_on_burnt_timer_timeout"]
 [connection signal="body_entered" from="TrashCan" to="Bear Bear" method="_on_trash_can_body_entered"]
 [connection signal="pressed" from="CanvasLayer2/Control/Panel/YesButton" to="." method="_on_yes_button_pressed"]
-[connection signal="pressed" from="CanvasLayer2/Control/Panel/NoButton" to="." method="_on_yes_button_pressed"]
+[connection signal="pressed" from="CanvasLayer2/Control/Panel/NoButton" to="." method="_on_no_button_pressed"]
 [connection signal="timeout" from="DayTimer" to="." method="_on_day_timer_timeout"]

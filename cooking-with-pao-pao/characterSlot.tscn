@@ -4,11 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://bn20pr461jtvg" path="res://bearbear.png" id="2_giyvf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1od2u"]
+bg_color = Color(0.6717, 0.793737, 0.890006, 1)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
-border_color = Color(0, 0, 0, 1)
+border_color = Color(0.320098, 0.544318, 0.780311, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5

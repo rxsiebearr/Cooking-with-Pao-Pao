@@ -6,6 +6,9 @@ extends Control
 @onready var line_2d = $"../../Line2D"
 @onready var farm_box = $"../../FarmBox"
 @onready var collision_polygon_2d = $"../../FarmBox/CollisionPolygon2D"
+@onready var collision_shape_2d = %CollisionShape2D
+
+
 
 var current_item_index := 0
 var line_shown: bool = false
@@ -65,8 +68,10 @@ func _ready() -> void:
 		show_text()
 		get_tree().paused = true
 		next_button.pressed.connect(advance)
+		collision_shape_2d.set_deferred("disabled", true)
 	else:
 		hide()
+		line_2d.hide()
 	
 func show_text() -> void:
 	var current_item := dialogue_items[current_item_index]
@@ -91,6 +96,7 @@ func advance() -> void:
 		if not line_shown:
 			line_2d.show()
 			line_shown = true
+			
 
 func _on_farm_box_body_entered(body):
 	if body is Player and entered and !GlobalData.dialogue_finished:
@@ -101,3 +107,4 @@ func _on_farm_box_body_entered(body):
 		show_text()
 		entered = false
 		GlobalData.dialogue_finished = true
+		collision_shape_2d.set_deferred("disabled", false)

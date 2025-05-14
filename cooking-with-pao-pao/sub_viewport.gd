@@ -5,4 +5,5 @@ extends SubViewport
 func _physics_process(_delta):
 	if GlobalData.player_instantiated:
 		camera_2d.position = GlobalData.player_position
+		print("camera:")
 		print(camera_2d.position)

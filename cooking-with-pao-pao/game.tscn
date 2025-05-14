@@ -134,6 +134,7 @@ metadata/_edit_lock_ = true
 position = Vector2(2700, 571)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnterStore"]
+unique_name_in_owner = true
 position = Vector2(-12, -7)
 shape = SubResource("RectangleShape2D_fv8qf")
 debug_color = Color(0.770041, 9.62615e-07, 0.396704, 0.419608)
