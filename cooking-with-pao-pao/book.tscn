@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cbj6iu2r5ds4s"]
+[gd_scene load_steps=0 format=3 uid="uid://cbj6iu2r5ds4s"]
 
 [node name="Book" type="Control"]
 layout_mode = 3
