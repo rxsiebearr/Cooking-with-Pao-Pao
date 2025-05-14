@@ -27,7 +27,7 @@ func _ready():
 	else:
 		playerNode.global_position = $SpawnPoint.global_position
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if enter and Input.is_action_just_pressed("interact"):
 		GlobalData.next_spawn_position = playerNode.global_position
 		get_tree().change_scene_to_file("res://store_#1.tscn")
