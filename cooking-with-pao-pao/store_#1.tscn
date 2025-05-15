@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://dbf4nuwerwhdq" path="res://counter-2.png" id="14_f21rd"]
 [ext_resource type="PackedScene" uid="uid://cgtb314jo2ggl" path="res://money_count.tscn" id="15_fxd0j"]
 [ext_resource type="Shader" path="res://character_selection.gdshader" id="17_i8ebn"]
-[ext_resource type="Theme" path="res://selection_theme.tres" id="17_mhwx7"]
+[ext_resource type="Theme" uid="uid://cbn12y5htoaca" path="res://selection_theme.tres" id="17_mhwx7"]
 [ext_resource type="Texture2D" uid="uid://yv7oa8wsu4bh" path="res://Farming/image-removebg-preview__1_-removebg-preview.png" id="20_g7tfx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ceqsw"]
