@@ -7,12 +7,14 @@ extends Control
 @onready var farm_box = $"../../FarmBox"
 @onready var collision_polygon_2d = $"../../FarmBox/CollisionPolygon2D"
 @onready var collision_shape_2d = %CollisionShape2D
+@onready var shop_line: Line2D = $"../../ShopLine"
 
 
 
 var current_item_index := 0
 var line_shown: bool = false
 var entered: bool = true
+var shop: bool = false
 
 var expressions := {
 	"happy" = preload("res://happy timmy.png"),
@@ -60,7 +62,7 @@ var extra_dialogue_items: Array[Dictionary] = [
 	
 	{
 		"expression": expressions["mad"],
-		"text": "Try to farm a bit, then follow the path to Pao Pao 99.",
+		"text": "Try to farm a bit, then follow the path to the rice shop.",
 	}
 ]
 func _ready() -> void:
@@ -72,6 +74,7 @@ func _ready() -> void:
 	else:
 		hide()
 		line_2d.hide()
+		
 	
 func show_text() -> void:
 	var current_item := dialogue_items[current_item_index]
@@ -91,6 +94,8 @@ func advance() -> void:
 	if current_item_index == dialogue_items.size():
 		hide()
 		get_tree().paused = false
+		if shop:
+			shop_line.show()
 	else:
 		show_text()
 		if not line_shown:
@@ -105,6 +110,7 @@ func _on_farm_box_body_entered(body):
 		show()
 		get_tree().paused = true
 		show_text()
+		shop = true
 		entered = false
 		GlobalData.dialogue_finished = true
 		collision_shape_2d.set_deferred("disabled", false)

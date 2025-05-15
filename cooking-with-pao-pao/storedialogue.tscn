@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5jafr2db2exe"]
+
+[ext_resource type="Theme" uid="uid://dsw1gg6uikpyy" path="res://main_theme.tres" id="1_1mklu"]
+[ext_resource type="Script" uid="uid://b2rrbeeijvgp8" path="res://dialogue.gd" id="2_1keex"]
+[ext_resource type="Texture2D" uid="uid://dh4etha604qml" path="res://happy timmy.png" id="3_d4xh6"]
+
+[node name="StoreDialogue" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_1mklu")
+script = ExtResource("2_1keex")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+process_mode = 3
+layout_mode = 0
+offset_left = 265.0
+offset_top = 501.0
+offset_right = 978.0
+offset_bottom = 608.0
+scale = Vector2(1.00221, 1)
+theme = ExtResource("1_1mklu")
+bbcode_enabled = true
+text = "CHICKEN"
+fit_content = true
+
+[node name="NextButton" type="Button" parent="."]
+unique_name_in_owner = true
+process_mode = 3
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -104.0
+offset_top = -64.0
+offset_right = -16.0
+offset_bottom = -3.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("1_1mklu")
+text = "➜"
+
+[node name="Body" type="TextureRect" parent="."]
+unique_name_in_owner = true
+process_mode = 3
+layout_mode = 0
+offset_left = -11.0
+offset_top = 316.0
+offset_right = 316.0
+offset_bottom = 646.0
+texture = ExtResource("3_d4xh6")
+expand_mode = 1
+stretch_mode = 5

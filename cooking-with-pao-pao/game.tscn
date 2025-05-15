@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=4 uid="uid://bidwuh6pstcpq"]
 
 [ext_resource type="Script" uid="uid://fue2j8ntka7w" path="res://game.gd" id="1_bor6y"]
-[ext_resource type="Script" path="res://BlockData.gd" id="2_mfdv2"]
+[ext_resource type="Script" uid="uid://dci6pslvi1xw4" path="res://BlockData.gd" id="2_mfdv2"]
 [ext_resource type="PackedScene" uid="uid://cgtb314jo2ggl" path="res://money_count.tscn" id="3_frnrn"]
 [ext_resource type="Resource" uid="uid://pxw2gc7xc444" path="res://Resources/Soil.tres" id="3_iotsf"]
 [ext_resource type="Resource" uid="uid://disss884y34ay" path="res://Resources/Rice.tres" id="4_lc2xo"]
@@ -251,6 +251,16 @@ texture = ExtResource("5_xnhry")
 texture_filter = 1
 texture_repeat = 2
 points = PackedVector2Array(911, 2716, 2546, 2831, 2563, 665, 2354, 666)
+width = 50.0
+texture = ExtResource("13_lc2xo")
+texture_mode = 1
+sharp_limit = 1.0
+
+[node name="ShopLine" type="Line2D" parent="."]
+visible = false
+texture_filter = 1
+texture_repeat = 2
+points = PackedVector2Array(1505, 663, 2692, 660, 2694, 567)
 width = 50.0
 texture = ExtResource("13_lc2xo")
 texture_mode = 1
