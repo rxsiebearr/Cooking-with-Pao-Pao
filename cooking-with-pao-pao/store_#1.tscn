@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://i1olt16hyoho"]
+[gd_scene load_steps=37 format=3 uid="uid://i1olt16hyoho"]
 
 [ext_resource type="Texture2D" uid="uid://yt7c48s5m2mv" path="res://store_1_updated.png" id="1_2cf8m"]
 [ext_resource type="Script" uid="uid://c7ihlgnxacdrc" path="res://store_#1.gd" id="1_a4raj"]
@@ -7,17 +7,18 @@
 [ext_resource type="PackedScene" uid="uid://bim1vfyr0jrkh" path="res://bear_bear.tscn" id="1_qnkjh"]
 [ext_resource type="Texture2D" uid="uid://da0c8pboj1qp2" path="res://rice cooker closed.png" id="1_trkgk"]
 [ext_resource type="Texture2D" uid="uid://cpvp4dd13yxkg" path="res://rice cooker opened.png" id="3_03rmw"]
+[ext_resource type="PackedScene" uid="uid://b5jafr2db2exe" path="res://storedialogue.tscn" id="3_ksnvq"]
 [ext_resource type="PackedScene" uid="uid://dbebqrldaejj1" path="res://item_drop.tscn" id="4_54ox5"]
 [ext_resource type="Script" uid="uid://bvfe6mrc200l7" path="res://timer_bar.gd" id="4_bx3hj"]
 [ext_resource type="Texture2D" uid="uid://bpi4kf2ifi2lf" path="res://rice cooker rice.png" id="4_o5lyj"]
 [ext_resource type="Texture2D" uid="uid://dgliqp2453eny" path="res://rice.png" id="5_2wqnh"]
 [ext_resource type="Texture2D" uid="uid://cstx0wlpvval6" path="res://rice cooked.png" id="5_atcon"]
 [ext_resource type="Texture2D" uid="uid://br5fws046u57o" path="res://rice_burnt.png" id="6_58c1d"]
-[ext_resource type="Texture2D" uid="uid://b72t1sumvrkmo" path="res://rice_bowl-removebg-preview.png" id="10_p8wo6"]
+[ext_resource type="Texture2D" uid="uid://b8tn7uihpnrxc" path="res://bowl.png" id="13_i8ebn"]
 [ext_resource type="Texture2D" uid="uid://dbf4nuwerwhdq" path="res://counter-2.png" id="14_f21rd"]
 [ext_resource type="PackedScene" uid="uid://cgtb314jo2ggl" path="res://money_count.tscn" id="15_fxd0j"]
-[ext_resource type="Script" uid="uid://csms8en34f8rl" path="res://rice_count.gd" id="17_i8ebn"]
-[ext_resource type="Texture2D" uid="uid://yv7oa8wsu4bh" path="res://Farming/image-removebg-preview__1_-removebg-preview.png" id="18_ksnvq"]
+[ext_resource type="Shader" path="res://character_selection.gdshader" id="17_i8ebn"]
+[ext_resource type="Theme" uid="uid://c5olvahh8ifw1" path="res://selection_theme.tres" id="17_mhwx7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ceqsw"]
 size = Vector2(158, 129)
@@ -128,12 +129,85 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lpr88"]
 size = Vector2(114, 56)
 
-[sub_resource type="LabelSettings" id="LabelSettings_fxd0j"]
-font_size = 35
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ksnvq"]
+shader = ExtResource("17_i8ebn")
+shader_parameter/blur_size = 3.0
+shader_parameter/blur_steps = 5
 
-[sub_resource type="LabelSettings" id="LabelSettings_g7tfx"]
-font_size = 11
-font_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g7tfx"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i8ebn"]
+bg_color = Color(1, 0.996078, 0.835294, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.435294, 0.305882, 0.215686, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+expand_margin_left = 3.0
+expand_margin_right = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhwx7"]
+bg_color = Color(1, 0.980392, 0.627451, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.435294, 0.305882, 0.215686, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ksnvq"]
+bg_color = Color(1, 0.996078, 0.835294, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.211765, 0.141176, 0.0901961, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+expand_margin_left = 3.0
+expand_margin_right = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gsqoc"]
+content_margin_left = 48.0
+content_margin_top = 32.0
+content_margin_right = 48.0
+content_margin_bottom = 32.0
+bg_color = Color(1, 0.980392, 0.627451, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.435294, 0.305882, 0.215686, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="Theme" id="Theme_g7tfx"]
+default_font_size = 25
+Button/colors/font_color = Color(0.360784, 0.25098, 0.2, 1)
+Button/colors/font_focus_color = Color(0.360784, 0.25098, 0.2, 1)
+Button/colors/font_hover_color = Color(0.360784, 0.25098, 0.2, 1)
+Button/colors/font_pressed_color = Color(0.360784, 0.25098, 0.2, 1)
+Button/font_sizes/font_size = 8
+Button/styles/focus = SubResource("StyleBoxFlat_g7tfx")
+Button/styles/hover = SubResource("StyleBoxFlat_i8ebn")
+Button/styles/normal = SubResource("StyleBoxFlat_mhwx7")
+Button/styles/pressed = SubResource("StyleBoxFlat_ksnvq")
+Label/colors/font_color = Color(1, 0.980392, 0.627451, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/default_color = Color(0.348992, 0.242121, 0.192497, 1)
+RichTextLabel/styles/normal = SubResource("StyleBoxFlat_gsqoc")
 
 [node name="Store #1" type="Node2D"]
 script = ExtResource("1_a4raj")
@@ -144,6 +218,10 @@ offset_top = -3.0
 offset_right = 3.0
 offset_bottom = -2.93601
 scale = Vector2(0.833534, 0.867498)
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+
+[node name="StoreDialogue" parent="CanvasLayer3" instance=ExtResource("3_ksnvq")]
 
 [node name="TurnIn" type="Area2D" parent="."]
 
@@ -206,7 +284,7 @@ item_name = "Rice"
 [node name="ItemDrop2" parent="." instance=ExtResource("4_54ox5")]
 position = Vector2(410, 280)
 scale = Vector2(0.3, 0.3)
-item_texture = ExtResource("10_p8wo6")
+item_texture = ExtResource("13_i8ebn")
 item_name = "RiceBowl"
 
 [node name="Bear Bear" parent="." instance=ExtResource("1_qnkjh")]
@@ -235,19 +313,18 @@ scale = Vector2(0.339594, 0.339594)
 texture = ExtResource("14_f21rd")
 
 [node name="MoneyCount" parent="." instance=ExtResource("15_fxd0j")]
-offset_left = 1136.0
-offset_right = 1136.0
+offset_left = 1160.0
+offset_right = 1160.0
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 layer = -1
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer2"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer2"]
+material = SubResource("ShaderMaterial_ksnvq")
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_2cf8m")
+expand_mode = 1
 
 [node name="Control" type="Control" parent="CanvasLayer2"]
 layout_mode = 3
@@ -269,38 +346,40 @@ metadata/_edit_use_anchors_ = true
 
 [node name="YesButton" type="Button" parent="CanvasLayer2/Control/Panel"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -368.0
-offset_top = 116.0
-offset_right = -333.0
-offset_bottom = 147.0
+anchors_preset = -1
+anchor_left = 0.458333
+anchor_top = 0.388889
+anchor_right = 0.473958
+anchor_bottom = 0.401235
+offset_left = -360.0
+offset_top = 140.0
+offset_right = -334.0
+offset_bottom = 159.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(6.22399, 4.52319)
+theme = SubResource("Theme_g7tfx")
 text = "Yes"
 autowrap_mode = 2
-metadata/_edit_use_anchors_ = true
 
 [node name="NoButton" type="Button" parent="CanvasLayer2/Control/Panel"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 120.0
-offset_top = 116.0
-offset_right = 151.0
-offset_bottom = 147.0
+anchors_preset = -1
+anchor_left = 0.458333
+anchor_top = 0.388889
+anchor_right = 0.473958
+anchor_bottom = 0.401235
+offset_left = 184.0
+offset_top = 140.0
+offset_right = 210.0
+offset_bottom = 159.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(6.75183, 4.45677)
-text = "No"
-metadata/_edit_use_anchors_ = true
+scale = Vector2(6.22399, 4.52319)
+theme = SubResource("Theme_g7tfx")
+text = "No
+"
+autowrap_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer2/Control/Panel"]
 layout_mode = 1
@@ -316,48 +395,17 @@ offset_bottom = -143.292
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2.31295, 2.56188)
+theme = ExtResource("17_mhwx7")
 text = "Are you ready to 
 start cooking?"
-label_settings = SubResource("LabelSettings_fxd0j")
 horizontal_alignment = 1
 autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="DayTimer" type="Timer" parent="."]
-wait_time = 120.0
+wait_time = 15.0
 
-[node name="Rice Count" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = 904.0
-offset_top = 8.0
-offset_right = 944.0
-offset_bottom = 48.0
-grow_horizontal = 0
-scale = Vector2(1.79079, 1.50574)
-script = ExtResource("17_i8ebn")
-
-[node name="Label" type="Label" parent="Rice Count"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -36.0911
-offset_top = 12.6184
-offset_right = 3.90891
-offset_bottom = 34.9517
-grow_horizontal = 0
-scale = Vector2(2.34475, 2.0732)
-text = "x0"
-label_settings = SubResource("LabelSettings_g7tfx")
-
-[node name="Sprite2D" type="Sprite2D" parent="Rice Count"]
-position = Vector2(-24.0117, 15.939)
-scale = Vector2(0.195542, 0.180439)
-texture = ExtResource("18_ksnvq")
-
+[connection signal="store_dialogue_done" from="CanvasLayer3/StoreDialogue" to="." method="_on_store_dialogue_store_dialogue_done"]
 [connection signal="body_entered" from="TurnIn" to="Bear Bear" method="_on_turn_in_body_entered"]
 [connection signal="body_exited" from="TurnIn" to="Bear Bear" method="_on_turn_in_body_exited"]
 [connection signal="body_entered" from="RiceCookerArea" to="Bear Bear" method="_on_rice_cooker_area_body_entered"]

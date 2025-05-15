@@ -76,7 +76,6 @@ func watering_tile(tile_name: String, pos: Vector2i, amount: float = 1.0):
 	set_tile(tile_name, pos, ground, 1)
 	print(water_level)
 
-
 func drying_tile(pos):
 	var tile_pos = get_snapped_position(pos)
 	var data = ground.get_cell_tile_data(tile_pos)

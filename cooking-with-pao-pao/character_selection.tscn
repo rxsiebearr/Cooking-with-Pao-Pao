@@ -1,22 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://bb76tce44o007"]
+[gd_scene load_steps=11 format=3 uid="uid://bb76tce44o007"]
 
 [ext_resource type="Script" uid="uid://yafbhhhj31ky" path="res://character_selection.gd" id="1_2n6ro"]
 [ext_resource type="PackedScene" uid="uid://ckmqercdkwinj" path="res://characterSlot.tscn" id="1_3cm5y"]
-[ext_resource type="Texture2D" uid="uid://bn20pr461jtvg" path="res://bearbear.png" id="2_y0x0t"]
-[ext_resource type="Texture2D" uid="uid://2fwpjw7a2mbu" path="res://monk.png" id="3_qliv2"]
-[ext_resource type="Texture2D" uid="uid://b4qgnhcw8wj4" path="res://anton.png" id="4_fvphv"]
-[ext_resource type="Texture2D" uid="uid://bt0ij2i0vx48u" path="res://charles.png" id="5_5ffxh"]
+[ext_resource type="Shader" path="res://character_selection.gdshader" id="2_ipfuj"]
+[ext_resource type="Theme" uid="uid://c5olvahh8ifw1" path="res://selection_theme.tres" id="2_yr170"]
+[ext_resource type="Texture2D" uid="uid://k7t6hvxj0hya" path="res://bear bear_final.png" id="6_ipfuj"]
+[ext_resource type="Texture2D" uid="uid://im66r2rtufrb" path="res://monk_final.png" id="7_bqtcc"]
+[ext_resource type="Texture2D" uid="uid://c1lbeq3chlfdv" path="res://anton_final.png" id="8_oqaqy"]
+[ext_resource type="Texture2D" uid="uid://dx24htd1h4we2" path="res://map-3.png" id="8_rr1ac"]
+[ext_resource type="Texture2D" uid="uid://b1e6k0ipx1jpw" path="res://charles_final.png" id="9_f561k"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xvt6s"]
-bg_color = Color(0, 0, 0, 0.00392157)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bqtcc"]
+shader = ExtResource("2_ipfuj")
+shader_parameter/blur_size = 10.0
+shader_parameter/blur_steps = 5
 
 [node name="CharacterSelection" type="Control"]
 layout_mode = 3
@@ -29,6 +26,14 @@ pivot_offset = Vector2(576, 324)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_2n6ro")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_bqtcc")
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("8_rr1ac")
+expand_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -46,6 +51,7 @@ alignment = 1
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme = ExtResource("2_yr170")
 theme_override_font_sizes/font_size = 50
 text = "Pick your Player!"
 horizontal_alignment = 1
@@ -61,30 +67,29 @@ alignment = 1
 [node name="Character1" parent="VBoxContainer/HBoxContainer" instance=ExtResource("1_3cm5y")]
 layout_mode = 2
 characterPath = "res://bear_bear.tscn"
-characterTexture = ExtResource("2_y0x0t")
+characterTexture = ExtResource("6_ipfuj")
 
 [node name="Character2" parent="VBoxContainer/HBoxContainer" instance=ExtResource("1_3cm5y")]
 layout_mode = 2
 characterPath = "res://monk.tscn"
-characterTexture = ExtResource("3_qliv2")
+characterTexture = ExtResource("7_bqtcc")
 
 [node name="Character3" parent="VBoxContainer/HBoxContainer" instance=ExtResource("1_3cm5y")]
 layout_mode = 2
 characterPath = "res://anton.tscn"
-characterTexture = ExtResource("4_fvphv")
+characterTexture = ExtResource("8_oqaqy")
 
 [node name="Character4" parent="VBoxContainer/HBoxContainer" instance=ExtResource("1_3cm5y")]
 layout_mode = 2
 characterPath = "res://charles.tscn"
-characterTexture = ExtResource("5_5ffxh")
+characterTexture = ExtResource("9_f561k")
 
 [node name="StartButton" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_xvt6s")
+theme = ExtResource("2_yr170")
 text = "Start"
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
