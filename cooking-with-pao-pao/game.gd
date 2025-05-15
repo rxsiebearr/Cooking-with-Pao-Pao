@@ -1,6 +1,7 @@
 extends Node2D
 
-var enter: bool = false
+var store_enter: bool = false
+var shop_enter: bool =false
 var parameter: Dictionary
 var playerNode
 
@@ -28,9 +29,12 @@ func _ready():
 		playerNode.global_position = $SpawnPoint.global_position
 	
 func _process(_delta: float) -> void:
-	if enter and Input.is_action_just_pressed("interact"):
+	if store_enter and Input.is_action_just_pressed("interact"):
 		GlobalData.next_spawn_position = playerNode.global_position
 		get_tree().change_scene_to_file("res://store_#1.tscn")
+	if shop_enter and Input.is_action_just_pressed("interact"):
+		GlobalData.next_spawn_position = playerNode.global_position
+		get_tree().change_scene_to_file("res://shop_menu.tscn")
 		
 func _physics_process(delta):
 	for pos in water_level:
@@ -69,7 +73,7 @@ func _input(event):
 				
 			harvesting(tile_pos)
 				
-		if event.button_index == MOUSE_BUTTON_RIGHT and not crop.has(tile_pos):
+		if event.button_index == MOUSE_BUTTON_RIGHT and not crop.has(tile_pos) and Global.rice_seeds > 0:
 			var data = ground.get_cell_tile_data(tile_pos)
 			if data:
 				var tile_name = data.get_custom_data("tile_name")
@@ -117,11 +121,16 @@ func harvesting(pos):
 		
 func _on_enter_store_body_entered(body: Node2D) -> void:
 	if body is Player:
-		enter = true
+		store_enter = true
 
 func _on_enter_store_body_exited(body: Node2D) -> void:
 	if body is Player:
-		enter = false
+		store_enter = false
 
+func _on_shop_area_body_entered(body: Node2D) -> void:
+	if body is Player:
+		shop_enter = true
 
-		
+func _on_shop_area_body_exited(body: Node2D) -> void:
+	if body is Player:
+		shop_enter = false

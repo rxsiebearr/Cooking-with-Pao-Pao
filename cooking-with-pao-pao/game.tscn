@@ -1,17 +1,17 @@
-[gd_scene load_steps=23 format=4 uid="uid://bidwuh6pstcpq"]
+[gd_scene load_steps=24 format=4 uid="uid://bidwuh6pstcpq"]
 
 [ext_resource type="Script" uid="uid://fue2j8ntka7w" path="res://game.gd" id="1_bor6y"]
 [ext_resource type="Script" uid="uid://dci6pslvi1xw4" path="res://BlockData.gd" id="2_mfdv2"]
 [ext_resource type="PackedScene" uid="uid://cgtb314jo2ggl" path="res://money_count.tscn" id="3_frnrn"]
-[ext_resource type="Resource" uid="uid://pxw2gc7xc444" path="res://Resources/Soil.tres" id="3_iotsf"]
-[ext_resource type="Resource" uid="uid://disss884y34ay" path="res://Resources/Rice.tres" id="4_lc2xo"]
+[ext_resource type="Resource" uid="uid://dwddv64uyqk0k" path="res://Resources/Soil.tres" id="3_iotsf"]
+[ext_resource type="Resource" uid="uid://q6n46ybeh8qv" path="res://Resources/Rice.tres" id="4_lc2xo"]
 [ext_resource type="Texture2D" uid="uid://dx24htd1h4we2" path="res://map-3.png" id="5_3th4p"]
 [ext_resource type="Texture2D" uid="uid://d0hbep6jhw6nt" path="res://Farming/DIRTGO-Sheet-2.png" id="5_mfdv2"]
 [ext_resource type="Texture2D" uid="uid://j8b453pmaln8" path="res://Placeholder images/Godot_icon.svg.png" id="5_xnhry"]
 [ext_resource type="Texture2D" uid="uid://cbbd2doedjctq" path="res://Farming/rice plant-Sheet-Sheet.png" id="7_eow3j"]
 [ext_resource type="PackedScene" uid="uid://dxmmmvj3tb576" path="res://dialogue.tscn" id="8_iotsf"]
 [ext_resource type="Texture2D" uid="uid://yv7oa8wsu4bh" path="res://Farming/image-removebg-preview__1_-removebg-preview.png" id="8_j5wjh"]
-[ext_resource type="Script" uid="uid://bmwk47lo7yplk" path="res://sub_viewport.gd" id="11_iotsf"]
+[ext_resource type="Script" path="res://sub_viewport.gd" id="11_iotsf"]
 [ext_resource type="Texture2D" uid="uid://dshlc8i5mfppe" path="res://chloesline.png" id="13_lc2xo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_omkq4"]
@@ -109,6 +109,9 @@ font_color = Color(0, 0, 0, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lc2xo"]
 size = Vector2(82, 118.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_215e1"]
+size = Vector2(132.5, 79.5)
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_bor6y")
 block = Dictionary[String, ExtResource("2_mfdv2")]({
@@ -186,9 +189,9 @@ layout_mode = 3
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -69.0
+offset_left = -83.9999
 offset_top = 101.0
-offset_right = -29.0
+offset_right = -43.9999
 offset_bottom = 141.0
 grow_horizontal = 0
 scale = Vector2(1.79079, 1.50574)
@@ -213,6 +216,8 @@ scale = Vector2(0.195542, 0.180439)
 texture = ExtResource("8_j5wjh")
 
 [node name="MoneyCount" parent="CanvasLayer" instance=ExtResource("3_frnrn")]
+offset_left = -10.0
+offset_right = -10.0
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer"]
 offset_left = 1008.0
@@ -273,6 +278,14 @@ position = Vector2(1803, 962)
 position = Vector2(548, -293)
 shape = SubResource("RectangleShape2D_lc2xo")
 
+[node name="ShopArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShopArea"]
+position = Vector2(2125.25, 570.25)
+shape = SubResource("RectangleShape2D_215e1")
+
 [connection signal="body_entered" from="EnterStore" to="." method="_on_enter_store_body_entered"]
 [connection signal="body_exited" from="EnterStore" to="." method="_on_enter_store_body_exited"]
 [connection signal="body_entered" from="FarmBox" to="CanvasLayer/Dialogue" method="_on_farm_box_body_entered"]
+[connection signal="body_entered" from="ShopArea" to="." method="_on_shop_area_body_entered"]
+[connection signal="body_exited" from="ShopArea" to="." method="_on_shop_area_body_exited"]
