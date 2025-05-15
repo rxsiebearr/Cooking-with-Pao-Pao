@@ -1,15 +1,16 @@
-[gd_scene load_steps=23 format=4 uid="uid://bidwuh6pstcpq"]
+[gd_scene load_steps=25 format=4 uid="uid://bidwuh6pstcpq"]
 
 [ext_resource type="Script" uid="uid://fue2j8ntka7w" path="res://game.gd" id="1_bor6y"]
-[ext_resource type="Script" uid="uid://dci6pslvi1xw4" path="res://BlockData.gd" id="2_mfdv2"]
+[ext_resource type="Script" path="res://BlockData.gd" id="2_mfdv2"]
 [ext_resource type="PackedScene" uid="uid://cgtb314jo2ggl" path="res://money_count.tscn" id="3_frnrn"]
-[ext_resource type="Resource" uid="uid://pxw2gc7xc444" path="res://Resources/Soil.tres" id="3_iotsf"]
-[ext_resource type="Script" uid="uid://c5142sa03hlbh" path="res://minimap.gd" id="4_3oobf"]
-[ext_resource type="Resource" uid="uid://disss884y34ay" path="res://Resources/Rice.tres" id="4_lc2xo"]
+[ext_resource type="Resource" uid="uid://dwddv64uyqk0k" path="res://Resources/Soil.tres" id="3_iotsf"]
+[ext_resource type="Script" path="res://minimap.gd" id="4_3oobf"]
+[ext_resource type="Resource" uid="uid://q6n46ybeh8qv" path="res://Resources/Rice.tres" id="4_lc2xo"]
 [ext_resource type="Texture2D" uid="uid://dx24htd1h4we2" path="res://map-3.png" id="5_3th4p"]
 [ext_resource type="Texture2D" uid="uid://d0hbep6jhw6nt" path="res://Farming/DIRTGO-Sheet-2.png" id="5_mfdv2"]
 [ext_resource type="Texture2D" uid="uid://j8b453pmaln8" path="res://Placeholder images/Godot_icon.svg.png" id="5_xnhry"]
 [ext_resource type="Texture2D" uid="uid://cbbd2doedjctq" path="res://Farming/rice plant-Sheet-Sheet.png" id="7_eow3j"]
+[ext_resource type="Script" uid="uid://csms8en34f8rl" path="res://rice_count.gd" id="8_215e1"]
 [ext_resource type="PackedScene" uid="uid://dxmmmvj3tb576" path="res://dialogue.tscn" id="8_iotsf"]
 [ext_resource type="Texture2D" uid="uid://yv7oa8wsu4bh" path="res://Farming/image-removebg-preview__1_-removebg-preview.png" id="8_j5wjh"]
 [ext_resource type="Texture2D" uid="uid://dshlc8i5mfppe" path="res://chloesline.png" id="13_lc2xo"]
@@ -109,6 +110,9 @@ font_color = Color(0, 0, 0, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lc2xo"]
 size = Vector2(82, 118.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_215e1"]
+size = Vector2(136, 76)
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_bor6y")
 block = Dictionary[String, ExtResource("2_mfdv2")]({
@@ -180,7 +184,7 @@ polygon = PackedVector2Array(24, 0.00012207, 24, 2912, 5128, 2912, 5128, 0.00012
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Control" type="Control" parent="CanvasLayer"]
+[node name="Rice Count" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 1
 anchor_left = 1.0
@@ -191,8 +195,9 @@ offset_right = -29.0
 offset_bottom = 141.0
 grow_horizontal = 0
 scale = Vector2(1.79079, 1.50574)
+script = ExtResource("8_215e1")
 
-[node name="Label" type="Label" parent="CanvasLayer/Control"]
+[node name="Label" type="Label" parent="CanvasLayer/Rice Count"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -206,12 +211,16 @@ scale = Vector2(2.34475, 2.0732)
 text = "x0"
 label_settings = SubResource("LabelSettings_ynp53")
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control"]
-position = Vector2(-24.0118, 15.939)
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Rice Count"]
+position = Vector2(-24.0117, 15.939)
 scale = Vector2(0.195542, 0.180439)
 texture = ExtResource("8_j5wjh")
 
 [node name="MoneyCount" parent="CanvasLayer" instance=ExtResource("3_frnrn")]
+offset_left = -11.0
+offset_top = -1.0
+offset_right = -11.0
+offset_bottom = -1.0
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer"]
 offset_left = 1000.0
@@ -254,6 +263,14 @@ position = Vector2(1803, 962)
 position = Vector2(548, -293)
 shape = SubResource("RectangleShape2D_lc2xo")
 
+[node name="Shop" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shop"]
+position = Vector2(2127, 578)
+shape = SubResource("RectangleShape2D_215e1")
+
 [connection signal="body_entered" from="EnterStore" to="." method="_on_enter_store_body_entered"]
 [connection signal="body_exited" from="EnterStore" to="." method="_on_enter_store_body_exited"]
 [connection signal="body_entered" from="FarmBox" to="CanvasLayer/Dialogue" method="_on_farm_box_body_entered"]
+[connection signal="body_entered" from="Shop" to="." method="_on_shop_body_entered"]
+[connection signal="body_exited" from="Shop" to="." method="_on_shop_body_exited"]

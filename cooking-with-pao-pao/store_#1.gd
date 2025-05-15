@@ -8,13 +8,10 @@ extends Node2D
 func _ready() -> void:
 	store.visible = false
 
-
-
 func _on_yes_button_pressed() -> void:
 	readycook.visible = false
 	store.visible = true
 	day_timer.start()
-
 
 
 func _on_no_button_pressed() -> void:

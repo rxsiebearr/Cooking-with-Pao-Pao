@@ -33,4 +33,24 @@ func Update_Shop():
 
 func _on_buy_pressed() -> void:
 	if Global.money > 0:
+		Global.money -= 1
+		Global.rice += 1
+
+
+func _on_sell_pressed() -> void:
+	if Global.rice > 0:
+		Global.money += 2
+		Global.rice -= 1
 		
+
+
+func _on_buy_2_pressed() -> void:
+	if Global.money > 0:
+		Global.money -= 1
+		Global.rice_seeds += 2
+
+
+func _on_sell_2_pressed() -> void:
+	if Global.rice_seeds > 0:
+		Global.rice_seeds -= 1
+		Global.money += 1

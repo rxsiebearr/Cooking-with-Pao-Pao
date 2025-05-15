@@ -1,21 +1,18 @@
 extends Node2D
 
-var enter: bool = false
+var enter_store: bool = false
+var enter_shop: bool = false
 var parameter: Dictionary
 var playerNode
+var water_level: Dictionary
+var crop: Dictionary
+var crop_count = 0
+var currently_equipped : String = "rice"
 
 @onready var ground: TileMapLayer = $FarmingLand
 @onready var crop_layer: TileMapLayer = $Crops
 
-
-var water_level: Dictionary
-var crop: Dictionary
-var crop_count = 0
-
 @export var block : Dictionary [String, BlockData]
-
-var currently_equipped : String = "rice"
-
 
 
 func _physics_process(_delta):
@@ -38,7 +35,6 @@ func _physics_process(_delta):
 			elif duration > 0:
 				var index = block[crop_name].growth_index(duration)
 				set_tile(crop_name, pos, crop_layer, index)
-	
 
 
 func _input(event):
@@ -55,12 +51,13 @@ func _input(event):
 				
 			harvesting(tile_pos)
 				
-		if event.button_index == MOUSE_BUTTON_RIGHT and not crop.has(tile_pos):
+		if event.button_index == MOUSE_BUTTON_RIGHT and not crop.has(tile_pos) and Global.rice_seeds > 0:
 			var data = ground.get_cell_tile_data(tile_pos)
 			if data:
 				var tile_name = data.get_custom_data("tile_name")
-				if tile_name == "soil":  # or whatever name you've assigned to valid ground
+				if tile_name == "soil" or "wet soil": 
 					set_tile(currently_equipped, tile_pos, crop_layer)
+					Global.rice_seeds -= 1
 					crop[tile_pos] = {
 						"name" : currently_equipped, 
 						"duration" : 0
@@ -72,12 +69,11 @@ func get_snapped_position(global_pos: Vector2) -> Vector2i:
 	var local_pos = ground.to_local(global_pos)
 	var tile_pos = ground.local_to_map(local_pos)
 	return tile_pos
-	
+
 
 func set_tile(tile_name: String, cell_pos: Vector2i, layer : TileMapLayer, coord: int = 0):
 	if block.has(tile_name):
 		layer.set_cell(cell_pos, block[tile_name].source_id, block[tile_name].atlas_coords[coord])
-
 
 
 func watering_tile(tile_name: String, pos: Vector2i, amount: float = 1.0):
@@ -93,12 +89,12 @@ func drying_tile(pos):
 	if data: 
 		tile_name = data.get_custom_data("tile_name")
 		set_tile(tile_name, pos, ground)
-	
+
 func harvesting(pos):
 	if crop_layer.get_cell_source_id(pos) != -1 and crop.has(pos) and crop[pos]["duration"] < 0:
 		crop_layer.erase_cell(pos)
 		print(crop[pos]["name"])
-		crop_count += 1
+		Global.rice += 1
 		get_node("CanvasLayer/Control/Label").text = "x" + str(crop_count)
 		crop.erase(pos)
 
@@ -114,18 +110,27 @@ func _ready():
 		playerNode.global_position = $SpawnPoint.global_position
 	
 func _process(delta: float) -> void:
-	if enter and Input.is_action_just_pressed("interact"):
+	if enter_store and Input.is_action_just_pressed("interact"):
 		GlobalData.next_spawn_position = playerNode.global_position
 		get_tree().change_scene_to_file("res://store_#1.tscn")
-		
+	if enter_shop and Input.is_action_just_pressed("interact"):
+		GlobalData.next_spawn_position = playerNode.global_position
+		get_tree().change_scene_to_file("res://shop_menu.tscn")
+	
 		
 func _on_enter_store_body_entered(body: Node2D) -> void:
 	if body is Player:
-		enter = true
+		enter_store = true
 
 func _on_enter_store_body_exited(body: Node2D) -> void:
 	if body is Player:
-		enter = false
+		enter_store = false
 
 
-		
+func _on_shop_body_entered(body: Node2D) -> void:
+	if body is Player:
+		enter_shop = true
+
+func _on_shop_body_exited(body: Node2D) -> void:
+	if body is Player:
+		enter_shop = false

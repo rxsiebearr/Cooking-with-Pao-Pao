@@ -13,6 +13,4 @@ func _ready() -> void:
 
 func _input(event) -> void:
 	if is_player_near and event.is_action_pressed("interact"):
-		get_tree().paused = true
-		shop_menu.visible = true
-		
+		get_tree().change_scene_to_file("res://shop_menu.tscn")
