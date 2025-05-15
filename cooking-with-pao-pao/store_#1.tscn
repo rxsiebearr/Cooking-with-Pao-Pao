@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://i1olt16hyoho"]
+[gd_scene load_steps=39 format=3 uid="uid://i1olt16hyoho"]
 
 [ext_resource type="Texture2D" uid="uid://yt7c48s5m2mv" path="res://store_1_updated.png" id="1_2cf8m"]
 [ext_resource type="Script" uid="uid://c7ihlgnxacdrc" path="res://store_#1.gd" id="1_a4raj"]
@@ -17,8 +17,9 @@
 [ext_resource type="Texture2D" uid="uid://b8tn7uihpnrxc" path="res://bowl.png" id="13_i8ebn"]
 [ext_resource type="Texture2D" uid="uid://dbf4nuwerwhdq" path="res://counter-2.png" id="14_f21rd"]
 [ext_resource type="PackedScene" uid="uid://cgtb314jo2ggl" path="res://money_count.tscn" id="15_fxd0j"]
-[ext_resource type="Shader" path="res://character_selection.gdshader" id="17_i8ebn"]
+[ext_resource type="Shader" uid="uid://vgf07fhpprr3" path="res://character_selection.gdshader" id="17_i8ebn"]
 [ext_resource type="Theme" uid="uid://c5olvahh8ifw1" path="res://selection_theme.tres" id="17_mhwx7"]
+[ext_resource type="Texture2D" uid="uid://yv7oa8wsu4bh" path="res://Farming/image-removebg-preview__1_-removebg-preview.png" id="20_g7tfx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ceqsw"]
 size = Vector2(158, 129)
@@ -209,6 +210,10 @@ Label/colors/font_outline_color = Color(0, 0, 0, 1)
 RichTextLabel/colors/default_color = Color(0.348992, 0.242121, 0.192497, 1)
 RichTextLabel/styles/normal = SubResource("StyleBoxFlat_gsqoc")
 
+[sub_resource type="LabelSettings" id="LabelSettings_3i1ui"]
+font_size = 11
+font_color = Color(0, 0, 0, 1)
+
 [node name="Store #1" type="Node2D"]
 script = ExtResource("1_a4raj")
 
@@ -318,6 +323,7 @@ offset_right = 1160.0
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 layer = -1
+visible = false
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer2"]
 material = SubResource("ShaderMaterial_ksnvq")
@@ -404,6 +410,37 @@ metadata/_edit_use_anchors_ = true
 
 [node name="DayTimer" type="Timer" parent="."]
 wait_time = 15.0
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 912.0
+offset_top = 8.0
+offset_right = 952.0
+offset_bottom = 48.0
+grow_horizontal = 0
+scale = Vector2(1.79079, 1.50574)
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -36.0911
+offset_top = 12.6184
+offset_right = 3.90891
+offset_bottom = 34.9517
+grow_horizontal = 0
+scale = Vector2(2.34475, 2.0732)
+text = "x0"
+label_settings = SubResource("LabelSettings_3i1ui")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+position = Vector2(-24.0118, 15.939)
+scale = Vector2(0.195542, 0.180439)
+texture = ExtResource("20_g7tfx")
 
 [connection signal="store_dialogue_done" from="CanvasLayer3/StoreDialogue" to="." method="_on_store_dialogue_store_dialogue_done"]
 [connection signal="body_entered" from="TurnIn" to="Bear Bear" method="_on_turn_in_body_entered"]
