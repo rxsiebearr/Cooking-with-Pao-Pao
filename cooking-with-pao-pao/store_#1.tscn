@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://i1olt16hyoho"]
+[gd_scene load_steps=31 format=3 uid="uid://i1olt16hyoho"]
 
 [ext_resource type="Texture2D" uid="uid://yt7c48s5m2mv" path="res://store_1_updated.png" id="1_2cf8m"]
 [ext_resource type="Script" uid="uid://c7ihlgnxacdrc" path="res://store_#1.gd" id="1_a4raj"]
@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://b72t1sumvrkmo" path="res://rice_bowl-removebg-preview.png" id="10_p8wo6"]
 [ext_resource type="Texture2D" uid="uid://dbf4nuwerwhdq" path="res://counter-2.png" id="14_f21rd"]
 [ext_resource type="PackedScene" uid="uid://cgtb314jo2ggl" path="res://money_count.tscn" id="15_fxd0j"]
+[ext_resource type="Script" uid="uid://csms8en34f8rl" path="res://rice_count.gd" id="17_i8ebn"]
+[ext_resource type="Texture2D" uid="uid://yv7oa8wsu4bh" path="res://Farming/image-removebg-preview__1_-removebg-preview.png" id="18_ksnvq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ceqsw"]
 size = Vector2(158, 129)
@@ -129,6 +131,10 @@ size = Vector2(114, 56)
 [sub_resource type="LabelSettings" id="LabelSettings_fxd0j"]
 font_size = 35
 
+[sub_resource type="LabelSettings" id="LabelSettings_g7tfx"]
+font_size = 11
+font_color = Color(0, 0, 0, 1)
+
 [node name="Store #1" type="Node2D"]
 script = ExtResource("1_a4raj")
 
@@ -229,8 +235,8 @@ scale = Vector2(0.339594, 0.339594)
 texture = ExtResource("14_f21rd")
 
 [node name="MoneyCount" parent="." instance=ExtResource("15_fxd0j")]
-offset_left = 1160.0
-offset_right = 1160.0
+offset_left = 1136.0
+offset_right = 1136.0
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 layer = -1
@@ -318,7 +324,39 @@ autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="DayTimer" type="Timer" parent="."]
-wait_time = 3.852
+wait_time = 120.0
+
+[node name="Rice Count" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 904.0
+offset_top = 8.0
+offset_right = 944.0
+offset_bottom = 48.0
+grow_horizontal = 0
+scale = Vector2(1.79079, 1.50574)
+script = ExtResource("17_i8ebn")
+
+[node name="Label" type="Label" parent="Rice Count"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -36.0911
+offset_top = 12.6184
+offset_right = 3.90891
+offset_bottom = 34.9517
+grow_horizontal = 0
+scale = Vector2(2.34475, 2.0732)
+text = "x0"
+label_settings = SubResource("LabelSettings_g7tfx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Rice Count"]
+position = Vector2(-24.0117, 15.939)
+scale = Vector2(0.195542, 0.180439)
+texture = ExtResource("18_ksnvq")
 
 [connection signal="body_entered" from="TurnIn" to="Bear Bear" method="_on_turn_in_body_entered"]
 [connection signal="body_exited" from="TurnIn" to="Bear Bear" method="_on_turn_in_body_exited"]
