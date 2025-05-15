@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://i1olt16hyoho"]
+[gd_scene load_steps=37 format=3 uid="uid://i1olt16hyoho"]
 
 [ext_resource type="Texture2D" uid="uid://yt7c48s5m2mv" path="res://store_1_updated.png" id="1_2cf8m"]
 [ext_resource type="Script" uid="uid://c7ihlgnxacdrc" path="res://store_#1.gd" id="1_a4raj"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bim1vfyr0jrkh" path="res://bear_bear.tscn" id="1_qnkjh"]
 [ext_resource type="Texture2D" uid="uid://da0c8pboj1qp2" path="res://rice cooker closed.png" id="1_trkgk"]
 [ext_resource type="Texture2D" uid="uid://cpvp4dd13yxkg" path="res://rice cooker opened.png" id="3_03rmw"]
+[ext_resource type="PackedScene" uid="uid://b5jafr2db2exe" path="res://storedialogue.tscn" id="3_ksnvq"]
 [ext_resource type="PackedScene" uid="uid://dbebqrldaejj1" path="res://item_drop.tscn" id="4_54ox5"]
 [ext_resource type="Script" uid="uid://bvfe6mrc200l7" path="res://timer_bar.gd" id="4_bx3hj"]
 [ext_resource type="Texture2D" uid="uid://bpi4kf2ifi2lf" path="res://rice cooker rice.png" id="4_o5lyj"]
@@ -218,6 +219,10 @@ offset_right = 3.0
 offset_bottom = -2.93601
 scale = Vector2(0.833534, 0.867498)
 
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+
+[node name="StoreDialogue" parent="CanvasLayer3" instance=ExtResource("3_ksnvq")]
+
 [node name="TurnIn" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TurnIn"]
@@ -400,6 +405,7 @@ metadata/_edit_use_anchors_ = true
 [node name="DayTimer" type="Timer" parent="."]
 wait_time = 15.0
 
+[connection signal="store_dialogue_done" from="CanvasLayer3/StoreDialogue" to="." method="_on_store_dialogue_store_dialogue_done"]
 [connection signal="body_entered" from="TurnIn" to="Bear Bear" method="_on_turn_in_body_entered"]
 [connection signal="body_exited" from="TurnIn" to="Bear Bear" method="_on_turn_in_body_exited"]
 [connection signal="body_entered" from="RiceCookerArea" to="Bear Bear" method="_on_rice_cooker_area_body_entered"]
