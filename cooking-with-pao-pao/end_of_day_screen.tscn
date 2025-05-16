@@ -1,17 +1,36 @@
-[gd_scene load_steps=7 format=3 uid="uid://drsb0ngkv2r7h"]
+[gd_scene load_steps=12 format=3 uid="uid://drsb0ngkv2r7h"]
 
 [ext_resource type="Texture2D" uid="uid://qhaiaur53lxo" path="res://coin.png" id="1_fvery"]
-[ext_resource type="Script" uid="uid://bbjrr1x8yfm6t" path="res://end_of_day_screen.gd" id="1_q0pg7"]
+[ext_resource type="Script" path="res://end_of_day_screen.gd" id="1_q0pg7"]
+[ext_resource type="Texture2D" uid="uid://yt7c48s5m2mv" path="res://store_1_updated.png" id="2_gu8ah"]
+[ext_resource type="Shader" uid="uid://vgf07fhpprr3" path="res://character_selection.gdshader" id="2_q74me"]
 [ext_resource type="Texture2D" uid="uid://caedw6dqkq4q" path="res://bowlofrice.png" id="3_q0pg7"]
+[ext_resource type="Theme" uid="uid://c5olvahh8ifw1" path="res://selection_theme.tres" id="4_gqt2o"]
+[ext_resource type="StyleBox" uid="uid://biewx4cfy7xbf" path="res://end_of_day_button.tres" id="7_wtamv"]
+[ext_resource type="StyleBox" uid="uid://cx8a4fhty4c5g" path="res://end_of_day_pressed.tres" id="8_dou8h"]
 
-[sub_resource type="Gradient" id="Gradient_i4v87"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gqt2o"]
+shader = ExtResource("2_q74me")
+shader_parameter/blur_size = 3.0
+shader_parameter/blur_steps = 5
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_fvery"]
-gradient = SubResource("Gradient_i4v87")
-fill_to = Vector2(0, 0)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fuuof"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="LabelSettings" id="LabelSettings_aq461"]
-font_size = 40
+[sub_resource type="Theme" id="Theme_gqt2o"]
+Button/colors/font_color = Color(0.435294, 0.305882, 0.215686, 1)
+Button/colors/font_focus_color = Color(0.435294, 0.305882, 0.215686, 1)
+Button/colors/font_hover_color = Color(0.435294, 0.305882, 0.215686, 1)
+Button/colors/font_pressed_color = Color(0.435294, 0.305882, 0.215686, 1)
+Button/font_sizes/font_size = 12
+Button/styles/focus = SubResource("StyleBoxFlat_fuuof")
+Button/styles/hover = ExtResource("8_dou8h")
+Button/styles/normal = ExtResource("7_wtamv")
+Button/styles/pressed = ExtResource("8_dou8h")
+Label/colors/font_color = Color(1, 0.980392, 0.627451, 1)
+Label/colors/font_outline_color = Color(0.435294, 0.305882, 0.215686, 1)
+Label/constants/outline_size = 15
+Label/font_sizes/font_size = 35
 
 [node name="EndOfDayScreen" type="CanvasLayer"]
 script = ExtResource("1_q0pg7")
@@ -25,13 +44,15 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="Control"]
+material = SubResource("ShaderMaterial_gqt2o")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("GradientTexture2D_fvery")
+texture = ExtResource("2_gu8ah")
+expand_mode = 1
 
 [node name="Title" type="Label" parent="Control/TextureRect"]
 layout_mode = 1
@@ -43,8 +64,8 @@ offset_top = 29.0
 offset_right = 141.0
 offset_bottom = 84.8333
 grow_horizontal = 2
-text = "The days overs"
-label_settings = SubResource("LabelSettings_aq461")
+theme = ExtResource("4_gqt2o")
+text = "The Day's Over!"
 horizontal_alignment = 1
 
 [node name="MoneyEarned" type="Label" parent="Control/TextureRect"]
@@ -57,12 +78,12 @@ offset_top = 152.0
 offset_right = -225.0
 offset_bottom = 207.833
 grow_horizontal = 2
+theme = ExtResource("4_gqt2o")
 text = "Money Earned:"
-label_settings = SubResource("LabelSettings_aq461")
 
 [node name="Coin" type="Sprite2D" parent="Control/TextureRect/MoneyEarned"]
-position = Vector2(345, 24)
-scale = Vector2(0.15, 0.15)
+position = Vector2(346, 18)
+scale = Vector2(0.142143, 0.142143)
 texture = ExtResource("1_fvery")
 
 [node name="MoneyEarnedCount" type="Label" parent="Control/TextureRect/MoneyEarned"]
@@ -75,7 +96,6 @@ offset_right = 312.5
 offset_bottom = 56.0
 grow_horizontal = 2
 text = "x0"
-label_settings = SubResource("LabelSettings_aq461")
 
 [node name="OrdersServed" type="Label" parent="Control/TextureRect"]
 layout_mode = 1
@@ -87,12 +107,12 @@ offset_top = 256.0
 offset_right = -225.0
 offset_bottom = 311.833
 grow_horizontal = 2
+theme = ExtResource("4_gqt2o")
 text = "Orders Served:"
-label_settings = SubResource("LabelSettings_aq461")
 
 [node name="Rice" type="Sprite2D" parent="Control/TextureRect/OrdersServed"]
 position = Vector2(344, 24)
-scale = Vector2(0.15, 0.15)
+scale = Vector2(0.1375, 0.1375)
 texture = ExtResource("3_q0pg7")
 
 [node name="OrderServedCount" type="Label" parent="Control/TextureRect/OrdersServed"]
@@ -105,19 +125,19 @@ offset_right = 312.5
 offset_bottom = 56.0
 grow_horizontal = 2
 text = "x0"
-label_settings = SubResource("LabelSettings_aq461")
 
 [node name="Next Day" type="Button" parent="Control/TextureRect"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -120.0
-offset_top = 488.0
-offset_right = -41.0
-offset_bottom = 519.0
+offset_left = -176.0
+offset_top = 472.0
+offset_right = -74.0
+offset_bottom = 511.0
 grow_horizontal = 2
 scale = Vector2(3.451, 3.24039)
+theme = SubResource("Theme_gqt2o")
 text = "Next Day"
 
 [connection signal="pressed" from="Control/TextureRect/Next Day" to="." method="_on_next_day_pressed"]

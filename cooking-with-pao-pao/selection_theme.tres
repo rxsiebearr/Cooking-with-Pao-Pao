@@ -45,19 +45,18 @@ content_margin_left = 22.0
 content_margin_top = 15.0
 content_margin_right = 22.0
 content_margin_bottom = 18.0
-bg_color = Color(1, 0.994126, 0.836719, 1)
+bg_color = Color(1, 0.996078, 0.835294, 1)
 border_width_left = 8
 border_width_top = 8
 border_width_right = 8
 border_width_bottom = 8
-border_color = Color(0.211765, 0.141176, 0.0901961, 1)
+border_color = Color(0.435294, 0.305882, 0.215686, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
-corner_detail = 16
-expand_margin_left = 50.0
-expand_margin_right = 50.0
+expand_margin_left = 43.0
+expand_margin_right = 43.0
 
 [resource]
 Button/colors/font_color = Color(0.435294, 0.305882, 0.215686, 1)
