@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://b8tn7uihpnrxc" path="res://bowl.png" id="13_i8ebn"]
 [ext_resource type="Texture2D" uid="uid://dbf4nuwerwhdq" path="res://counter-2.png" id="14_f21rd"]
 [ext_resource type="PackedScene" uid="uid://cgtb314jo2ggl" path="res://money_count.tscn" id="15_fxd0j"]
-[ext_resource type="Shader" path="res://character_selection.gdshader" id="17_i8ebn"]
+[ext_resource type="Shader" uid="uid://vgf07fhpprr3" path="res://character_selection.gdshader" id="17_i8ebn"]
 [ext_resource type="Theme" uid="uid://c5olvahh8ifw1" path="res://selection_theme.tres" id="17_mhwx7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ceqsw"]
