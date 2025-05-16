@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://i1olt16hyoho"]
+[gd_scene load_steps=47 format=3 uid="uid://i1olt16hyoho"]
 
 [ext_resource type="Texture2D" uid="uid://yt7c48s5m2mv" path="res://store_1_updated.png" id="1_2cf8m"]
 [ext_resource type="Script" uid="uid://c7ihlgnxacdrc" path="res://store_#1.gd" id="1_a4raj"]
@@ -6,11 +6,16 @@
 [ext_resource type="Script" uid="uid://k24ljtr5uavh" path="res://rice_cooker_area.gd" id="1_eqtje"]
 [ext_resource type="PackedScene" uid="uid://bim1vfyr0jrkh" path="res://bear_bear.tscn" id="1_qnkjh"]
 [ext_resource type="Texture2D" uid="uid://da0c8pboj1qp2" path="res://rice cooker closed.png" id="1_trkgk"]
+[ext_resource type="Script" uid="uid://b57sty3fksysq" path="res://fridge_area.gd" id="2_g7tfx"]
 [ext_resource type="Texture2D" uid="uid://cpvp4dd13yxkg" path="res://rice cooker opened.png" id="3_03rmw"]
+[ext_resource type="AudioStream" uid="uid://bh0efgx24hmu5" path="res://Fridge Open.wav" id="3_gldpi"]
 [ext_resource type="PackedScene" uid="uid://b5jafr2db2exe" path="res://storedialogue.tscn" id="3_ksnvq"]
+[ext_resource type="Texture2D" uid="uid://ds5427aqlhqbk" path="res://Inventory/Fridge.png" id="3_vub3g"]
 [ext_resource type="PackedScene" uid="uid://dbebqrldaejj1" path="res://item_drop.tscn" id="4_54ox5"]
 [ext_resource type="Script" uid="uid://bvfe6mrc200l7" path="res://timer_bar.gd" id="4_bx3hj"]
+[ext_resource type="Texture2D" uid="uid://dr7ywm8b5tihe" path="res://Inventory/Fridge Open.png" id="4_exxxx"]
 [ext_resource type="Texture2D" uid="uid://bpi4kf2ifi2lf" path="res://rice cooker rice.png" id="4_o5lyj"]
+[ext_resource type="AudioStream" uid="uid://d15wf6lkicr3g" path="res://Fridge Close.wav" id="4_y37ul"]
 [ext_resource type="Texture2D" uid="uid://dgliqp2453eny" path="res://rice.png" id="5_2wqnh"]
 [ext_resource type="Texture2D" uid="uid://cstx0wlpvval6" path="res://rice cooked.png" id="5_atcon"]
 [ext_resource type="Texture2D" uid="uid://br5fws046u57o" path="res://rice_burnt.png" id="6_58c1d"]
@@ -19,6 +24,61 @@
 [ext_resource type="PackedScene" uid="uid://cgtb314jo2ggl" path="res://money_count.tscn" id="15_fxd0j"]
 [ext_resource type="Shader" uid="uid://vgf07fhpprr3" path="res://character_selection.gdshader" id="17_i8ebn"]
 [ext_resource type="Theme" uid="uid://cbn12y5htoaca" path="res://selection_theme.tres" id="17_mhwx7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qokwk"]
+size = Vector2(90, 183)
+
+[sub_resource type="Animation" id="Animation_3i1ui"]
+resource_name = "Fridge_Open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_exxxx")]
+}
+
+[sub_resource type="Animation" id="Animation_gldpi"]
+resource_name = "Fridge_Close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_vub3g")]
+}
+
+[sub_resource type="Animation" id="Animation_d75ab"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_vub3g")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y37ul"]
+_data = {
+&"Fridge_Close": SubResource("Animation_gldpi"),
+&"Fridge_Open": SubResource("Animation_3i1ui"),
+&"RESET": SubResource("Animation_d75ab")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ceqsw"]
 size = Vector2(158, 129)
@@ -212,6 +272,40 @@ RichTextLabel/styles/normal = SubResource("StyleBoxFlat_gsqoc")
 [node name="Store #1" type="Node2D"]
 script = ExtResource("1_a4raj")
 
+[node name="Bear Bear" parent="." instance=ExtResource("1_qnkjh")]
+z_index = -2
+position = Vector2(96, 552)
+
+[node name="FridgeArea" type="Area2D" parent="."]
+z_index = -4
+y_sort_enabled = true
+script = ExtResource("2_g7tfx")
+
+[node name="Sprite2D" type="Sprite2D" parent="FridgeArea"]
+show_behind_parent = true
+light_mask = 3
+visibility_layer = 3
+z_index = 1
+position = Vector2(51.5, 149.5)
+scale = Vector2(0.942424, 0.790909)
+texture = ExtResource("3_vub3g")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FridgeArea"]
+position = Vector2(47, 193.5)
+shape = SubResource("RectangleShape2D_qokwk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FridgeArea"]
+libraries = {
+&"": SubResource("AnimationLibrary_y37ul")
+}
+
+[node name="Fridge Open" type="AudioStreamPlayer2D" parent="FridgeArea"]
+stream = ExtResource("3_gldpi")
+
+[node name="Fridge Close" type="AudioStreamPlayer2D" parent="FridgeArea"]
+stream = ExtResource("4_y37ul")
+
 [node name="OrderTickets" parent="." instance=ExtResource("1_ceqsw")]
 offset_left = 3.0
 offset_top = -3.0
@@ -281,12 +375,6 @@ scale = Vector2(0.5, 0.5)
 item_texture = ExtResource("5_2wqnh")
 item_name = "Rice"
 
-[node name="ItemDrop3" parent="." instance=ExtResource("4_54ox5")]
-position = Vector2(64, 256)
-scale = Vector2(0.5, 0.5)
-item_texture = ExtResource("5_2wqnh")
-item_name = "Rice"
-
 [node name="ItemDrop4" parent="." instance=ExtResource("4_54ox5")]
 position = Vector2(144, 264)
 scale = Vector2(0.5, 0.5)
@@ -328,10 +416,6 @@ position = Vector2(410, 280)
 scale = Vector2(0.2, 0.2)
 item_texture = ExtResource("13_i8ebn")
 item_name = "RiceBowl"
-
-[node name="Bear Bear" parent="." instance=ExtResource("1_qnkjh")]
-z_index = -2
-position = Vector2(96, 552)
 
 [node name="Barriers" type="StaticBody2D" parent="."]
 
@@ -447,6 +531,8 @@ metadata/_edit_use_anchors_ = true
 [node name="DayTimer" type="Timer" parent="."]
 wait_time = 120.0
 
+[connection signal="body_entered" from="FridgeArea" to="Bear Bear" method="_on_fridge_area_body_entered"]
+[connection signal="body_exited" from="FridgeArea" to="Bear Bear" method="_on_fridge_area_body_exited"]
 [connection signal="store_dialogue_done" from="CanvasLayer3/StoreDialogue" to="." method="_on_store_dialogue_store_dialogue_done"]
 [connection signal="body_entered" from="TurnIn" to="Bear Bear" method="_on_turn_in_body_entered"]
 [connection signal="body_exited" from="TurnIn" to="Bear Bear" method="_on_turn_in_body_exited"]
