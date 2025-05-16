@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://yt7c48s5m2mv" path="res://store_1_updated.png" id="2_gu8ah"]
 [ext_resource type="Shader" uid="uid://vgf07fhpprr3" path="res://character_selection.gdshader" id="2_q74me"]
 [ext_resource type="Texture2D" uid="uid://caedw6dqkq4q" path="res://bowlofrice.png" id="3_q0pg7"]
-[ext_resource type="Theme" uid="uid://c5olvahh8ifw1" path="res://selection_theme.tres" id="4_gqt2o"]
+[ext_resource type="Theme" uid="uid://cbn12y5htoaca" path="res://selection_theme.tres" id="4_gqt2o"]
 [ext_resource type="StyleBox" uid="uid://biewx4cfy7xbf" path="res://end_of_day_button.tres" id="7_wtamv"]
 [ext_resource type="StyleBox" uid="uid://cx8a4fhty4c5g" path="res://end_of_day_pressed.tres" id="8_dou8h"]
 

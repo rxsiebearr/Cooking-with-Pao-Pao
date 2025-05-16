@@ -1,20 +1,22 @@
 [gd_scene load_steps=5 format=3 uid="uid://bim1vfyr0jrkh"]
 
 [ext_resource type="Script" uid="uid://cy17urpmr2xrv" path="res://player.gd" id="1_tjqft"]
-[ext_resource type="Texture2D" uid="uid://bn20pr461jtvg" path="res://bearbear.png" id="2_2r41p"]
+[ext_resource type="Texture2D" uid="uid://31jxtybcghge" path="res://normal.png" id="2_dl8kq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hffya"]
 size = Vector2(100.833, 65.8334)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bihgp"]
-size = Vector2(169.75, 117.5)
+size = Vector2(173.333, 117.5)
 
 [node name="Bear Bear" type="CharacterBody2D"]
 scale = Vector2(0.6, 0.6)
 script = ExtResource("1_tjqft")
 
 [node name="CharacterSprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_2r41p")
+position = Vector2(-1.90735e-06, 2.86102e-06)
+scale = Vector2(0.505208, 0.505208)
+texture = ExtResource("2_dl8kq")
 
 [node name="ItemSprite" type="Sprite2D" parent="."]
 position = Vector2(89, 18)
@@ -28,7 +30,7 @@ shape = SubResource("RectangleShape2D_hffya")
 [node name="PickupArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
-position = Vector2(0.125, 45.75)
+position = Vector2(6.66666, 45.75)
 shape = SubResource("RectangleShape2D_bihgp")
 debug_color = Color(0.847183, 4.04298e-06, 0.532205, 0.42)
 
