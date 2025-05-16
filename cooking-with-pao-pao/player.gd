@@ -13,6 +13,10 @@ class_name Player
 @onready var cook_timer: Timer = %CookTimer
 @onready var burnt_timer: Timer = %BurntTimer
 @onready var camera_2d: Camera2D = %Camera2D
+@onready var fridge_area: Area2D = $"../FridgeArea"
+@onready var fridge_sprite: Sprite2D = $"../FridgeArea/Sprite2D"
+@onready var fridge_open_sound: AudioStreamPlayer2D = $"../FridgeArea/Fridge Open"
+@onready var fridge_close_sound: AudioStreamPlayer2D = $"../FridgeArea/Fridge Close"
 
 
 var enter: bool = false
@@ -25,6 +29,8 @@ var item_name: String = ""
 var item_scale: Vector2
 var trash: bool = false
 var burnt: bool = false
+var near_fridge: bool = false
+var fridge_open := false
 
 func _ready():
 	item_sprite.hide()
@@ -94,7 +100,12 @@ func _input(event):
 				rice_cooker_area.rice_closed()
 				enter = false
 				burnt_timer.stop()
-				
+		elif near_fridge and Global.rice > 0:
+			Global.rice -= 1
+			item_name = "Rice"
+			item_sprite.texture = preload("res://rice.png")
+			item_sprite.show()
+			carrying_item = true
 		if enter && carrying_item && item_name == "Rice":
 			rice_cooker_area.rice_rice()
 			rice_in_cooker = true
@@ -152,3 +163,21 @@ func _on_trash_can_body_entered(body: Node2D) -> void:
 
 func _on_timer_bar_is_burnt() -> void:
 	burnt = true
+
+
+func _on_fridge_area_body_entered(body):
+	if body is Player:
+		near_fridge = true
+		if !fridge_open:
+			fridge_sprite.texture = fridge_area.fridge_open()
+			fridge_open = true
+			fridge_open_sound.play()
+
+
+func _on_fridge_area_body_exited(body):
+	if body is Player:
+		near_fridge = false
+		if fridge_open:
+			fridge_sprite.texture = fridge_area.fridge_closed()
+			fridge_open = false
+			fridge_close_sound.play()

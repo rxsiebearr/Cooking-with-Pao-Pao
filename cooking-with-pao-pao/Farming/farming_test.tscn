@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://fo23wkrg3nfu" path="res://Farming/farming_test.gd" id="1_d1rtw"]
 [ext_resource type="Texture2D" uid="uid://cbbd2doedjctq" path="res://Farming/rice plant-Sheet-Sheet.png" id="2_jujn8"]
-[ext_resource type="Script" path="res://BlockData.gd" id="2_ynp53"]
-[ext_resource type="Resource" uid="uid://pxw2gc7xc444" path="res://Resources/Soil.tres" id="3_omkq4"]
-[ext_resource type="Resource" uid="uid://disss884y34ay" path="res://Resources/Rice.tres" id="4_pexww"]
+[ext_resource type="Script" uid="uid://dci6pslvi1xw4" path="res://BlockData.gd" id="2_ynp53"]
+[ext_resource type="Resource" uid="uid://dwddv64uyqk0k" path="res://Resources/Soil.tres" id="3_omkq4"]
+[ext_resource type="Resource" uid="uid://q6n46ybeh8qv" path="res://Resources/Rice.tres" id="4_pexww"]
 [ext_resource type="Texture2D" uid="uid://xpp2042vwlli" path="res://Farming/dirtblock-Sheet.png" id="5_ynp53"]
 [ext_resource type="Texture2D" uid="uid://yv7oa8wsu4bh" path="res://Farming/image-removebg-preview__1_-removebg-preview.png" id="7_ynp53"]
 
