@@ -6,6 +6,8 @@
 [ext_resource type="Shader" uid="uid://vgf07fhpprr3" path="res://character_selection.gdshader" id="2_q74me"]
 [ext_resource type="Texture2D" uid="uid://caedw6dqkq4q" path="res://bowlofrice.png" id="3_q0pg7"]
 [ext_resource type="Theme" uid="uid://c5olvahh8ifw1" path="res://selection_theme.tres" id="4_gqt2o"]
+[ext_resource type="StyleBox" uid="uid://biewx4cfy7xbf" path="res://end_of_day_button.tres" id="7_wtamv"]
+[ext_resource type="StyleBox" uid="uid://cx8a4fhty4c5g" path="res://end_of_day_pressed.tres" id="8_dou8h"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gqt2o"]
 shader = ExtResource("2_q74me")
@@ -15,43 +17,6 @@ shader_parameter/blur_steps = 5
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fuuof"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_va3s3"]
-content_margin_left = 22.0
-content_margin_top = 15.0
-content_margin_right = 22.0
-content_margin_bottom = 18.0
-bg_color = Color(1, 0.994126, 0.836719, 1)
-border_width_left = 8
-border_width_top = 8
-border_width_right = 8
-border_width_bottom = 8
-border_color = Color(0.211765, 0.141176, 0.0901961, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-corner_detail = 16
-expand_margin_left = 17.0
-expand_margin_right = 17.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8inyj"]
-content_margin_left = 22.0
-content_margin_top = 10.0
-content_margin_right = 22.0
-content_margin_bottom = 12.0
-bg_color = Color(1, 0.980392, 0.627451, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.435294, 0.305882, 0.215686, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-expand_margin_left = 15.0
-expand_margin_right = 15.0
-
 [sub_resource type="Theme" id="Theme_gqt2o"]
 Button/colors/font_color = Color(0.435294, 0.305882, 0.215686, 1)
 Button/colors/font_focus_color = Color(0.435294, 0.305882, 0.215686, 1)
@@ -59,9 +24,9 @@ Button/colors/font_hover_color = Color(0.435294, 0.305882, 0.215686, 1)
 Button/colors/font_pressed_color = Color(0.435294, 0.305882, 0.215686, 1)
 Button/font_sizes/font_size = 12
 Button/styles/focus = SubResource("StyleBoxFlat_fuuof")
-Button/styles/hover = SubResource("StyleBoxFlat_va3s3")
-Button/styles/normal = SubResource("StyleBoxFlat_8inyj")
-Button/styles/pressed = SubResource("StyleBoxFlat_va3s3")
+Button/styles/hover = ExtResource("8_dou8h")
+Button/styles/normal = ExtResource("7_wtamv")
+Button/styles/pressed = ExtResource("8_dou8h")
 Label/colors/font_color = Color(1, 0.980392, 0.627451, 1)
 Label/colors/font_outline_color = Color(0.435294, 0.305882, 0.215686, 1)
 Label/constants/outline_size = 15
