@@ -7,14 +7,13 @@ var playerNode
 
 @onready var ground: TileMapLayer = $FarmingLand
 @onready var crop_layer: TileMapLayer = $Crops
-
+@onready var background_music: AudioStreamPlayer2D = $"Background music"
 
 var water_level: Dictionary
 var crop: Dictionary
 var crop_count = 0
 
 @export var block : Dictionary [String, BlockData]
-
 var currently_equipped : String = "rice"
 
 func _ready():
@@ -22,12 +21,14 @@ func _ready():
 	playerNode = load(playerCharPath).instantiate()
 	add_child(playerNode)
 	GlobalData.player_instantiated = true
-	
 	if GlobalData.next_spawn_position != Vector2.ZERO:
 		playerNode.global_position = GlobalData.next_spawn_position
 	else:
 		playerNode.global_position = $SpawnPoint.global_position
-	
+	background_music.play()
+	print("Music playing?", background_music.playing)
+	print("Music stream:", background_music.stream)
+	print("Music volume:", background_music.volume_db)
 func _process(_delta: float) -> void:
 	if store_enter and Input.is_action_just_pressed("interact"):
 		GlobalData.next_spawn_position = playerNode.global_position

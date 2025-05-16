@@ -28,21 +28,6 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qokwk"]
 size = Vector2(90, 183)
 
-[sub_resource type="Animation" id="Animation_3i1ui"]
-resource_name = "Fridge_Open"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("4_exxxx")]
-}
-
 [sub_resource type="Animation" id="Animation_gldpi"]
 resource_name = "Fridge_Close"
 tracks/0/type = "value"
@@ -56,6 +41,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("3_vub3g")]
+}
+
+[sub_resource type="Animation" id="Animation_3i1ui"]
+resource_name = "Fridge_Open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_exxxx")]
 }
 
 [sub_resource type="Animation" id="Animation_d75ab"]
@@ -538,8 +538,8 @@ wait_time = 120.0
 [connection signal="body_exited" from="TurnIn" to="Bear Bear" method="_on_turn_in_body_exited"]
 [connection signal="body_entered" from="RiceCookerArea" to="Bear Bear" method="_on_rice_cooker_area_body_entered"]
 [connection signal="body_exited" from="RiceCookerArea" to="Bear Bear" method="_on_rice_cooker_area_body_exited"]
-[connection signal="is_burnt" from="RiceCookerArea/TimerBar" to="RiceCookerArea" method="_on_timer_bar_is_burnt"]
 [connection signal="is_burnt" from="RiceCookerArea/TimerBar" to="Bear Bear" method="_on_timer_bar_is_burnt"]
+[connection signal="is_burnt" from="RiceCookerArea/TimerBar" to="RiceCookerArea" method="_on_timer_bar_is_burnt"]
 [connection signal="is_cooked" from="RiceCookerArea/TimerBar" to="RiceCookerArea" method="_on_timer_bar_is_cooked"]
 [connection signal="timeout" from="RiceCookerArea/TimerBar/CookTimer" to="RiceCookerArea/TimerBar" method="_on_timer_timeout"]
 [connection signal="timeout" from="RiceCookerArea/TimerBar/BurntTimer" to="RiceCookerArea/TimerBar" method="_on_burnt_timer_timeout"]
