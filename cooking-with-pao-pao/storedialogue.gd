@@ -29,10 +29,10 @@ var dialogue_items: Array[Dictionary] = [
 		"expression": expressions["mad"],
 		"text": "To pickup or drop something, click [b]enter[/b].",
 	},
-	{
-		"expression": expressions["happy"],
-		"text": "Walk up to the fridge and click [b]E[/b] to pickup some rice. ",
-	},
+	#{
+		#"expression": expressions["happy"],
+		#"text": "Walk up to the fridge and click [b]E[/b] to pickup some rice. ",
+	#},
 	{
 		"expression": expressions["talking"],
 		"text": "To put the rice into the rice cooker, click [b]E[/b].",
@@ -40,7 +40,7 @@ var dialogue_items: Array[Dictionary] = [
 	
 	{
 		"expression": expressions["happy"],
-		"text": "Put your rice into your rice cooked and wait for the timer to finish.",
+		"text": "Put your rice into your rice cooker and wait for the timer to finish.",
 	},
 	
 	{ 

@@ -403,7 +403,7 @@ autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="DayTimer" type="Timer" parent="."]
-wait_time = 15.0
+wait_time = 120.0
 
 [connection signal="store_dialogue_done" from="CanvasLayer3/StoreDialogue" to="." method="_on_store_dialogue_store_dialogue_done"]
 [connection signal="body_entered" from="TurnIn" to="Bear Bear" method="_on_turn_in_body_entered"]
