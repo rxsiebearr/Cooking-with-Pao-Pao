@@ -41,4 +41,5 @@ func _on_no_button_pressed() -> void:
 
 
 func _on_day_timer_timeout() -> void:
+	Global.orders = 0
 	get_tree().change_scene_to_file("res://end_of_day_screen.tscn")

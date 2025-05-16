@@ -79,6 +79,7 @@ func _input(event):
 				var tile_name = data.get_custom_data("tile_name")
 				if tile_name == "soil" or tile_name == "wet soil":
 					set_tile(currently_equipped, tile_pos, crop_layer)
+					Global.rice_seeds -= 1
 					crop[tile_pos] = {
 						"name" : currently_equipped, 
 						"duration" : 0
