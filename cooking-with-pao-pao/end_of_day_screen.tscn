@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://drsb0ngkv2r7h"]
+[gd_scene load_steps=12 format=3 uid="uid://drsb0ngkv2r7h"]
 
 [ext_resource type="Texture2D" uid="uid://qhaiaur53lxo" path="res://coin.png" id="1_fvery"]
 [ext_resource type="Script" path="res://end_of_day_screen.gd" id="1_q0pg7"]
@@ -15,7 +15,7 @@ shader_parameter/blur_steps = 5
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fuuof"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_86oq2"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_va3s3"]
 content_margin_left = 22.0
 content_margin_top = 15.0
 content_margin_right = 22.0
@@ -25,14 +25,14 @@ border_width_left = 8
 border_width_top = 8
 border_width_right = 8
 border_width_bottom = 8
-border_color = Color(0.435294, 0.305882, 0.215686, 1)
+border_color = Color(0.211765, 0.141176, 0.0901961, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 corner_detail = 16
-expand_margin_left = 50.0
-expand_margin_right = 50.0
+expand_margin_left = 17.0
+expand_margin_right = 17.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8inyj"]
 content_margin_left = 22.0
@@ -52,25 +52,6 @@ corner_radius_bottom_left = 16
 expand_margin_left = 15.0
 expand_margin_right = 15.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_va3s3"]
-content_margin_left = 22.0
-content_margin_top = 15.0
-content_margin_right = 22.0
-content_margin_bottom = 18.0
-bg_color = Color(1, 0.994126, 0.836719, 1)
-border_width_left = 8
-border_width_top = 8
-border_width_right = 8
-border_width_bottom = 8
-border_color = Color(0.211765, 0.141176, 0.0901961, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-corner_detail = 16
-expand_margin_left = 50.0
-expand_margin_right = 50.0
-
 [sub_resource type="Theme" id="Theme_gqt2o"]
 Button/colors/font_color = Color(0.435294, 0.305882, 0.215686, 1)
 Button/colors/font_focus_color = Color(0.435294, 0.305882, 0.215686, 1)
@@ -78,7 +59,7 @@ Button/colors/font_hover_color = Color(0.435294, 0.305882, 0.215686, 1)
 Button/colors/font_pressed_color = Color(0.435294, 0.305882, 0.215686, 1)
 Button/font_sizes/font_size = 12
 Button/styles/focus = SubResource("StyleBoxFlat_fuuof")
-Button/styles/hover = SubResource("StyleBoxFlat_86oq2")
+Button/styles/hover = SubResource("StyleBoxFlat_va3s3")
 Button/styles/normal = SubResource("StyleBoxFlat_8inyj")
 Button/styles/pressed = SubResource("StyleBoxFlat_va3s3")
 Label/colors/font_color = Color(1, 0.980392, 0.627451, 1)
