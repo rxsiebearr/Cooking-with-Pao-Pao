@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://bidwuh6pstcpq"]
+[gd_scene load_steps=26 format=4 uid="uid://bidwuh6pstcpq"]
 
 [ext_resource type="Script" uid="uid://fue2j8ntka7w" path="res://game.gd" id="1_bor6y"]
 [ext_resource type="Script" uid="uid://dci6pslvi1xw4" path="res://BlockData.gd" id="2_mfdv2"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://yv7oa8wsu4bh" path="res://Farming/image-removebg-preview__1_-removebg-preview.png" id="8_j5wjh"]
 [ext_resource type="Script" uid="uid://bmwk47lo7yplk" path="res://sub_viewport.gd" id="11_iotsf"]
 [ext_resource type="Texture2D" uid="uid://dshlc8i5mfppe" path="res://chloesline.png" id="13_lc2xo"]
+[ext_resource type="PackedScene" uid="uid://bkq2uhblycunp" path="res://rice_seed_count.tscn" id="14_7sc4i"]
 [ext_resource type="AudioStream" uid="uid://be6bi7jsalp2f" path="res://Background music.mp3" id="14_215e1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_omkq4"]
@@ -198,10 +199,10 @@ layout_mode = 3
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -83.9999
-offset_top = 101.0
-offset_right = -43.9999
-offset_bottom = 141.0
+offset_left = -74.0
+offset_top = 194.0
+offset_right = -34.0
+offset_bottom = 234.0
 grow_horizontal = 0
 scale = Vector2(1.79079, 1.50574)
 
@@ -260,6 +261,12 @@ scale = Vector2(0.0136719, 0.0136719)
 texture = ExtResource("5_xnhry")
 
 [node name="Dialogue" parent="CanvasLayer" instance=ExtResource("8_iotsf")]
+
+[node name="SeedCount" parent="CanvasLayer" instance=ExtResource("14_7sc4i")]
+offset_left = -10.0
+offset_top = 82.0
+offset_right = -10.0
+offset_bottom = 82.0
 
 [node name="Line2D" type="Line2D" parent="."]
 texture_filter = 1

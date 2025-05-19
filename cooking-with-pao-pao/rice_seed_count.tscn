@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkq2uhblycunp"]
+
+[ext_resource type="Script" uid="uid://cxkpknkhkbbny" path="res://rice_seed_count.gd" id="1_vgu2y"]
+[ext_resource type="Texture2D" uid="uid://dvrrhbr7aenmi" path="res://Rice Seed.png" id="2_vgu2y"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_t5d4h"]
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+
+[node name="SeedCount" type="Control"]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+scale = Vector2(0.873685, 0.873685)
+pivot_offset = Vector2(-160, 84)
+script = ExtResource("1_vgu2y")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -40.9639
+offset_top = 15.3254
+offset_right = 27.0361
+offset_bottom = 99.0754
+text = "x0"
+label_settings = SubResource("LabelSettings_t5d4h")
+
+[node name="Sprite2D" type="Sprite2D" parent="Label"]
+position = Vector2(-1419.28, 146.506)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("2_vgu2y")
+offset = Vector2(1520, -120)
