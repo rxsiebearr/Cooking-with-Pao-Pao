@@ -100,12 +100,14 @@ func _input(event):
 				rice_cooker_area.rice_closed()
 				enter = false
 				burnt_timer.stop()
-		elif near_fridge and Global.rice > 0:
+				
+		if near_fridge and Global.rice > 0:
 			Global.rice -= 1
 			item_name = "Rice"
 			item_sprite.texture = preload("res://rice.png")
 			item_sprite.show()
 			carrying_item = true
+			
 		if enter && carrying_item && item_name == "Rice":
 			rice_cooker_area.rice_rice()
 			rice_in_cooker = true

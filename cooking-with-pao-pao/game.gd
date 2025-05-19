@@ -29,6 +29,7 @@ func _ready():
 	print("Music playing?", background_music.playing)
 	print("Music stream:", background_music.stream)
 	print("Music volume:", background_music.volume_db)
+	
 func _process(_delta: float) -> void:
 	if store_enter and Input.is_action_just_pressed("interact"):
 		GlobalData.next_spawn_position = playerNode.global_position
@@ -119,6 +120,7 @@ func harvesting(pos):
 		print(crop[pos]["name"])
 		crop_count += 1
 		get_node("CanvasLayer/Control/Label").text = "x" + str(crop_count)
+		Global.rice = crop_count
 		crop.erase(pos)
 		
 func _on_enter_store_body_entered(body: Node2D) -> void:
