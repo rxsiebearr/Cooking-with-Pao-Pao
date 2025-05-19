@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://k24ljtr5uavh" path="res://rice_cooker_area.gd" id="1_eqtje"]
 [ext_resource type="PackedScene" uid="uid://bim1vfyr0jrkh" path="res://bear_bear.tscn" id="1_qnkjh"]
 [ext_resource type="Texture2D" uid="uid://da0c8pboj1qp2" path="res://rice cooker closed.png" id="1_trkgk"]
-[ext_resource type="Script" uid="uid://b57sty3fksysq" path="res://fridge_area.gd" id="2_g7tfx"]
+[ext_resource type="Script" path="res://fridge_area.gd" id="2_g7tfx"]
 [ext_resource type="Texture2D" uid="uid://cpvp4dd13yxkg" path="res://rice cooker opened.png" id="3_03rmw"]
 [ext_resource type="AudioStream" uid="uid://bh0efgx24hmu5" path="res://Fridge Open.wav" id="3_gldpi"]
 [ext_resource type="PackedScene" uid="uid://b5jafr2db2exe" path="res://storedialogue.tscn" id="3_ksnvq"]
@@ -22,7 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://b8tn7uihpnrxc" path="res://bowl.png" id="13_i8ebn"]
 [ext_resource type="Texture2D" uid="uid://dbf4nuwerwhdq" path="res://counter-2.png" id="14_f21rd"]
 [ext_resource type="PackedScene" uid="uid://cgtb314jo2ggl" path="res://money_count.tscn" id="15_fxd0j"]
-[ext_resource type="Shader" uid="uid://vgf07fhpprr3" path="res://character_selection.gdshader" id="17_i8ebn"]
+[ext_resource type="Shader" path="res://character_selection.gdshader" id="17_i8ebn"]
 [ext_resource type="Theme" uid="uid://cbn12y5htoaca" path="res://selection_theme.tres" id="17_mhwx7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qokwk"]

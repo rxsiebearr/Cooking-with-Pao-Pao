@@ -1,20 +1,114 @@
-[gd_scene load_steps=11 format=3 uid="uid://5d3tqv04v3df"]
+[gd_scene load_steps=19 format=3 uid="uid://5d3tqv04v3df"]
 
 [ext_resource type="Script" uid="uid://ds4i03bnemflj" path="res://shop_menu.gd" id="1_1gta6"]
 [ext_resource type="Script" uid="uid://c1dimgo3bcnmi" path="res://ControlItems.gd" id="2_26e12"]
 [ext_resource type="Texture2D" uid="uid://d2uigetxdg6be" path="res://Shop Menu-2.png" id="3_qejid"]
 [ext_resource type="Texture2D" uid="uid://b7e2nnm3ixxmi" path="res://Bear Shop man-4.png" id="4_nxocp"]
 [ext_resource type="PackedScene" uid="uid://b3vfemben5lrd" path="res://ShopItem.tscn" id="4_pux7v"]
+[ext_resource type="Theme" uid="uid://qkfe1qmebln1" path="res://shop_theme.tres" id="5_8fj20"]
 [ext_resource type="Texture2D" uid="uid://qhaiaur53lxo" path="res://coin.png" id="5_f8gav"]
 [ext_resource type="AudioStream" uid="uid://bsrme4vvjimoj" path="res://往事只能回味.mp3" id="6_qejid"]
+[ext_resource type="Theme" uid="uid://d1yf1dfh877i3" path="res://buysell_theme.tres" id="7_0atty"]
+[ext_resource type="Theme" uid="uid://cbn12y5htoaca" path="res://selection_theme.tres" id="8_lyyeu"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_d22th"]
 
-[sub_resource type="Theme" id="Theme_0tduq"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_470mv"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+expand_margin_left = 2.0
+expand_margin_right = 2.0
 
-[sub_resource type="LabelSettings" id="LabelSettings_qejid"]
-font_size = 40
-font_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gow0e"]
+content_margin_left = 15.0
+content_margin_top = 8.0
+content_margin_right = 15.0
+content_margin_bottom = 6.0
+bg_color = Color(1, 0.996078, 0.835294, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.435294, 0.305882, 0.215686, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8fj20"]
+content_margin_left = 15.0
+content_margin_top = 8.0
+content_margin_right = 15.0
+content_margin_bottom = 8.0
+bg_color = Color(1, 0.980392, 0.627451, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.435294, 0.305882, 0.215686, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+expand_margin_left = 8.0
+expand_margin_top = 1.0
+expand_margin_right = 8.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_puy5r"]
+content_margin_left = 15.0
+content_margin_top = 8.0
+content_margin_right = 15.0
+content_margin_bottom = 6.0
+bg_color = Color(1, 0.996078, 0.835294, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.435294, 0.305882, 0.215686, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gsqoc"]
+content_margin_left = 48.0
+content_margin_top = 32.0
+content_margin_right = 48.0
+content_margin_bottom = 32.0
+bg_color = Color(1, 0.980392, 0.627451, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.435294, 0.305882, 0.215686, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="Theme" id="Theme_eopb6"]
+default_font_size = 25
+Button/colors/font_color = Color(0.360784, 0.25098, 0.2, 1)
+Button/colors/font_focus_color = Color(0.360784, 0.25098, 0.2, 1)
+Button/colors/font_hover_color = Color(0.360784, 0.25098, 0.2, 1)
+Button/colors/font_pressed_color = Color(0.360784, 0.25098, 0.2, 1)
+Button/font_sizes/font_size = 80
+Button/styles/focus = SubResource("StyleBoxFlat_470mv")
+Button/styles/hover = SubResource("StyleBoxFlat_gow0e")
+Button/styles/normal = SubResource("StyleBoxFlat_8fj20")
+Button/styles/pressed = SubResource("StyleBoxFlat_puy5r")
+RichTextLabel/colors/default_color = Color(0.348992, 0.242121, 0.192497, 1)
+RichTextLabel/styles/normal = SubResource("StyleBoxFlat_gsqoc")
+
+[sub_resource type="Theme" id="Theme_0tduq"]
 
 [node name="Shop" type="CanvasLayer"]
 process_mode = 3
@@ -80,11 +174,10 @@ grow_vertical = 2
 texture = ExtResource("3_qejid")
 
 [node name="TextureRect3" type="TextureRect" parent="Shop/Panel"]
-layout_mode = 1
-offset_left = 99.0
-offset_top = 40.0
-offset_right = 399.0
-offset_bottom = 340.0
+offset_left = 128.0
+offset_top = 56.0
+offset_right = 428.0
+offset_bottom = 356.0
 texture = ExtResource("4_nxocp")
 
 [node name="Close" type="Button" parent="Shop/Panel"]
@@ -93,8 +186,7 @@ offset_left = 1024.0
 offset_top = 4.0
 offset_right = 1150.0
 offset_bottom = 123.0
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_font_sizes/font_size = 80
+theme = SubResource("Theme_eopb6")
 text = "X
 "
 
@@ -105,40 +197,36 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 77.0
-offset_top = -72.0
+offset_top = -84.0
 offset_right = 294.0
-offset_bottom = 128.0
+offset_bottom = 132.0
 grow_vertical = 2
 scale = Vector2(0.75, 2)
-theme_override_constants/separation = 1
+theme = ExtResource("5_8fj20")
+theme_override_constants/separation = 2
 alignment = 1
 
 [node name="Veggie" type="Button" parent="Shop/Panel/ShopCategory"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 17
 text = "Veggie"
 
 [node name="Seeds" type="Button" parent="Shop/Panel/ShopCategory"]
+visible = false
 layout_mode = 2
 theme = SubResource("Theme_0tduq")
-theme_override_font_sizes/font_size = 17
 text = "Seeds (Out of Stock)
 "
 
 [node name="Fruits" type="Button" parent="Shop/Panel/ShopCategory"]
-visible = false
 layout_mode = 2
-theme_override_font_sizes/font_size = 17
 text = "Fruits (Out of Stock)"
 
 [node name="Meat" type="Button" parent="Shop/Panel/ShopCategory"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 17
 text = "Meat (Out of Stock)"
 
 [node name="Dairy" type="Button" parent="Shop/Panel/ShopCategory"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 17
 text = "Dairy (Out of Stock)"
 
 [node name="Shop Items" type="GridContainer" parent="Shop/Panel"]
@@ -175,59 +263,52 @@ size_flags_vertical = 6
 
 [node name="VBoxContainer" type="HBoxContainer" parent="Shop"]
 layout_mode = 0
-offset_left = 255.0
-offset_top = 512.0
-offset_right = 1052.0
-offset_bottom = 616.0
-theme_override_constants/separation = 20
+offset_left = 256.0
+offset_top = 536.0
+offset_right = 1025.0
+offset_bottom = 608.0
+theme = ExtResource("7_0atty")
+theme_override_constants/separation = 55
 
 [node name="Buy" type="Button" parent="Shop/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "Buy"
+text = "+"
 
 [node name="Sell" type="Button" parent="Shop/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "Sell"
+text = "-"
 
 [node name="Buy2" type="Button" parent="Shop/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "Buy"
+text = "+"
 
 [node name="Sell2" type="Button" parent="Shop/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "Sell"
+text = "-"
 
 [node name="Buy3" type="Button" parent="Shop/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "Buy"
+text = "+"
 
 [node name="Sell3" type="Button" parent="Shop/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "Sell"
+text = "-"
 
 [node name="Buy4" type="Button" parent="Shop/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "Buy"
+text = "+"
 
 [node name="Sell4" type="Button" parent="Shop/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "Sell"
+text = "-"
 
 [node name="Label" type="Label" parent="."]
-offset_left = 805.0
-offset_top = 222.0
-offset_right = 850.0
-offset_bottom = 277.833
+offset_left = 804.0
+offset_top = 228.0
+offset_right = 849.0
+offset_bottom = 283.833
+theme = ExtResource("8_lyyeu")
 text = "x0"
-label_settings = SubResource("LabelSettings_qejid")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(761, 243)
