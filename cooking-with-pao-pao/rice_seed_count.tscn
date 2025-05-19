@@ -20,14 +20,14 @@ script = ExtResource("1_vgu2y")
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
 offset_left = -40.9639
-offset_top = 15.3254
+offset_top = 24.482
 offset_right = 27.0361
-offset_bottom = 99.0754
+offset_bottom = 108.232
 text = "x0"
 label_settings = SubResource("LabelSettings_t5d4h")
 
 [node name="Sprite2D" type="Sprite2D" parent="Label"]
-position = Vector2(-1419.28, 146.506)
+position = Vector2(-1419.28, 137.349)
 scale = Vector2(0.9, 0.9)
 texture = ExtResource("2_vgu2y")
 offset = Vector2(1520, -120)
