@@ -106,6 +106,7 @@ func _input(event):
 			item_name = "Rice"
 			item_sprite.texture = preload("res://rice.png")
 			item_sprite.show()
+			item_scale = Vector2(0.5, 0.5)
 			carrying_item = true
 			
 		if enter && carrying_item && item_name == "Rice":
