@@ -164,9 +164,12 @@ func _on_trash_can_body_entered(body: Node2D) -> void:
 	if body is Player:
 		trash = true
 
+func _on_trash_can_body_exited(body: Node2D) -> void:
+	if body is Player:
+		trash = false
+		
 func _on_timer_bar_is_burnt() -> void:
 	burnt = true
-
 
 func _on_fridge_area_body_entered(body):
 	if body is Player:
@@ -175,7 +178,6 @@ func _on_fridge_area_body_entered(body):
 			fridge_sprite.texture = fridge_area.fridge_open()
 			fridge_open = true
 			fridge_open_sound.play()
-
 
 func _on_fridge_area_body_exited(body):
 	if body is Player:

@@ -10,10 +10,6 @@ var is_timer_active = false
 var playerNode
 
 func _ready() -> void:
-	var playerCharPath = GlobalData.playerCharPath
-	playerNode = load(playerCharPath).instantiate()
-	add_child(playerNode)
-	playerNode.global_position = $SpawnPoint.global_position
 	if !GlobalData.store_dialogue_finished:
 		store_dialogue.show()
 		readycook.hide()
@@ -50,3 +46,11 @@ func _on_no_button_pressed() -> void:
 func _on_day_timer_timeout() -> void:
 	Global.orders = 0
 	get_tree().change_scene_to_file("res://end_of_day_screen.tscn")
+
+
+func _on_fridge_area_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
+
+
+func _on_fridge_area_body_exited(body: Node2D) -> void:
+	pass # Replace with function body.
