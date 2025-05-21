@@ -33,6 +33,7 @@ shape = SubResource("RectangleShape2D_bihgp")
 debug_color = Color(0.847183, 4.04298e-06, 0.532205, 0.42)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+unique_name_in_owner = true
 zoom = Vector2(0.75, 0.75)
 limit_left = 0
 limit_top = 0

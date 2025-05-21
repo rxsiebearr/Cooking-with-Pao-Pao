@@ -4,9 +4,16 @@ extends Node2D
 @onready var readycook: CanvasLayer = $CanvasLayer2
 @onready var day_timer: Timer = $DayTimer
 @onready var store_dialogue: Control = $CanvasLayer3/StoreDialogue
+@onready var spawn_point: Marker2D = $SpawnPoint
 var is_timer_active = false
 
+var playerNode
+
 func _ready() -> void:
+	var playerCharPath = GlobalData.playerCharPath
+	playerNode = load(playerCharPath).instantiate()
+	add_child(playerNode)
+	playerNode.global_position = $SpawnPoint.global_position
 	if !GlobalData.store_dialogue_finished:
 		store_dialogue.show()
 		readycook.hide()
