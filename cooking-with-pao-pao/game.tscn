@@ -1,20 +1,21 @@
 [gd_scene load_steps=26 format=4 uid="uid://bidwuh6pstcpq"]
 
 [ext_resource type="Script" uid="uid://fue2j8ntka7w" path="res://game.gd" id="1_bor6y"]
-[ext_resource type="Script" uid="uid://dci6pslvi1xw4" path="res://BlockData.gd" id="2_mfdv2"]
+[ext_resource type="Script" path="res://BlockData.gd" id="2_mfdv2"]
 [ext_resource type="PackedScene" uid="uid://cgtb314jo2ggl" path="res://money_count.tscn" id="3_frnrn"]
 [ext_resource type="Resource" uid="uid://dwddv64uyqk0k" path="res://Resources/Soil.tres" id="3_iotsf"]
 [ext_resource type="Resource" uid="uid://q6n46ybeh8qv" path="res://Resources/Rice.tres" id="4_lc2xo"]
 [ext_resource type="Texture2D" uid="uid://dx24htd1h4we2" path="res://map-3.png" id="5_3th4p"]
 [ext_resource type="Texture2D" uid="uid://d0hbep6jhw6nt" path="res://Farming/DIRTGO-Sheet-2.png" id="5_mfdv2"]
-[ext_resource type="Texture2D" uid="uid://j8b453pmaln8" path="res://Placeholder images/Godot_icon.svg.png" id="5_xnhry"]
+[ext_resource type="AudioStream" uid="uid://d5oif0imm2cq" path="res://Farming/chinese-ancient-style-music-love-et11lx-155926.mp3" id="7_80cx4"]
 [ext_resource type="Texture2D" uid="uid://cbbd2doedjctq" path="res://Farming/rice plant-Sheet-Sheet.png" id="7_eow3j"]
 [ext_resource type="PackedScene" uid="uid://dxmmmvj3tb576" path="res://dialogue.tscn" id="8_iotsf"]
-[ext_resource type="Texture2D" uid="uid://yv7oa8wsu4bh" path="res://Farming/image-removebg-preview__1_-removebg-preview.png" id="8_j5wjh"]
+[ext_resource type="PackedScene" uid="uid://b5qhcxy5w0tyh" path="res://rice_count.tscn" id="9_7sc4i"]
 [ext_resource type="Script" uid="uid://bmwk47lo7yplk" path="res://sub_viewport.gd" id="11_iotsf"]
+[ext_resource type="Texture2D" uid="uid://brrp7ae08r3df" path="res://image.png" id="12_80cx4"]
 [ext_resource type="Texture2D" uid="uid://dshlc8i5mfppe" path="res://chloesline.png" id="13_lc2xo"]
 [ext_resource type="PackedScene" uid="uid://bkq2uhblycunp" path="res://rice_seed_count.tscn" id="14_7sc4i"]
-[ext_resource type="AudioStream" uid="uid://be6bi7jsalp2f" path="res://Background music.mp3" id="14_215e1"]
+[ext_resource type="PackedScene" uid="uid://csowpkfum1hqx" path="res://farmingdialogue.tscn" id="15_80cx4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_omkq4"]
 resource_name = "dirt"
@@ -104,12 +105,8 @@ sources/0 = SubResource("TileSetAtlasSource_ajeyl")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fv8qf"]
 size = Vector2(112, 56)
 
-[sub_resource type="LabelSettings" id="LabelSettings_ynp53"]
-font_size = 11
-font_color = Color(0, 0, 0, 1)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lc2xo"]
-size = Vector2(82, 118.5)
+size = Vector2(928, 40)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_215e1"]
 size = Vector2(132.5, 79.5)
@@ -129,8 +126,9 @@ tile_set = SubResource("TileSet_ahajd")
 tile_set = SubResource("TileSet_po1gb")
 
 [node name="Background music" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("14_215e1")
-volume_db = 11.895
+process_mode = 3
+stream = ExtResource("7_80cx4")
+volume_db = -5.0
 autoplay = true
 max_distance = 4096.0
 panning_strength = 0.0
@@ -194,36 +192,11 @@ polygon = PackedVector2Array(24, 0.00012207, 24, 2912, 5128, 2912, 5128, 0.00012
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Control" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -74.0
-offset_top = 194.0
-offset_right = -34.0
-offset_bottom = 234.0
-grow_horizontal = 0
-scale = Vector2(1.79079, 1.50574)
-
-[node name="Label" type="Label" parent="CanvasLayer/Control"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -36.0911
-offset_top = 12.6184
-offset_right = 3.90891
-offset_bottom = 34.9517
-grow_horizontal = 0
-scale = Vector2(2.34475, 2.0732)
-text = "x0"
-label_settings = SubResource("LabelSettings_ynp53")
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control"]
-position = Vector2(-24.0118, 15.939)
-scale = Vector2(0.195542, 0.180439)
-texture = ExtResource("8_j5wjh")
+[node name="RiceCount" parent="CanvasLayer" instance=ExtResource("9_7sc4i")]
+offset_left = -232.0
+offset_top = 8.0
+offset_right = -192.0
+offset_bottom = 48.0
 
 [node name="MoneyCount" parent="CanvasLayer" instance=ExtResource("3_frnrn")]
 offset_left = -10.0
@@ -258,20 +231,24 @@ limit_bottom = 2912
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/SubViewportContainer"]
 position = Vector2(72, 72)
 scale = Vector2(0.0136719, 0.0136719)
-texture = ExtResource("5_xnhry")
+texture = ExtResource("12_80cx4")
 
 [node name="Dialogue" parent="CanvasLayer" instance=ExtResource("8_iotsf")]
 
+[node name="FarmDialogue" parent="CanvasLayer" instance=ExtResource("15_80cx4")]
+visible = false
+
 [node name="SeedCount" parent="CanvasLayer" instance=ExtResource("14_7sc4i")]
-offset_left = -12.0
-offset_top = 82.0
-offset_right = -12.0
-offset_bottom = 82.0
+offset_left = -328.0
+offset_top = -8.0
+offset_right = -328.0
+offset_bottom = -8.0
 
 [node name="Line2D" type="Line2D" parent="."]
+unique_name_in_owner = true
 texture_filter = 1
 texture_repeat = 2
-points = PackedVector2Array(911, 2716, 2546, 2831, 2563, 665, 2354, 666)
+points = PackedVector2Array(911, 2716, 2546, 2831, 2563, 665, 2128, 664, 2128, 568)
 width = 50.0
 texture = ExtResource("13_lc2xo")
 texture_mode = 1
@@ -291,7 +268,7 @@ sharp_limit = 1.0
 position = Vector2(1803, 962)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FarmBox"]
-position = Vector2(548, -293)
+position = Vector2(77, -202)
 shape = SubResource("RectangleShape2D_lc2xo")
 
 [node name="ShopArea" type="Area2D" parent="."]
@@ -300,8 +277,19 @@ shape = SubResource("RectangleShape2D_lc2xo")
 position = Vector2(2125.25, 570.25)
 shape = SubResource("RectangleShape2D_215e1")
 
+[node name="FarmLine" type="Line2D" parent="."]
+visible = false
+texture_filter = 1
+texture_repeat = 2
+points = PackedVector2Array(2128, 568, 2032, 760)
+width = 50.0
+texture = ExtResource("13_lc2xo")
+texture_mode = 1
+sharp_limit = 1.0
+
 [connection signal="body_entered" from="EnterStore" to="." method="_on_enter_store_body_entered"]
 [connection signal="body_exited" from="EnterStore" to="." method="_on_enter_store_body_exited"]
-[connection signal="body_entered" from="FarmBox" to="CanvasLayer/Dialogue" method="_on_farm_box_body_entered"]
+[connection signal="body_entered" from="FarmBox" to="CanvasLayer/FarmDialogue" method="_on_farm_box_body_entered"]
 [connection signal="body_entered" from="ShopArea" to="." method="_on_shop_area_body_entered"]
+[connection signal="body_entered" from="ShopArea" to="CanvasLayer/Dialogue" method="_on_shop_area_body_entered"]
 [connection signal="body_exited" from="ShopArea" to="." method="_on_shop_area_body_exited"]

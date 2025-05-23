@@ -3,16 +3,12 @@ extends Control
 @onready var rich_text_label: RichTextLabel = %RichTextLabel
 @onready var next_button: Button = %NextButton
 @onready var body = %Body
-@onready var line_2d = $"../../Line2D"
+@onready var line_2d = %Line2D
 @onready var farm_box = $"../../FarmBox"
 @onready var collision_polygon_2d = $"../../FarmBox/CollisionPolygon2D"
 @onready var collision_shape_2d = %CollisionShape2D
-@onready var shop_line: Line2D = $"../../ShopLine"
-
-
 
 var current_item_index := 0
-var line_shown: bool = false
 var entered: bool = true
 var shop: bool = false
 
@@ -42,28 +38,8 @@ var dialogue_items: Array[Dictionary] = [
 var extra_dialogue_items: Array[Dictionary] = [
 	{
 		"expression": expressions["happy"],
-		"text": "Here is the farm! You can grow crops here to use at your restaurant.",
+		"text": "Here is Pao Pao 99! To enter, click [b]E[/b].",
 	},
-	
-	{
-		"expression": expressions["talking"],
-		"text": "To [b]plant[/b] a seed, [b]right click[/b] on the farmland.",
-	},
-	
-	{ 
-		"expression": expressions["happy"],
-		"text": "To [b]water[/b] a plant, [b]left click[/b] on the farmland.",
-	},
-	
-	{
-		"expression": expressions["talking"],
-		"text": "To [b]harvest[/b] a plant, [b]left click[/b] on the farmland.",
-	},
-	
-	{
-		"expression": expressions["mad"],
-		"text": "Try to farm a bit, then follow the path to the rice shop.",
-	}
 ]
 func _ready() -> void:
 	if !GlobalData.dialogue_finished:
@@ -71,11 +47,15 @@ func _ready() -> void:
 		get_tree().paused = true
 		next_button.pressed.connect(advance)
 		collision_shape_2d.set_deferred("disabled", true)
+		line_2d.show()
 	else:
 		hide()
 		line_2d.hide()
 		
-	
+func _process(delta):
+	if !GlobalData.line_shown:
+		line_2d.show()
+		
 func show_text() -> void:
 	var current_item := dialogue_items[current_item_index]
 	rich_text_label.text = current_item["text"]
@@ -94,16 +74,14 @@ func advance() -> void:
 	if current_item_index == dialogue_items.size():
 		hide()
 		get_tree().paused = false
-		if shop:
-			shop_line.show()
+		if !GlobalData.line_shown:
+			line_2d.show()
+			GlobalData.line_shown = true
 	else:
 		show_text()
-		if not line_shown:
-			line_2d.show()
-			line_shown = true
 			
 
-func _on_farm_box_body_entered(body):
+func _on_shop_area_body_entered(body):
 	if body is Player and entered and !GlobalData.dialogue_finished:
 		line_2d.hide()
 		dialogue_items += extra_dialogue_items
@@ -113,4 +91,4 @@ func _on_farm_box_body_entered(body):
 		shop = true
 		entered = false
 		GlobalData.dialogue_finished = true
-		collision_shape_2d.set_deferred("disabled", false)
+		

@@ -28,8 +28,6 @@ func get_orders():
 	Global.orders += 1
 	is_timer_active = false
 
-
-
 func _on_yes_button_pressed() -> void:
 	readycook.visible = false
 	store.visible = true
@@ -46,11 +44,3 @@ func _on_no_button_pressed() -> void:
 func _on_day_timer_timeout() -> void:
 	Global.orders = 0
 	get_tree().change_scene_to_file("res://end_of_day_screen.tscn")
-
-
-func _on_fridge_area_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
-
-
-func _on_fridge_area_body_exited(body: Node2D) -> void:
-	pass # Replace with function body.

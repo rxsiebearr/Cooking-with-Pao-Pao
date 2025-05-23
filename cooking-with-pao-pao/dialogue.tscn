@@ -45,7 +45,7 @@ offset_bottom = -3.0
 grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("1_oi3j2")
-text = "➜"
+text = ">"
 
 [node name="Body" type="TextureRect" parent="."]
 unique_name_in_owner = true

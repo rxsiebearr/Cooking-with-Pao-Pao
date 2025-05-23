@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://i1olt16hyoho"]
+[gd_scene load_steps=50 format=3 uid="uid://i1olt16hyoho"]
 
 [ext_resource type="Texture2D" uid="uid://yt7c48s5m2mv" path="res://store_1_updated.png" id="1_2cf8m"]
 [ext_resource type="Script" uid="uid://c7ihlgnxacdrc" path="res://store_#1.gd" id="1_a4raj"]
@@ -6,10 +6,10 @@
 [ext_resource type="Script" uid="uid://k24ljtr5uavh" path="res://rice_cooker_area.gd" id="1_eqtje"]
 [ext_resource type="PackedScene" uid="uid://bim1vfyr0jrkh" path="res://bear_bear.tscn" id="1_qnkjh"]
 [ext_resource type="Texture2D" uid="uid://da0c8pboj1qp2" path="res://rice cooker closed.png" id="1_trkgk"]
-[ext_resource type="Script" uid="uid://b57sty3fksysq" path="res://fridge_area.gd" id="2_g7tfx"]
+[ext_resource type="Script" path="res://fridge_area.gd" id="2_g7tfx"]
 [ext_resource type="Texture2D" uid="uid://cpvp4dd13yxkg" path="res://rice cooker opened.png" id="3_03rmw"]
 [ext_resource type="AudioStream" uid="uid://bh0efgx24hmu5" path="res://Fridge Open.wav" id="3_gldpi"]
-[ext_resource type="PackedScene" uid="uid://b5jafr2db2exe" path="res://storedialogue.tscn" id="3_ksnvq"]
+[ext_resource type="PackedScene" uid="uid://cctxtpmf1ue2" path="res://storedialogue.tscn" id="3_ksnvq"]
 [ext_resource type="Texture2D" uid="uid://ds5427aqlhqbk" path="res://Inventory/Fridge.png" id="3_vub3g"]
 [ext_resource type="PackedScene" uid="uid://dbebqrldaejj1" path="res://item_drop.tscn" id="4_54ox5"]
 [ext_resource type="Script" uid="uid://bvfe6mrc200l7" path="res://timer_bar.gd" id="4_bx3hj"]
@@ -21,8 +21,12 @@
 [ext_resource type="Texture2D" uid="uid://b8tn7uihpnrxc" path="res://bowl.png" id="13_i8ebn"]
 [ext_resource type="Texture2D" uid="uid://dbf4nuwerwhdq" path="res://counter-2.png" id="14_f21rd"]
 [ext_resource type="PackedScene" uid="uid://cgtb314jo2ggl" path="res://money_count.tscn" id="15_fxd0j"]
+[ext_resource type="AudioStream" uid="uid://qda1lwieh1xj" path="res://Zojirushi Umami Rice Cooker Song-[AudioTrimmer.com].mp3" id="17_exxxx"]
 [ext_resource type="Shader" uid="uid://vgf07fhpprr3" path="res://character_selection.gdshader" id="17_i8ebn"]
 [ext_resource type="Theme" uid="uid://cbn12y5htoaca" path="res://selection_theme.tres" id="17_mhwx7"]
+[ext_resource type="Texture2D" uid="uid://djbi48wgb6d8w" path="res://image (1).png" id="21_qokwk"]
+[ext_resource type="PackedScene" uid="uid://b5qhcxy5w0tyh" path="res://rice_count.tscn" id="21_vub3g"]
+[ext_resource type="AudioStream" uid="uid://irxt58dj5ake" path="res://chinese-country-dance-271341.mp3" id="27_d75ab"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qokwk"]
 size = Vector2(90, 183)
@@ -297,16 +301,18 @@ libraries = {
 
 [node name="Fridge Open" type="AudioStreamPlayer2D" parent="FridgeArea"]
 stream = ExtResource("3_gldpi")
+volume_db = 15.0
 
 [node name="Fridge Close" type="AudioStreamPlayer2D" parent="FridgeArea"]
 stream = ExtResource("4_y37ul")
+volume_db = 15.0
 
 [node name="OrderTickets" parent="." instance=ExtResource("1_ceqsw")]
 offset_left = 3.0
 offset_top = -3.0
 offset_right = 3.0
 offset_bottom = -2.93601
-scale = Vector2(0.833534, 0.867498)
+scale = Vector2(0.702045, 0.730651)
 
 [node name="CanvasLayer3" type="CanvasLayer" parent="."]
 
@@ -359,10 +365,12 @@ wait_time = 5.0
 
 [node name="BurntTimer" type="Timer" parent="RiceCookerArea/TimerBar"]
 unique_name_in_owner = true
-wait_time = 3.0
+wait_time = 5.0
 one_shot = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="RiceCookerArea"]
+stream = ExtResource("17_exxxx")
+volume_db = 7.0
 
 [node name="RiceBowl" parent="." instance=ExtResource("4_54ox5")]
 position = Vector2(410, 280)
@@ -391,9 +399,20 @@ position = Vector2(403, 353)
 scale = Vector2(0.339594, 0.339594)
 texture = ExtResource("14_f21rd")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(568, 353)
+scale = Vector2(1.29688, 1.3125)
+texture = ExtResource("21_qokwk")
+
 [node name="MoneyCount" parent="." instance=ExtResource("15_fxd0j")]
 offset_left = 1135.0
 offset_right = 1135.0
+
+[node name="RiceCount" parent="." instance=ExtResource("21_vub3g")]
+offset_left = 912.0
+offset_top = 8.0
+offset_right = 952.0
+offset_bottom = 48.0
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 layer = -1
@@ -482,10 +501,17 @@ autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="DayTimer" type="Timer" parent="."]
-wait_time = 120.0
+wait_time = 60.0
 
 [node name="Bear Bear" parent="." instance=ExtResource("1_qnkjh")]
+z_index = -2
 position = Vector2(86, 538)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("27_d75ab")
+volume_db = -13.0
+autoplay = true
 
 [connection signal="body_entered" from="FridgeArea" to="Bear Bear" method="_on_fridge_area_body_entered"]
 [connection signal="body_exited" from="FridgeArea" to="Bear Bear" method="_on_fridge_area_body_exited"]
@@ -494,6 +520,7 @@ position = Vector2(86, 538)
 [connection signal="body_exited" from="TurnIn" to="Bear Bear" method="_on_turn_in_body_exited"]
 [connection signal="body_entered" from="RiceCookerArea" to="Bear Bear" method="_on_rice_cooker_area_body_entered"]
 [connection signal="body_exited" from="RiceCookerArea" to="Bear Bear" method="_on_rice_cooker_area_body_exited"]
+[connection signal="is_burnt" from="RiceCookerArea/TimerBar" to="RiceCookerArea" method="_on_timer_bar_is_burnt"]
 [connection signal="is_burnt" from="RiceCookerArea/TimerBar" to="Bear Bear" method="_on_timer_bar_is_burnt"]
 [connection signal="is_cooked" from="RiceCookerArea/TimerBar" to="RiceCookerArea" method="_on_timer_bar_is_cooked"]
 [connection signal="timeout" from="RiceCookerArea/TimerBar/CookTimer" to="RiceCookerArea/TimerBar" method="_on_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5jafr2db2exe"]
+[gd_scene load_steps=4 format=3 uid="uid://cctxtpmf1ue2"]
 
 [ext_resource type="Theme" uid="uid://dsw1gg6uikpyy" path="res://main_theme.tres" id="1_1mklu"]
 [ext_resource type="Script" uid="uid://5rbmaeuhnnvl" path="res://storedialogue.gd" id="2_1mklu"]
@@ -45,7 +45,7 @@ offset_bottom = -3.0
 grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("1_1mklu")
-text = "➜"
+text = ">"
 
 [node name="Body" type="TextureRect" parent="."]
 unique_name_in_owner = true

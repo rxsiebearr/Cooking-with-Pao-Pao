@@ -5,6 +5,7 @@ signal is_burnt
 
 @onready var cook_timer: Timer = %CookTimer
 @onready var burnt_timer: Timer = %BurntTimer
+@onready var audio_stream_player_2d = $"../AudioStreamPlayer2D"
 
 var duration := 5.0
 var update_interval := 0.1
@@ -29,6 +30,7 @@ func _on_timer_timeout() -> void:
 		points = [Vector2(0,0), Vector2(0,0)]
 		emit_signal("is_cooked")
 		cook_timer.stop() 
+		audio_stream_player_2d.play()
 		burnt_timer.start()
 
 func _on_burnt_timer_timeout() -> void:

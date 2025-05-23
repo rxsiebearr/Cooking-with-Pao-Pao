@@ -23,7 +23,7 @@ offset_left = -40.9639
 offset_top = 15.3254
 offset_right = 27.0361
 offset_bottom = 99.0754
-text = "x0"
+text = "x10"
 label_settings = SubResource("LabelSettings_t5d4h")
 
 [node name="Sprite2D" type="Sprite2D" parent="Label"]

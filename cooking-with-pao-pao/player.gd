@@ -17,6 +17,7 @@ class_name Player
 @onready var fridge_sprite: Sprite2D = $"../FridgeArea/Sprite2D"
 @onready var fridge_open_sound: AudioStreamPlayer2D = $"../FridgeArea/Fridge Open"
 @onready var fridge_close_sound: AudioStreamPlayer2D = $"../FridgeArea/Fridge Close"
+@onready var animated_sprite_2d = %AnimatedSprite2D
 
 
 var enter: bool = false
@@ -45,16 +46,27 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	GlobalData.player_position = global_position
 	
+	if direction == Vector2.ZERO:
+		animated_sprite_2d.play("idle")
 	if direction.x > 0:
-		character_sprite.flip_h = false
+		#character_sprite.flip_h = false
+		animated_sprite_2d.play("walk_right")
+		animated_sprite_2d.flip_h = true
 		item_sprite.flip_h = false
 		item_sprite.position.x = 90
 		drop_pos = Vector2(12, 13)
 	elif direction.x < 0:
-		character_sprite.flip_h = true
+		#character_sprite.flip_h = true
+		animated_sprite_2d.play("walk_left")
+		animated_sprite_2d.flip_h = false
 		item_sprite.flip_h = true
 		item_sprite.position.x = -87
 		drop_pos = Vector2(-12, 13)
+	if direction.y > 0:
+		animated_sprite_2d.play("walk_forward")
+	elif direction.y < 0:
+		animated_sprite_2d.play("walk_backward")
+	
 		
 func pickup_item(item: Area2D):
 	carrying_item = true

@@ -8,6 +8,7 @@ var playerNode
 @onready var ground: TileMapLayer = $FarmingLand
 @onready var crop_layer: TileMapLayer = $Crops
 @onready var background_music: AudioStreamPlayer2D = $"Background music"
+@onready var farm_line = $FarmLine
 
 var water_level: Dictionary
 var crop: Dictionary
@@ -30,6 +31,10 @@ func _ready():
 	print("Music stream:", background_music.stream)
 	print("Music volume:", background_music.volume_db)
 	
+	if GlobalData.show_farm_line:
+		farm_line.show()
+		GlobalData.show_farm_line = false
+			
 func _process(_delta: float) -> void:
 	if store_enter and Input.is_action_just_pressed("interact"):
 		GlobalData.next_spawn_position = playerNode.global_position

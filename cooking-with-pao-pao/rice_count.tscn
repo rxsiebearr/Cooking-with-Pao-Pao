@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5qhcxy5w0tyh"]
+
+[ext_resource type="Script" path="res://rice_count.gd" id="1_s3c6k"]
+[ext_resource type="Texture2D" uid="uid://yv7oa8wsu4bh" path="res://Farming/image-removebg-preview__1_-removebg-preview.png" id="1_t877o"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ynp53"]
+font_size = 11
+font_color = Color(0, 0, 0, 1)
+
+[node name="RiceCount" type="Control"]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -74.0
+offset_top = 194.0
+offset_right = -34.0
+offset_bottom = 234.0
+grow_horizontal = 0
+scale = Vector2(1.79079, 1.50574)
+script = ExtResource("1_s3c6k")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -36.0911
+offset_top = 12.6184
+offset_right = 3.90891
+offset_bottom = 34.9517
+grow_horizontal = 0
+scale = Vector2(2.34475, 2.0732)
+text = "x0"
+label_settings = SubResource("LabelSettings_ynp53")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-24.0118, 15.939)
+scale = Vector2(0.195542, 0.180439)
+texture = ExtResource("1_t877o")
