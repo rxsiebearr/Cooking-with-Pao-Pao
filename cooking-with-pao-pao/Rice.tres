@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("1_joham")
 item_name = "Rice"
-price = "$1"
+price = "$10"
 icon = ExtResource("1_bvhad")
 description = "Rice Bag"

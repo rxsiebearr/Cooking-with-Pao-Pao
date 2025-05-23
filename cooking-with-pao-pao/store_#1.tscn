@@ -373,7 +373,7 @@ stream = ExtResource("17_exxxx")
 volume_db = 7.0
 
 [node name="RiceBowl" parent="." instance=ExtResource("4_54ox5")]
-position = Vector2(410, 280)
+position = Vector2(306, 390)
 scale = Vector2(0.2, 0.2)
 item_texture = ExtResource("13_i8ebn")
 item_name = "RiceBowl"
@@ -501,7 +501,7 @@ autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="DayTimer" type="Timer" parent="."]
-wait_time = 60.0
+wait_time = 90.0
 
 [node name="Bear Bear" parent="." instance=ExtResource("1_qnkjh")]
 z_index = -2

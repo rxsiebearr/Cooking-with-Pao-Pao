@@ -35,3 +35,4 @@ func _on_timer_timeout() -> void:
 
 func _on_burnt_timer_timeout() -> void:
 	emit_signal("is_burnt")
+	Global.money -= 1
