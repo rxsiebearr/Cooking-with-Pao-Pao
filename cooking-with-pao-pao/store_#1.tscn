@@ -512,6 +512,7 @@ process_mode = 3
 stream = ExtResource("27_d75ab")
 volume_db = -13.0
 autoplay = true
+parameters/looping = true
 
 [connection signal="body_entered" from="FridgeArea" to="Bear Bear" method="_on_fridge_area_body_entered"]
 [connection signal="body_exited" from="FridgeArea" to="Bear Bear" method="_on_fridge_area_body_exited"]

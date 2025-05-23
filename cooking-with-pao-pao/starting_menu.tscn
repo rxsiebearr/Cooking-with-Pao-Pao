@@ -62,6 +62,7 @@ text = "Exit"
 stream = ExtResource("4_tpwo8")
 volume_db = -10.0
 autoplay = true
+parameters/looping = true
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
